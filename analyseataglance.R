@@ -4,7 +4,8 @@
 ## This file does a quick analysis of the 'at a glance' vintage data
 # from Broadbent's book ##
 
-## Last updated 20 Apr 2015 ##
+## Last updated 16 June 2015 ##
+## To reference the correct climate data files ##
 
 ## It uses the at a glance data with data added in for others years by Jehane #
 # but I still need to finish cleaning the at a glance a little more ##
@@ -27,17 +28,19 @@ library(xtable)
 setwd("~/Documents/git/projects/vintages/analyses")
 source("source/analysesfunctions.R")
 
-# data, updated 10 April 2015 #
+# data #
+# vintages updated 10 April 2015 #
+# climate data updated 16 June 2015 #
 # vintage data
 allstars4reg <- read.csv("data/output/allstars4reg.csv", header=TRUE)
 # climate data from Ben
-temp <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_temp_MJJ.csv",
+temp <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_temp_MJJ.onedeg.csv",
     header=TRUE)
 colnames(temp)[1] <- "year"
-prec <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_prec_MJJ.csv",
+prec <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_prec_MJJ.onedeg.csv",
     header=TRUE)
 colnames(prec)[1] <- "year"
-pdsi <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_pdsi_MJJ.csv",
+pdsi <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_pdsi_MJJ.onedeg.csv",
     header=TRUE)
 colnames(pdsi)[1] <- "year"
 daux <- read.csv("/Users/Lizzie/Documents/git/R/misc/daux_quickvars/dauxdata.csv", header=TRUE, skip=2)
