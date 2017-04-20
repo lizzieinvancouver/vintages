@@ -4,7 +4,10 @@
 ## This file does a quick analysis of the 'at a glance' vintage data
 # from Broadbent's book ##
 
-## Last updated 16 June 2015 ##
+## Updated 17 March 2016 ##
+## To correct broken paths and get mean timing of harvest ##
+
+## Updated 16 June 2015 ##
 ## To reference the correct climate data files ##
 
 ## It uses the at a glance data with data added in for others years by Jehane #
@@ -43,7 +46,7 @@ colnames(prec)[1] <- "year"
 pdsi <- read.csv("../../grapesdrought/WINELIZZIE/data/seas_pdsi_MJJ.onedeg.csv",
     header=TRUE)
 colnames(pdsi)[1] <- "year"
-daux <- read.csv("/Users/Lizzie/Documents/git/R/misc/daux_quickvars/dauxdata.csv", header=TRUE, skip=2)
+daux <- read.csv("data/input/dauxdata.csv", header=TRUE, skip=2)
 daux <- daux[,1:28]
 names(daux)[names(daux)=="Abb."] <- "year"
 ghd <- as.data.frame(daux)
@@ -53,6 +56,17 @@ envdata <- merge(ghd, temp, by="year", suffixes=c(".ghd", ".temp"))
 envdata <- merge(envdata, prec, by="year", suffixes=c("", ".prec"))
 envdata <- merge(envdata, pdsi, by="year", suffixes=c("", ".pdsi"))
 
+# 1600-1980 mean timing for Bordeaux and Burgundy #
+dauxearlytimes <- subset(daux, year>1599 & year<1981)
+dauxlatertimes <- subset(daux, year>1980)
+
+mean(dauxearlytimes$Bur, na.rm=TRUE) # 27 so September 28
+mean(dauxlatertimes$Bur, na.rm=TRUE) # 19 so September 20
+
+mean(dauxearlytimes$Bor, na.rm=TRUE) # 25 so September 26
+mean(dauxlatertimes$Bor, na.rm=TRUE) # 16.5 so September 17 or 18
+
+subset(dauxlatertimes, year==2003) # Bur was -10 (so Aug 21); Bor was -4.3 or August 28
 
 # break out data by region for analyses, more plots # 
 burgbord <- subset(allstars4reg, region=="burgundy" | region=="bordeaux")
