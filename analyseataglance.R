@@ -28,7 +28,7 @@ library(xtable)
 
 # stop("stopping here Lizzie ...")
 
-setwd("~/Documents/git/projects/vintages/analyses")
+setwd("~/Documents/git/projects/vinmisc/vintages/analyses")
 source("source/analysesfunctions.R")
 
 # data #
@@ -268,3 +268,17 @@ summary(lm(red_bordeaux~Bor.pdsi, data=subset(bbshapeenv, year<1980 & year>1950)
 plot(red_bordeaux~Bor.pdsi, data=subset(bbshapeenv, year>1980))
 abline(lm(red_bordeaux~Bor.pdsi, data=subset(bbshapeenv, year>1980)))
 summary(lm(red_bordeaux~Bor.pdsi, data=subset(bbshapeenv, year>1980)))
+
+
+
+# Quick analysis added in May 2019
+# Trying to see simple ways to explain differences ...
+# Not super luck
+if(FALSE){
+after1979 <- subset(bbshape, year>1979)
+earlytimes <- subset(bbshape, year>1959 & year <1980)
+earlytimes4to5 <- subset(earlytimes, red_bordeaux>3)
+after19794to5 <- subset(after1979, red_bordeaux>3)
+nrow(after19794to5) # 10
+nrow(earlytimes4to5) # 7
+}
