@@ -4,6 +4,9 @@
 ## This file does a quick analysis of the 'at a glance' vintage data
 # from Broadbent's book ##
 
+## Updated 14 April 2020 ##
+## To print out data used in Cook & Wolkovich 2016 to post to KNB ##
+
 ## Updated 17 March 2016 ##
 ## To correct broken paths and get mean timing of harvest ##
 
@@ -282,3 +285,5 @@ after19794to5 <- subset(after1979, red_bordeaux>3)
 nrow(after19794to5) # 10
 nrow(earlytimes4to5) # 7
 }
+
+write.csv(burgbord, "data/output/burgbord.csv", row.names=FALSE)
