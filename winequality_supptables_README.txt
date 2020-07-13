@@ -1,0 +1,1 @@
+For winequality_supptables.Rnw and related files to grapesdrought project, see /Users/Lizzie/Documents/git/projects/grapesdrought/WINELIZZIE/MANUSCRIPT/winequality_supptables.Rnw
