@@ -26,8 +26,9 @@ climdat2$day <- day(ymd(climdat2$DATE))
 climdat3 <- climdat2[which(climdat2$month=="4" | climdat2$month=="5" | climdat2$month=="6" |
                              climdat2$month=="7" | climdat2$month=="8" | climdat2$month=="9"), ]
 
-#Calculating Mean Temperature (?) 
+#Calculating Mean Temperature 
 #right now some TOBS are lacking, and we are stil unsure of its validity
+climdat3$TAVG <- rowMeans(climdat3[,c('TMAX', 'TMIN')], na.rm=TRUE)
 
 
 ### Vintage Data ###
@@ -40,10 +41,15 @@ sonoma <- mydat[which(mydat$Location=="Sonoma"), ]
   
 
 ### Calculating GDD -- GDD base temp = 10 ###
-climdat3$gddbase <- ifelse(climdat3$TOBS >= 10, climdat3$TOBS - 10, 0)
+climdat3$gddbase <- ifelse(climdat3$TAVG >= 10, climdat3$TAVG - 10, 0)
 climdat3$gdd <- ave(climdat3$gddbase, climdat3$year, FUN=cumsum)
   
-  #Ailene code (我不懂了）: 
+
+### Calculating Precipitation ###
+climdat3$prcpsum <- ave(climdat3$PRCP, climdat3$year, FUN=cumsum)
+
+
+#Ailene GDD code: 
       
   #`If you have an object called daily_temp (TOBS) with daily temperature values:
   #specify the temperature threshold etc for forcing sum calculation (this is from a recent paper- happy to send a long the ):
@@ -52,6 +58,5 @@ climdat3$gdd <- ave(climdat3$gddbase, climdat3$year, FUN=cumsum)
   #add up all the forcing       
   forcesum <- sapply(1:ncol(force), function(x) (cumsum(force[1:nrow(force),x])))
   
-### Calculating Precipitation ###
   
   
