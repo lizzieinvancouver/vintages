@@ -8,11 +8,18 @@
 rm(list=ls())
 options(stringsAsFactors = FALSE)
 
+#Load libraries
+library(lubridate)
+
 #Reading in csv files
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
-
 climdat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
+
+## Relative paths (Geoff)
+## mydat <- read.csv("Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
+## head(mydat)
+## climdat <- read.csv("Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
 
 ### Climate Data ###
 #Parsing cliamte dates
@@ -20,6 +27,15 @@ climdat2 <- climdat #making duplicate
 climdat2$year <- year(ymd(climdat2$DATE))
 climdat2$month <- month(ymd(climdat2$DATE))
 climdat2$day <- day(ymd(climdat2$DATE))
+
+## Find intersecting years
+years <- intersect(x = climdat2$year, y = mydat$Vintage)
+## Subset both data sets by those years
+climdat2 <- subset(climdat2, year %in% years)
+mydat <- subset(mydat, Vintage %in% years)
+
+## Which location?
+unique(climdat2$NAME)
 
 #Subsetting climate data (dates and columns of interest)
 #April 1 - September 30
