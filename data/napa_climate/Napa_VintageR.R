@@ -1,4 +1,4 @@
-################# Napa Vintage Dataset (PA) - Updated 11/11/2020 #########################
+################# Napa Vintage Dataset (PA) - Updated 11/14/2020 #########################
 
 #Housekeeping
 rm(list=ls())
@@ -6,7 +6,6 @@ options(stringsAsFactors = FALSE)
 
 #Load libraries
 library(lubridate)
-library(ggplot2)
 
 #Reading in csv files
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
@@ -45,7 +44,9 @@ climdat <- climdat[which(climdat$month=="4" | climdat$month=="5" | climdat$month
 
 #Calculating Mean Temperature 
 #right now some TOBS are lacking, and we are stil unsure of its validity
-climdat$TAVG <- rowMeans(climdat[,c('TMAX', 'TMIN')], na.rm=FALSE)
+climdat$TAVG <- rowMeans(climdat[c('TMAX', 'TMIN')], na.rm=FALSE)
+
+par(mfrow = c(2, 3))
 
 plot(TAVG~TOBS, 
      data = climdat, 
@@ -60,6 +61,38 @@ unique(climdat$STATION)
 st_hosp <- subset(climdat, climdat$STATION=="USC00046074") #NAPA STATE HOSPITAL***
 st_helena <- subset(climdat, climdat$STATION=="USC00047643") #SAINT HELENA***
 st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION COLLEGE***
+test <- st_hosp[1:145, ] #with one error
+test <- st_hosp[1:1160, ] #with two errors
+
+#correcting for NA TAVG values (averaging the day prior to and after the missing date)
+  
+  #test
+  for(i in 1:nrow(test)){
+    if(isTRUE(is.na(test[i, "TAVG"]))) {
+      test$TAVG[i] <- paste(sum(test$TAVG[i-1], test$TAVG[i+1])/2)
+    }
+  }
+
+  #st_hosp
+  for(i in 1:nrow(st_hosp)){
+    if(isTRUE(is.na(st_hosp[i, "TAVG"]))) {
+      print(i)
+    }
+  }
+  
+  #st_helena
+  for(i in 1:nrow(st_helena)){
+    if(isTRUE(is.na(st_helena[i, "TAVG"]))) {
+      print(i)
+    }
+  }
+
+  #st_apuc
+  for(i in 1:nrow(st_apuc)){
+    if(isTRUE(is.na(st_apuc[i, "TAVG"]))) {
+      st_apuc$TAVG[i] <- paste(sum(st_apuc$TAVG[i-1], st_apuc$TAVG[i+1])/2)
+    }
+  }
 
 #USC00045360 <- subset(climdat, climdat$STATION=="USC00045360") #MARKLEY COVE*** #near a lake (influenced by micro climates) and far from wineries
 #US1CANP0003 <- subset(climdat, climdat$STATION=="US1CANP0003") #CALISTOGA 0.4 SSE **
@@ -175,12 +208,15 @@ zinfandel_merg <- merge(Zinfandel, ag_st_apuc)
   colnames(zinfandel_merg)[8] <- c("gdd")
 
 #Plotting varieties along gdd
+pdf(file = "Variety_vs_GDD.pdf", width = 6, height = 6)
+par(mfrow = c(2, 3))
+
 plot(R1_WS ~ gdd, 
      data = chardonnay_merg,
      cex = 1.2, #size?
      pch = 16, #fills circles?
-     xlab = "Rank",
-     ylab = "GDD",
+     ylab = "Rank",
+     xlab = "GDD",
      main = "Chardonnay",
      col = "purple")
 
@@ -188,8 +224,8 @@ plot(R1_WS ~ gdd,
      data = cabernet_merg, 
      cex = 1.2, 
      pch = 16, 
-     xlab = "Rank",
-     ylab = "GDD",
+     ylab = "Rank",
+     xlab = "GDD",
      main = "Cabernet",
      col = "purple")
 
@@ -197,8 +233,8 @@ plot(R1_WS ~ gdd,
      data = rhone_merg, 
      cex = 1.2, 
      pch = 16, 
-     xlab = "Rank",
-     ylab = "GDD",
+     ylab = "Rank",
+     xlab = "GDD",
      main = "Rhone",
      col = "purple")
 
@@ -206,8 +242,8 @@ plot(R1_WS ~ gdd,
      data = merlot_merg, 
      cex = 1.2, 
      pch = 16, 
-     xlab = "Rank",
-     ylab = "GDD",
+     ylab = "Rank",
+     xlab = "GDD",
      main = "Merlot",
      col = "purple")
 
@@ -215,8 +251,44 @@ plot(R1_WS ~ gdd,
      data = zinfandel_merg, 
      cex = 1.2, 
      pch = 16, 
-     xlab = "Rank",
-     ylab = "GDD",
+     ylab = "Rank",
+     xlab = "GDD",
      main = "Zinfandel",
      col = "purple")
+
+-------------------notes---
+plot(NA, 
+     xlim = c(0, 10), 
+     ylim = c(0, 10), 
+     xlab = "Date", 
+     ylab = "Temperature", 
+     bty = "n")
+
+points(x = ..., 
+       y = ..., 
+       type = "l", 
+       col = "blue")
+
+#Specifying range before plotting
+range(st_helena$DATE, na.rm = TRUE)
+range.x <- range(st_helena$DATE, na.rm = TRUE)
+  range.x <- as.Date(range.x)
+range.y <- range(st_helena$TAVG, na.rm = TRUE)
+
+plot(NA, 
+     xlim = range.x, 
+     ylim = range.y, 
+     xlab = "Date", 
+     ylab = "Temperature", 
+     bty = "n")
+
+points(st_helena$TAVG ~ as.Date(st_helena$DATE), 
+       type = "l", 
+       col = "blue")
+
+points(st_apuc$TAVG ~ as.Date(st_apuc$DATE), 
+       type = "l", 
+       col = "green")
+
+points(y ~ x, type = "p", col = "red")
 
