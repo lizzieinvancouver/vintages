@@ -10,12 +10,12 @@ library(lubridate)
 #Reading in csv files
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
-climdat_og <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
+climdat_og <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"), stringsAsFactors = FALSE)
 
 ## Relative paths (Geoff)
 ## mydat <- read.csv("Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 ## head(mydat)
-## climdat_og <- read.csv("Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
+## climdat_og <- read.csv("Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"), stringsAsFactors = FALSE)
 
 ### Climate Data ###
 #Parsing cliamte dates
@@ -68,8 +68,9 @@ test <- st_hosp[1:1160, ] #with two errors
   
   #test
   for(i in 1:nrow(test)){
-    if(isTRUE(is.na(test[i, "TAVG"]))) {
-      test$TAVG[i] <- paste(sum(test$TAVG[i-1], test$TAVG[i+1])/2)
+      if(isTRUE(is.na(test[i, "TAVG"]))) {
+          print(i)
+          test$TAVG[i] <- sum(test$TAVG[i-1], test$TAVG[i+1]) / 2
     }
   }
 
