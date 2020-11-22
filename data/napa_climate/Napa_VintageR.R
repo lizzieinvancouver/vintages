@@ -45,11 +45,9 @@ climdat <- climdat[which(climdat$month=="4" | climdat$month=="5" | climdat$month
 
 #Calculating Mean Temperature 
 climdat$TAVG <- rowMeans(climdat[c('TMAX', 'TMIN')], na.rm=FALSE)
-par(mfrow = c(2, 3))
-plot(TAVG~TOBS, 
-     data = climdat, 
-     xlim = c(-20, 40), 
-     ylim = c(-20, 40)) #positively correlated, tight near top and bottom but not in middle. One cluster. 
+  
+#TOBS
+  #plot(TAVG~TOBS, data = climdat, xlim = c(-20, 40), ylim = c(-20, 40)) #positively correlated, tight near top and bottom but not in middle. One cluster. 
 
 #Subset by location and year to test weather station trajectories
 #Subsetting locations
@@ -99,6 +97,31 @@ st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION
   
   st_apuc$TAVG[which(st_apuc$DATE=="2007-04-13" | st_apuc$DATE=="2007-04-14")] <- 10.55 #cleaning NAs
 
+#correcting for NA PRCP values (replacing NAs with 0, for now)
+  #st_hosp
+  for(i in 1:nrow(st_hosp)){
+    if(isTRUE(is.na(st_hosp[i, "PRCP"]))) {
+      print(i)
+      st_hosp$PRCP[i] <- 0
+    }
+  }
+  
+  #st_helena
+  for(i in 1:nrow(st_helena)){
+    if(isTRUE(is.na(st_helena[i, "PRCP"]))) {
+      print(i)
+      st_helena$PRCP[i] <- 0
+    }
+  }
+  
+  #st_apuc
+  for(i in 1:nrow(st_apuc)){
+    if(isTRUE(is.na(st_apuc[i, "PRCP"]))) {
+      print(i)
+      st_apuc$PRCP[i] <- 0
+    }
+  }
+  
 #USC00045360 <- subset(climdat, climdat$STATION=="USC00045360") #MARKLEY COVE*** #near a lake (influenced by micro climates) and far from wineries
 #US1CANP0003 <- subset(climdat, climdat$STATION=="US1CANP0003") #CALISTOGA 0.4 SSE **
 #US1CANP0005 <- subset(climdat, climdat$STATION=="US1CANP0005") #NAPA 2.0 WNW #very south
@@ -114,67 +137,69 @@ st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION
 
 #Plotting 3 largest datasets to view tragectory
   #subsetting 5 years of data
-    st_hosp91.95 <- subset(st_hosp, st_hosp$year=="1991" | st_hosp$year=="1992" | st_hosp$year=="1993" | st_hosp$year=="1994" | st_hosp$year=="1995") 
-    st_helena91.95 <- subset(st_helena, st_helena$year=="1991" | st_helena$year=="1992" | st_helena$year=="1993" | st_helena$year=="1994" | st_helena$year=="1995")
-    st_apuc91.95 <- subset(st_apuc, st_apuc$year=="1991" | st_apuc$year=="1992" | st_apuc$year=="1993" | st_apuc$year=="1994" | st_apuc$year=="1995")
+    st_hosp91.95 <- subset(st_hosp, st_hosp$year %in% c("1991", "1992", "1993", "1994", "1995")) 
+    st_helena91.95 <- subset(st_helena, st_helena$year %in% c("1991", "1992", "1993", "1994", "1995"))
+    st_apuc91.95 <- subset(st_apuc, st_apuc$year %in% c("1991", "1992", "1993", "1994", "1995"))
 
-    st_hosp96.00 <- subset(st_hosp, st_hosp$year=="1996" | st_hosp$year=="1997" | st_hosp$year=="1998" | st_hosp$year=="1999" | st_hosp$year=="2000") 
-    st_helena96.00 <- subset(st_helena, st_helena$year=="1996" | st_helena$year=="1997" | st_helena$year=="1998" | st_helena$year=="1999" | st_helena$year=="2000")
-    st_apuc96.00 <- subset(st_apuc, st_apuc$year=="1996" | st_apuc$year=="1997" | st_apuc$year=="1998" | st_apuc$year=="1999" | st_apuc$year=="2000")
+    st_hosp96.00 <- subset(st_hosp, st_hosp$year %in% c("1996", "1997", "1998", "1999", "2000"))
+    st_helena96.00 <- subset(st_helena, st_helena$year %in% c("1996", "1997", "1998", "1999", "2000"))
+    st_apuc96.00 <- subset(st_apuc, st_apuc$year %in% c("1996", "1997", "1998", "1999", "2000"))
     
-    st_hosp01.05 <- subset(st_hosp, st_hosp$year=="2001" | st_hosp$year=="2002" | st_hosp$year=="2003" | st_hosp$year=="2004" | st_hosp$year=="2005") 
-    st_helena01.05 <- subset(st_helena, st_helena$year=="2001" | st_helena$year=="2002" | st_helena$year=="2003" | st_helena$year=="2004" | st_helena$year=="2005")
-    st_apuc01.05 <- subset(st_apuc, st_apuc$year=="2001" | st_apuc$year=="2002" | st_apuc$year=="2003" | st_apuc$year=="2004" | st_apuc$year=="2005")
+    st_hosp01.05 <- subset(st_hosp, st_hosp$year %in% c("2001", "2002", "2003", "2004", "2005"))
+    st_helena01.05 <- subset(st_helena, st_helena$year %in% c("2001", "2002", "2003", "2004", "2005"))
+    st_apuc01.05 <- subset(st_apuc, st_apuc$year %in% c("2001", "2002", "2003", "2004", "2005"))
     
-    st_hosp06.10 <- subset(st_hosp, st_hosp$year=="2006" | st_hosp$year=="2007" | st_hosp$year=="2008" | st_hosp$year=="2009" | st_hosp$year=="2010") 
-    st_helena06.10 <- subset(st_helena, st_helena$year=="2006" | st_helena$year=="2007" | st_helena$year=="2008" | st_helena$year=="2009" | st_helena$year=="2010")
-    st_apuc06.10 <- subset(st_apuc, st_apuc$year=="2006" | st_apuc$year=="2007" | st_apuc$year=="2008" | st_apuc$year=="2009" | st_apuc$year=="2010")
-    
-    st_hosp11.15 <- subset(st_hosp, st_hosp$year=="2011" | st_hosp$year=="2012" | st_hosp$year=="2013" | st_hosp$year=="2014" | st_hosp$year=="2015") 
-    st_helena11.15 <- subset(st_helena, st_helena$year=="2011" | st_helena$year=="2012" | st_helena$year=="2013" | st_helena$year=="2014" | st_helena$year=="2015")
-    st_apuc11.15 <- subset(st_apuc, st_apuc$year=="2011" | st_apuc$year=="2012" | st_apuc$year=="2013" | st_apuc$year=="2014" | st_apuc$year=="2015")
+    st_hosp06.10 <- subset(st_hosp, st_hosp$year %in% c("2006", "2007", "2008", "2009", "2010"))
+    st_helena06.10 <- subset(st_helena, st_helena$year %in% c("2006", "2007", "2008", "2009", "2010"))
+    st_apuc06.10 <- subset(st_apuc, st_apuc$year %in% c("2006", "2007", "2008", "2009", "2010"))
+ 
+    st_hosp11.15 <- subset(st_hosp, st_hosp$year %in% c("2011", "2012", "2013", "2014", "2015"))
+    st_helena11.15 <- subset(st_helena, st_helena$year %in% c("2011", "2012", "2013", "2014", "2015"))
+    st_apuc11.15 <- subset(st_apuc, st_apuc$year %in% c("2011", "2012", "2013", "2014", "2015"))
     
     #plotting
+    par(mfrow = c(2, 3))
+    
       #setting range
-      range.x95 <- range(st_hosp91.95$year, na.rm = TRUE)
+      range.x95 <- range(as.Date(st_hosp91.95$DATE, na.rm = TRUE))
       range.y95 <- range(st_hosp91.95$TAVG, na.rm = TRUE)
       
-      range.x00 <- range(st_hosp96.00$year, na.rm = TRUE)
+      range.x00 <- range(as.Date(st_hosp96.00$DATE, na.rm = TRUE))
       range.y00 <- range(st_hosp96.00$TAVG, na.rm = TRUE)
       
-      range.x05 <- range(st_hosp01.05$year, na.rm = TRUE)
+      range.x05 <- range(as.Date(st_hosp01.05$DATE, na.rm = TRUE))
       range.y05 <- range(st_hosp01.05$TAVG, na.rm = TRUE)
       
-      range.x10 <- range(st_hosp06.10$year, na.rm = TRUE)
+      range.x10 <- range(as.Date(st_hosp06.10$DATE, na.rm = TRUE))
       range.y10 <- range(st_hosp06.10$TAVG, na.rm = TRUE)
       
-      range.x15 <- range(st_hosp11.15$year, na.rm = TRUE)
+      range.x15 <- range(as.Date(st_hosp11.15$DATE, na.rm = TRUE))
       range.y15 <- range(st_hosp11.15$TAVG, na.rm = TRUE)
       
     plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG Tragectories 1991-1995", bty = "n")
-    points(x = st_hosp91.95$year, y = st_hosp91.95$TAVG, type = "l", col = "blue")
-    points(x = st_helena91.95$year, y = st_helena91.95$TAVG, type = "l", col = "purple")
-    points(x = st_apuc91.95$year, y = st_apuc91.95$TAVG, type = "l", col = "orange")
+    points(x = as.Date(st_hosp91.95$DATE), y = st_hosp91.95$TAVG, type = "l", col = "blue")
+    points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_apuc91.95$DATE), y = st_apuc91.95$TAVG, type = "l", col = "orange")
     
     plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG Tragectories 1996-2000", bty = "n")
-    points(x = st_hosp96.00$year, y = st_hosp96.00$TAVG, type = "l", col = "blue")
-    points(x = st_helena96.00$year, y = st_helena96.00$TAVG, type = "l", col = "purple")
-    points(x = st_apuc96.00$year, y = st_apuc96.00$TAVG, type = "l", col = "orange")
+    points(x = as.Date(st_hosp96.00$DATE), y = st_hosp96.00$TAVG, type = "l", col = "blue")
+    points(x = as.Date(st_helena96.00$DATE), y = st_helena96.00$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_apuc96.00$DATE), y = st_apuc96.00$TAVG, type = "l", col = "orange")
     
     plot(NA, xlim = range.x05, ylim = range.y05, xlab = "Date (2001-2005)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2001-2005", bty = "n")
-    points(x = st_hosp01.05$year, y = st_hosp01.05$TAVG, type = "l", col = "blue")
-    points(x = st_helena01.05$year, y = st_helena01.05$TAVG, type = "l", col = "purple")
-    points(x = st_apuc01.05$year, y = st_apuc01.05$TAVG, type = "l", col = "orange")
+    points(x = as.Date(st_hosp01.05$DATE), y = st_hosp01.05$TAVG, type = "l", col = "blue")
+    points(x = as.Date(st_helena01.05$DATE), y = st_helena01.05$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_apuc01.05$DATE), y = st_apuc01.05$TAVG, type = "l", col = "orange")
     
     plot(NA, xlim = range.x10, ylim = range.y10, xlab = "Date (2006-2010)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2006-2010", bty = "n")
-    points(x = st_hosp06.10$year, y = st_hosp06.10$TAVG, type = "l", col = "blue")
-    points(x = st_helena06.10$year, y = st_helena06.10$TAVG, type = "l", col = "purple")
-    points(x = st_apuc06.10$year, y = st_apuc06.10$TAVG, type = "l", col = "orange")
+    points(x = as.Date(st_hosp06.10$DATE), y = st_hosp06.10$TAVG, type = "l", col = "blue")
+    points(x = as.Date(st_helena06.10$DATE), y = st_helena06.10$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_apuc06.10$DATE), y = st_apuc06.10$TAVG, type = "l", col = "orange")
     
     plot(NA, xlim = range.x15, ylim = range.y15, xlab = "Date (2011-2015)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2011-2015", bty = "n")
-    points(x = st_hosp11.15$year, y = st_hosp11.15$TAVG, type = "l", col = "blue")
-    points(x = st_helena11.15$year, y = st_helena11.15$TAVG, type = "l", col = "purple")
-    points(x = st_apuc11.15$year, y = st_apuc11.15$TAVG, type = "l", col = "orange")
+    points(x = as.Date(st_hosp11.15$DATE), y = st_hosp11.15$TAVG, type = "l", col = "blue")
+    points(x = as.Date(st_helena11.15$DATE), y = st_helena11.15$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_apuc11.15$DATE), y = st_apuc11.15$TAVG, type = "l", col = "orange")
     
 #Calculating GDD at each location -- GDD base temp = 10
 climdat$gddbase <- ifelse(climdat$TAVG >= 10, climdat$TAVG - 10, 0)
@@ -213,17 +238,34 @@ st_apuc$prcpsum <- ave(st_apuc$PRCP, st_apuc$year, FUN=cumsum)
 st_helena$prcpsum <- ave(st_helena$PRCP, st_helena$year, FUN=cumsum)
 st_hosp$prcpsum <- ave(st_hosp$PRCP, st_hosp$year, FUN=cumsum)
 
+#creating dataframe of agg precipitation from each year and each location
+agp_st_apuc <- aggregate(st_apuc$prcpsum, by = list(st_apuc$year), FUN=sum) 
+colnames(agp_st_apuc)[1] <- c("Vintage")
+colnames(agp_st_apuc)[2] <- c("st_apuc_prcp")
+
+agp_st_helena <- aggregate(st_helena$prcpsum, by = list(st_helena$year), FUN=sum) 
+colnames(agp_st_helena)[1] <- c("Vintage")
+colnames(agp_st_helena)[2] <- c("st_helena_prcp")
+
+agp_st_hosp <- aggregate(st_hosp$prcpsum, by = list(st_hosp$year), FUN=sum) 
+colnames(agp_st_hosp)[1] <- c("Vintage")
+colnames(agp_st_hosp)[2] <- c("st_hosp_prcp")
+
+prcp_agg <- merge(agp_st_apuc, agp_st_helena)
+prcp_agg <- merge(agp_st_hosp, prcp_agg)
+prcp_agg$prcpsum <- rowMeans(prcp_agg[, 2:4])
+colnames(prcp_agg)[5] <- c("prcp_avg")
 
 ### Vintage Data ###
 #Subsetting by location (Napa/Sonoma)
+  #Editing Rhône character
+  mydat$Variety[which(mydat$Variety=="Rhône-Style Reds")] <- "Rhone"
+  
 napa <- mydat[which(mydat$Location=="Napa"), ]
   napa$Description_WS = NULL
 
 sonoma <- mydat[which(mydat$Location=="Sonoma"), ]
   sonoma$Description_WS = NULL
-
-#Editing Rhône character
-mydat$Variety[which(mydat$Variety=="Rhône-Style Reds")] <- "Rhone"
   
 #Subsetting by Variety and location
 unique(mydat$Variety)
@@ -249,55 +291,56 @@ unique(mydat$Variety)
   sonoma_merlot <- subset(sonoma, sonoma$Variety=="Merlot")
   sonoma_zinfandel <- subset(sonoma, sonoma$Variety=="Zinfandel")
 
+#creating dataframea with gdd_agg, prcp_agg, vintage, and napa ratings
+  Agg_Table_Full <- merge(prcp_agg, gdd_agg)
+  Agg_Table <- Agg_Table_Full[-c(2,3,4,6,7,8)]
+  
+  Cabernet_Table <- merge(Agg_Table, napa_cabernet)
+  colnames(Cabernet_Table)[6] <- c("Cabernet_WS")
+  Cabernet_Table <- Cabernet_Table[-c(4,5,7,8)]
+  
+  Chardonnay_Table <- merge(Agg_Table, napa_chardonnay)
+  colnames(Chardonnay_Table)[6] <- c("Chardonnay_WS")
+  Chardonnay_Table <- Chardonnay_Table[-c(4,5,7,8)]
+  
+  Merlot_Table <- merge(Agg_Table, napa_merlot)
+  colnames(Merlot_Table)[6] <- c("Merlot_WS")
+  Merlot_Table <- Merlot_Table[-c(4,5,7,8)]
+  
+  Rhone_Table <- merge(Agg_Table, napa_rhone)
+  colnames(Rhone_Table)[6] <- c("Rhone_WS")
+  Rhone_Table <- Rhone_Table[-c(4,5,7,8)]
+  
+  Zinfandel_Table <- merge(Agg_Table, napa_zinfandel)
+  colnames(Zinfandel_Table)[6] <- c("Zinfandel_WS")
+  colnames(Zinfandel_Table)[7] <- c("Zinfandel_WE")
+  Zinfandel_Table <- Zinfandel_Table[-c(4,5,8)]
+  
 #Merging Varieties with the gdd_agg average (of 3 main stations) 
-  #to plot total entries (sonoma and napa) run lines 254-272. to plot just napa, run 274-292.
-  #sonome/napa
+  #to plot total entries (sonoma and napa) run these lines and edit plots. Otherwise use the Variety napa tables.
+  #Can likely delete later if napa data is complete enough.
+  
   chardonnay_merg <- merge(Chardonnay, gdd_agg)
   colnames(chardonnay_merg)[8] <- c("gdd")
   
-  #sonome/napa
   cabernet_merg <- merge(Cabernet, gdd_agg)
   colnames(cabernet_merg)[8] <- c("gdd")
   
-  #sonome/napa
   rhone_merg <- merge(Rhone, gdd_agg)
   colnames(rhone_merg)[8] <- c("gdd")
   
-  #sonome/napa
   merlot_merg <- merge(Merlot, gdd_agg)
   colnames(merlot_merg)[8] <- c("gdd")
   
-  #sonome/napa
   zinfandel_merg <- merge(napa_zinfandel, gdd_agg)
   colnames(zinfandel_merg)[8] <- c("gdd")
   
-  #napa
-  chardonnay_merg <- merge(napa_chardonnay, gdd_agg)
-  colnames(chardonnay_merg)[8] <- c("gdd")
-  
-  #napa
-  cabernet_merg <- merge(napa_cabernet, gdd_agg)
-  colnames(cabernet_merg)[8] <- c("gdd")
-  
-  #napa - not running correctly
-  rhone_merg <- merge(napa_rhone, gdd_agg)
-  colnames(rhone_merg)[8] <- c("gdd")
-  
-  #napa
-  merlot_merg <- merge(napa_merlot, gdd_agg)
-  colnames(merlot_merg)[8] <- c("gdd")
-
-  #napa
-  zinfandel_merg <- merge(Zinfandel, gdd_agg)
-  colnames(zinfandel_merg)[8] <- c("gdd")
-
 #Plotting varieties along gdd
 #pdf(file = "Variety_vs_GDD.pdf", width = 6, height = 6)
-#par(mfrow = c(2, 3))
 
 #Chardonnay
-plot(R1_WS ~ gdd_avg, 
-     data = chardonnay_merg,
+plot(Chardonnay_WS ~ gdd_avg, 
+     data = Chardonnay_Table,
      cex = 1.2, #size
      pch = 16, #fills circles
      ylab = "Rank",
@@ -305,11 +348,13 @@ plot(R1_WS ~ gdd_avg,
      main = "Chardonnay",
      col = "purple")
 
-abline(lm(chardonnay_merg$R1_WS ~ chardonnay_merg$gdd_avg), col="black")
+#abline(lm(Chardonnay_Table$Chardonnay_WS ~ Chardonnay_Table$gdd_avg), col="black")
+chard_fittedmodel <- lm(Chardonnay_Table$Chardonnay_WS ~ Chardonnay_Table$gdd_avg * Chardonnay_Table$prcp_avg)
+summary(chard_fittedmodel)
 
 #Cabernet
-plot(R1_WS ~ gdd_avg, 
-     data = cabernet_merg, 
+plot(Cabernet_WS ~ gdd_avg, 
+     data = Cabernet_Table, 
      cex = 1.2, 
      pch = 16, 
      ylab = "Rank",
@@ -317,11 +362,13 @@ plot(R1_WS ~ gdd_avg,
      main = "Cabernet",
      col = "purple")
 
-abline(lm(cabernet_merg$R1_WS ~ cabernet_merg$gdd_avg), col="black")
+#abline(lm(Cabernet_Table$Cabernet_WS ~ Cabernet_Table$gdd_avg), col="black")
+cab_fittedmodel <- lm(Cabernet_Table$Cabernet_WS ~ Cabernet_Table$gdd_avg * Cabernet_Table$prcp_avg)
+summary(cab_fittedmodel)
 
 #Rhone
-plot(R1_WS ~ gdd_avg, 
-     data = rhone_merg, 
+plot(Rhone_WS ~ gdd_avg, 
+     data = Rhone_Table, 
      cex = 1.2, 
      pch = 16, 
      ylab = "Rank",
@@ -329,11 +376,13 @@ plot(R1_WS ~ gdd_avg,
      main = "Rhone",
      col = "purple")
 
-abline(lm(rhone_merg$R1_WS ~ rhone_merg$gdd_avg), col="black")
+#abline(lm(Rhone_Table$Rhone_WS ~ Rhone_Table$gdd_avg), col="black")
+rhone_fittedmodel <- lm(Rhone_Table$Rhone_WS ~ Rhone_Table$gdd_avg * Rhone_Table$prcp_avg)
+summary(rhone_fittedmodel)
 
 #Merlot
-plot(R1_WS ~ gdd_avg, 
-     data = merlot_merg, 
+plot(Merlot_WS ~ gdd_avg, 
+     data = Merlot_Table, 
      cex = 1.2, 
      pch = 16, 
      ylab = "Rank",
@@ -341,21 +390,40 @@ plot(R1_WS ~ gdd_avg,
      main = "Merlot",
      col = "purple")
 
-abline(lm(merlot_merg$R1_WS ~ merlot_merg$gdd_avg), col="black")
+#abline(lm(Merlot_Table$Merlot_WS ~ Merlot_Table$gdd_avg), col="black")
+mer_fittedmodel <- lm(Merlot_Table$Merlot_WS ~ Merlot_Table$gdd_avg * Merlot_Table$prcp_avg)
+summary(mer_fittedmodel)
 
 #Zinfandel
-plot(R1_WS ~ gdd_avg, 
-     data = zinfandel_merg, 
+plot(Zinfandel_WS ~ gdd_avg, 
+     data = Zinfandel_Table, 
      cex = 1.2, 
      pch = 16, 
      ylab = "Rank",
      xlab = "GDD",
-     main = "Zinfandel",
+     main = "Zinfandel WS",
      col = "purple")
 
-abline(lm(zinfandel_merg$R1_WS ~ zinfandel_merg$gdd_avg), col="black")
+plot(Zinfandel_WE ~ gdd_avg, 
+     data = Zinfandel_Table, 
+     cex = 1.2, 
+     pch = 16, 
+     ylab = "Rank",
+     xlab = "GDD",
+     main = "Zinfandel WE",
+     col = "purple")
+
+#abline(lm(Zinfandel_Table$Zinfandel_WS ~ Zinfandel_Tableg$gdd_avg), col="black")
+#abline(lm(Zinfandel_Table$Zinfandel_WE ~ Zinfandel_Tableg$gdd_avg), col="black")
+zin_fittedmodel <- lm(Zinfandel_Table$Zinfandel_WS ~ Zinfandel_Table$gdd_avg * Zinfandel_Table$prcp_avg)
+summary(zin_fittedmodel)
 
 ----notes--------------------
+  fittedmodel <- lm(ranking ~ gdd_avg * prep_avg)
+  
+  lm(ranking ~ gdd_avg + prep_avg + gdd_avg * prep_avg)
+  summary(fittedmodel)
+
 plot(NA, 
      xlim = c(0, 10), 
      ylim = c(0, 10), 
@@ -368,33 +436,9 @@ points(x = ...,
        type = "l", 
        col = "blue")
 
-#Specifying range before plotting
-range(st_helena$DATE, na.rm = TRUE)
-range.x <- range(st_helena$DATE, na.rm = TRUE)
-  range.x <- as.Date(range.x)
-range.y <- range(st_helena$TAVG, na.rm = TRUE)
-
-plot(NA, 
-     xlim = range.x, 
-     ylim = range.y, 
-     xlab = "Date", 
-     ylab = "Temperature", 
-     bty = "n")
-
-points(st_helena$TAVG ~ as.Date(st_helena$DATE), 
-       type = "l", 
-       col = "blue")
-
-points(st_apuc$TAVG ~ as.Date(st_apuc$DATE), 
-       type = "l", 
-       col = "green")
-
-points(y ~ x, type = "p", col = "red")
-
-
 -----
-  #Finding intersecting dates
-  dates <- intersect(x = st_helena$DATE, y = st_apuc$DATE)
+#Finding intersecting dates
+dates <- intersect(x = st_helena$DATE, y = st_apuc$DATE)
 dates2 <- intersect(x = st_helena$DATE, y = st_hosp$DATE)
 
 #Subset both data sets by those years
@@ -409,13 +453,8 @@ plot(st_helena2$TAVG ~ st_apuc2$TAVG,
      ylab="st_apuc TAVG", 
      main = "Saint Helena vs. Angwin Pacific Union College")
 
-abline(lm(st_helena2$TAVG~st_apuc2$TAVG), col="black")
-
 plot(st_helena3$TAVG ~ st_hosp2$TAVG,
      col="blue",
      xlab="st_helena TAVG", 
      ylab="st_hosp TAVG", 
      main = "TAVG Tragectory, Saint Helena vs. Napa State Hospital")
-
-abline(lm(st_helena3$TAVG~st_hosp2$TAVG), col="black")
-
