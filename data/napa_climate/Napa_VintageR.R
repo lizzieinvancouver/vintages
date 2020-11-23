@@ -418,6 +418,26 @@ plot(Zinfandel_WE ~ gdd_avg,
 zin_fittedmodel <- lm(Zinfandel_Table$Zinfandel_WS ~ Zinfandel_Table$gdd_avg * Zinfandel_Table$prcp_avg)
 summary(zin_fittedmodel)
 
+#Precipitation/Rank, Dual y-axis
+#Merlot
+par(mar = c(5, 5, 3, 5))
+plot(Merlot_WS ~ gdd_avg, 
+     data = Merlot_Table, 
+     cex = 1.2, 
+     pch = 16, 
+     ylab = "Rank",
+     xlab = "GDD",
+     main = "Merlot",
+     col = "purple")
+par(new = TRUE)
+plot(Merlot_Table$prcp_avg, type = "l", xaxt = "n", yaxt = "n",
+     ylab = "", xlab = "", col = "red", lty = 2)
+axis(side = 4)
+mtext("Average Precipitation", side = 4, line = 3)
+
+#legend("topleft", c("Rank", "Average Precipitation"),
+#col = c("Purple", "red"), lty = c(1, 2))
+
 ----notes--------------------
   fittedmodel <- lm(ranking ~ gdd_avg * prep_avg)
   
@@ -436,7 +456,7 @@ points(x = ...,
        type = "l", 
        col = "blue")
 
------
+----------
 #Finding intersecting dates
 dates <- intersect(x = st_helena$DATE, y = st_apuc$DATE)
 dates2 <- intersect(x = st_helena$DATE, y = st_hosp$DATE)
