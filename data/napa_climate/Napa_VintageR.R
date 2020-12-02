@@ -1,4 +1,4 @@
-################# Napa Vintage Dataset (PA) - Updated 11/14/2020 #########################
+################# Napa Vintage Dataset (PA) - Updated 12/2/2020 #########################
 
 #Housekeeping
 rm(list=ls())
@@ -12,6 +12,9 @@ library(dplyr)
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 climdat_og <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
+head(climdat)
+zinfandelxy <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Zinfandelxy.csv", header=TRUE, na.strings=c(""," ","NA"))
+head(mydat)
 
 ## Relative paths (Geoff)
 ## mydat <- read.csv("Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
@@ -47,7 +50,8 @@ climdat <- climdat[which(climdat$month=="4" | climdat$month=="5" | climdat$month
 climdat$TAVG <- rowMeans(climdat[c('TMAX', 'TMIN')], na.rm=FALSE)
   
 #TOBS
-  #plot(TAVG~TOBS, data = climdat, xlim = c(-20, 40), ylim = c(-20, 40)) #positively correlated, tight near top and bottom but not in middle. One cluster. 
+par(mfrow = c(2, 3))
+  plot(TAVG~TOBS, data = climdat, main = "TOBS vs. TAVG", xlim = c(-20, 40), ylim = c(-20, 40)) #positively correlated, tight near top and bottom but not in middle. One cluster. 
 
 #Subset by location and year to test weather station trajectories
 #Subsetting locations
@@ -176,27 +180,27 @@ st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION
       range.x15 <- range(as.Date(st_hosp11.15$DATE, na.rm = TRUE))
       range.y15 <- range(st_hosp11.15$TAVG, na.rm = TRUE)
       
-    plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG Tragectories 1991-1995", bty = "n")
+    plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG 1991-1995", bty = "n")
     points(x = as.Date(st_hosp91.95$DATE), y = st_hosp91.95$TAVG, type = "l", col = "blue")
     points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "purple")
     points(x = as.Date(st_apuc91.95$DATE), y = st_apuc91.95$TAVG, type = "l", col = "orange")
     
-    plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG Tragectories 1996-2000", bty = "n")
+    plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG 1996-2000", bty = "n")
     points(x = as.Date(st_hosp96.00$DATE), y = st_hosp96.00$TAVG, type = "l", col = "blue")
     points(x = as.Date(st_helena96.00$DATE), y = st_helena96.00$TAVG, type = "l", col = "purple")
     points(x = as.Date(st_apuc96.00$DATE), y = st_apuc96.00$TAVG, type = "l", col = "orange")
     
-    plot(NA, xlim = range.x05, ylim = range.y05, xlab = "Date (2001-2005)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2001-2005", bty = "n")
+    plot(NA, xlim = range.x05, ylim = range.y05, xlab = "Date (2001-2005)", ylab = "Temperature ˚C", main = "TAVG 2001-2005", bty = "n")
     points(x = as.Date(st_hosp01.05$DATE), y = st_hosp01.05$TAVG, type = "l", col = "blue")
     points(x = as.Date(st_helena01.05$DATE), y = st_helena01.05$TAVG, type = "l", col = "purple")
     points(x = as.Date(st_apuc01.05$DATE), y = st_apuc01.05$TAVG, type = "l", col = "orange")
     
-    plot(NA, xlim = range.x10, ylim = range.y10, xlab = "Date (2006-2010)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2006-2010", bty = "n")
+    plot(NA, xlim = range.x10, ylim = range.y10, xlab = "Date (2006-2010)", ylab = "Temperature ˚C", main = "TAVG 2006-2010", bty = "n")
     points(x = as.Date(st_hosp06.10$DATE), y = st_hosp06.10$TAVG, type = "l", col = "blue")
     points(x = as.Date(st_helena06.10$DATE), y = st_helena06.10$TAVG, type = "l", col = "purple")
     points(x = as.Date(st_apuc06.10$DATE), y = st_apuc06.10$TAVG, type = "l", col = "orange")
     
-    plot(NA, xlim = range.x15, ylim = range.y15, xlab = "Date (2011-2015)", ylab = "Temperature ˚C", main = "TAVG Tragectories 2011-2015", bty = "n")
+    plot(NA, xlim = range.x15, ylim = range.y15, xlab = "Date (2011-2015)", ylab = "Temperature ˚C", main = "TAVG 2011-2015", bty = "n")
     points(x = as.Date(st_hosp11.15$DATE), y = st_hosp11.15$TAVG, type = "l", col = "blue")
     points(x = as.Date(st_helena11.15$DATE), y = st_helena11.15$TAVG, type = "l", col = "purple")
     points(x = as.Date(st_apuc11.15$DATE), y = st_apuc11.15$TAVG, type = "l", col = "orange")
@@ -232,7 +236,6 @@ gdd_agg <- merge(ag_st_hosp, gdd_agg)
 gdd_agg$gdd_avg <- rowMeans(gdd_agg[, 2:4])
   
 #Calculating Precipitation at each location
-  #how to plot along with TAVG
 climdat$prcpsum <- ave(climdat$PRCP, climdat$year, FUN=cumsum)
 st_apuc$prcpsum <- ave(st_apuc$PRCP, st_apuc$year, FUN=cumsum)
 st_helena$prcpsum <- ave(st_helena$PRCP, st_helena$year, FUN=cumsum)
@@ -291,30 +294,21 @@ unique(mydat$Variety)
   sonoma_merlot <- subset(sonoma, sonoma$Variety=="Merlot")
   sonoma_zinfandel <- subset(sonoma, sonoma$Variety=="Zinfandel")
 
-#creating dataframea with gdd_agg, prcp_agg, vintage, and napa ratings
-  Agg_Table_Full <- merge(prcp_agg, gdd_agg)
-  Agg_Table <- Agg_Table_Full[-c(2,3,4,6,7,8)]
+#creating dataframea with gdd_agg, prcp_agg, vintage, and napa ratings -- edit this to one complete table
+  Agg_Table <- merge(prcp_agg, gdd_agg)
   
   Cabernet_Table <- merge(Agg_Table, napa_cabernet)
-  colnames(Cabernet_Table)[6] <- c("Cabernet_WS")
-  Cabernet_Table <- Cabernet_Table[-c(4,5,7,8)]
-  
   Chardonnay_Table <- merge(Agg_Table, napa_chardonnay)
-  colnames(Chardonnay_Table)[6] <- c("Chardonnay_WS")
-  Chardonnay_Table <- Chardonnay_Table[-c(4,5,7,8)]
-  
   Merlot_Table <- merge(Agg_Table, napa_merlot)
-  colnames(Merlot_Table)[6] <- c("Merlot_WS")
-  Merlot_Table <- Merlot_Table[-c(4,5,7,8)]
-  
   Rhone_Table <- merge(Agg_Table, napa_rhone)
-  colnames(Rhone_Table)[6] <- c("Rhone_WS")
-  Rhone_Table <- Rhone_Table[-c(4,5,7,8)]
-  
   Zinfandel_Table <- merge(Agg_Table, napa_zinfandel)
-  colnames(Zinfandel_Table)[6] <- c("Zinfandel_WS")
-  colnames(Zinfandel_Table)[7] <- c("Zinfandel_WE")
-  Zinfandel_Table <- Zinfandel_Table[-c(4,5,8)]
+  
+  Final_Table_Full <- rbind(Cabernet_Table, Chardonnay_Table, Merlot_Table, Rhone_Table, Zinfandel_Table)
+  Final_Table_Simp <- Final_Table_Full[-c(2,3,4,6,7,8)]
+  
+  #Exporting as csv for future modeling
+   #write.csv(Final_Table_Full,"/Users/phoebeautio/Desktop/Vintage Research/VintageTableForModels.csv", row.names = FALSE)
+   #write.csv(Final_Table_Simp,"/Users/phoebeautio/Desktop/Vintage Research/VintageTableForModelsSimp.csv", row.names = FALSE)
   
 #Merging Varieties with the gdd_agg average (of 3 main stations) 
   #to plot total entries (sonoma and napa) run these lines and edit plots. Otherwise use the Variety napa tables.
@@ -335,111 +329,214 @@ unique(mydat$Variety)
   zinfandel_merg <- merge(napa_zinfandel, gdd_agg)
   colnames(zinfandel_merg)[8] <- c("gdd")
   
-#Plotting varieties along gdd
-#pdf(file = "Variety_vs_GDD.pdf", width = 6, height = 6)
-
+#Plots 
 #Chardonnay
-plot(Chardonnay_WS ~ gdd_avg, 
-     data = Chardonnay_Table,
-     cex = 1.2, #size
-     pch = 16, #fills circles
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Chardonnay",
-     col = "purple")
+  par(mfrow = c(2, 3))
+  #Wine Spectator vs. Precipitation
+  plot(R1_WS ~ prcp_avg, 
+       data = Chardonnay_Table, 
+       cex = 1.2, 
+       pch = 16, 
+       ylab = "Rank",
+       xlab = "Average Precipitation",
+       main = "Chardonnay Precipitation",
+       col = "blue")
+  
+  #Wine Spectator vs. Avg. GDD Aggregate
+    plot(R1_WS ~ gdd_avg, 
+      data = Chardonnay_Table,
+      cex = 1.2, #size
+      pch = 16, #fills circles
+      ylab = "Rank",
+      xlab = "GDD",
+      main = "Chardonnay GDD",
+      col = "purple")
 
-#abline(lm(Chardonnay_Table$Chardonnay_WS ~ Chardonnay_Table$gdd_avg), col="black")
-chard_fittedmodel <- lm(Chardonnay_Table$Chardonnay_WS ~ Chardonnay_Table$gdd_avg * Chardonnay_Table$prcp_avg)
-summary(chard_fittedmodel)
-
+  #abline(lm(Chardonnay_Table$Chardonnay_WS ~ Chardonnay_Table$gdd_avg), col="black")
+  chard_fittedmodel <- lm(Chardonnay_Table$R1_WS ~ Chardonnay_Table$gdd_avg * Chardonnay_Table$prcp_avg)
+  summary(chard_fittedmodel)
+  
 #Cabernet
-plot(Cabernet_WS ~ gdd_avg, 
-     data = Cabernet_Table, 
-     cex = 1.2, 
-     pch = 16, 
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Cabernet",
-     col = "purple")
+  #Wine Spectator vs. Precipitation
+  plot(R1_WS ~ prcp_avg, 
+       data = Cabernet_Table, 
+       cex = 1.2, 
+       pch = 16, 
+       ylab = "Rank",
+       xlab = "Average Precipitation",
+       main = "Cabernet Precipitation",
+       col = "blue")
+  
+  #Wine Spectator vs. Avg. GDD Aggregate
+    plot(R1_WS ~ gdd_avg, 
+      data = Cabernet_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "GDD",
+      main = "Cabernet GDD",
+      col = "purple")
 
-#abline(lm(Cabernet_Table$Cabernet_WS ~ Cabernet_Table$gdd_avg), col="black")
-cab_fittedmodel <- lm(Cabernet_Table$Cabernet_WS ~ Cabernet_Table$gdd_avg * Cabernet_Table$prcp_avg)
-summary(cab_fittedmodel)
+  #abline(lm(Cabernet_Table$R1_WS ~ Cabernet_Table$gdd_avg), col="black")
+  cab_fittedmodel <- lm(Cabernet_Table$R1_WS ~ Cabernet_Table$gdd_avg * Cabernet_Table$prcp_avg)
+  summary(cab_fittedmodel)
 
 #Rhone
-plot(Rhone_WS ~ gdd_avg, 
+  #Wine Spectator vs. Precipitation
+    plot(R1_WS ~ prcp_avg, 
+      data = Rhone_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "Average Precipitation",
+      main = "Rhone Precipitation",
+      col = "blue")
+
+  #Wine Spectator vs. Avg. GDD Aggregate
+    plot(R1_WS ~ gdd_avg, 
      data = Rhone_Table, 
      cex = 1.2, 
      pch = 16, 
      ylab = "Rank",
      xlab = "GDD",
-     main = "Rhone",
+     main = "Rhone GDD",
      col = "purple")
 
-#abline(lm(Rhone_Table$Rhone_WS ~ Rhone_Table$gdd_avg), col="black")
-rhone_fittedmodel <- lm(Rhone_Table$Rhone_WS ~ Rhone_Table$gdd_avg * Rhone_Table$prcp_avg)
+#abline(lm(Rhone_Table$R1_WS ~ Rhone_Table$gdd_avg), col="black")
+rhone_fittedmodel <- lm(Rhone_Table$R1_WS ~ Rhone_Table$gdd_avg * Rhone_Table$prcp_avg)
 summary(rhone_fittedmodel)
 
 #Merlot
-plot(Merlot_WS ~ gdd_avg, 
-     data = Merlot_Table, 
-     cex = 1.2, 
-     pch = 16, 
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Merlot",
-     col = "purple")
+  par(mfrow = c(2, 3))
+  #Wine Spectator vs. Precipitation
+    plot(R1_WS ~ prcp_avg, 
+      data = Merlot_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "Average Precipitation",
+      main = "Merlot Precipitation",
+      col = "blue")
 
-#abline(lm(Merlot_Table$Merlot_WS ~ Merlot_Table$gdd_avg), col="black")
-mer_fittedmodel <- lm(Merlot_Table$Merlot_WS ~ Merlot_Table$gdd_avg * Merlot_Table$prcp_avg)
+  #Wine Spectator vs. Avg. GDD Aggregate
+    plot(R1_WS ~ gdd_avg, 
+      data = Merlot_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "GDD",
+      main = "Merlot GDD",
+      col = "purple")
+
+#abline(lm(Merlot_Table$R1_WS ~ Merlot_Table$gdd_avg), col="black")
+mer_fittedmodel <- lm(Merlot_Table$R1_WS ~ Merlot_Table$gdd_avg * Merlot_Table$prcp_avg)
 summary(mer_fittedmodel)
 
 #Zinfandel
-plot(Zinfandel_WS ~ gdd_avg, 
-     data = Zinfandel_Table, 
-     cex = 1.2, 
-     pch = 16, 
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Zinfandel WS",
-     col = "purple")
+  #Wine Spectator vs. Avg. GDD Aggregate
+     plot(R1_WS ~ gdd_avg, 
+      data = Zinfandel_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "GDD",
+      main = "Zinfandel_WS GDD",
+      col = "purple")
 
-plot(Zinfandel_WE ~ gdd_avg, 
-     data = Zinfandel_Table, 
-     cex = 1.2, 
-     pch = 16, 
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Zinfandel WE",
-     col = "purple")
+  #Wine Enthusiast vs. Avg. GDD Aggregate
+    plot(R2_WE ~ gdd_avg, 
+      data = Zinfandel_Table, 
+      cex = 1.2, 
+      pch = 16, 
+      ylab = "Rank",
+      xlab = "GDD",
+      main = "Zinfandel_WE GDD",
+      col = "purple")
 
-#abline(lm(Zinfandel_Table$Zinfandel_WS ~ Zinfandel_Tableg$gdd_avg), col="black")
+  #Wine Spectator & Wine Enthusiast Rankings vs. GDD Aggregate
+    range.x <- range(Zinfandel_Table$gdd_avg)
+    plot(NA, 
+         xlim = range.x, 
+         ylim = c(80, 100), 
+         ylab = "Rank (b = WS, o = WE)", 
+         xlab = "GDD",
+         main = "Zinfandel_WS+WE GDD",
+         bty = "n")
+    
+    points(x = Zinfandel_Table$gdd_avg, 
+           y = Zinfandel_Table$R1_WS, 
+           type = "p", 
+           pch = 16, 
+           col = "blue")
+    
+    points(x = Zinfandel_Table$gdd_avg, 
+           y = Zinfandel_Table$R2_WE, 
+           type = "p", 
+           pch = 16, 
+           col = "orange")
+  
+  #Wine Spectator & Wine Enthusiast Rankings vs. Precipitation 
+    range.zinx <- range(Zinfandel_Table$prcp_avg)
+    plot(NA, 
+         xlim = range.zinx, 
+         ylim = c(80, 100), 
+         ylab = "Rank (b = WS, o = WE)", 
+         xlab = "Averge Precipitation",
+         main = "Zinfandel_WS+WE Precip.",
+         bty = "n")
+    
+    points(x = Zinfandel_Table$prcp_avg, 
+           y = Zinfandel_Table$R1_WS, 
+           type = "p", 
+           pch = 16, 
+           col = "blue")
+    
+    points(x = Zinfandel_Table$prcp_avg, 
+           y = Zinfandel_Table$R2_WE, 
+           type = "p", 
+           pch = 16, 
+           col = "orange")
+    
+  #Wine Spectator & Wine Enthusiast correlation (By Year)
+    plot(NA, 
+         xlim = c(2004, 2018),
+         ylim = c(80, 100), 
+         ylab = "Rank (b = WS, o = WE)", 
+         xlab = "GDD",
+         main = "Zinfandel WS vs. WE by Year",
+         bty = "n")
+    
+    points(x = Zinfandel_Table$Vintage, 
+           y = Zinfandel_Table$R1_WS, 
+           type = "p", 
+           pch = 16, 
+           col = "blue")
+    
+    points(x = Zinfandel_Table$Vintage, 
+           y = Zinfandel_Table$R2_WE, 
+           type = "p", 
+           pch = 16, 
+           col = "orange")
+    
+  #Wine Spectator & Wine Enthusiast correlation (XY)
+    range.zinx <- range(Zinfandel_Table$R1_WE, na.rm = TRUE)
+    range.ziny <- range(Zinfandel_Table$R1_WS, na.rm = TRUE)
+    
+    plot(zinfandelxy$Zinfandel_WS ~ zinfandelxy$Zinfandel_WE, 
+         ylab = "WS Rank",
+         xlab = "WE Rank",
+         main = "Zinfandel WS vs. WE",
+         col = "purple") 
+    
+#abline(lm(Zinfandel_Table$R1_WS ~ Zinfandel_Tableg$gdd_avg), col="black")
 #abline(lm(Zinfandel_Table$Zinfandel_WE ~ Zinfandel_Tableg$gdd_avg), col="black")
-zin_fittedmodel <- lm(Zinfandel_Table$Zinfandel_WS ~ Zinfandel_Table$gdd_avg * Zinfandel_Table$prcp_avg)
+zin_fittedmodel <- lm(Zinfandel_Table$R1_WS ~ Zinfandel_Table$gdd_avg * Zinfandel_Table$prcp_avg)
 summary(zin_fittedmodel)
-
-#Precipitation/Rank, Dual y-axis
-#Merlot
-par(mar = c(5, 5, 3, 5))
-plot(Merlot_WS ~ gdd_avg, 
-     data = Merlot_Table, 
-     cex = 1.2, 
-     pch = 16, 
-     ylab = "Rank",
-     xlab = "GDD",
-     main = "Merlot",
-     col = "purple")
-par(new = TRUE)
-plot(Merlot_Table$prcp_avg, type = "l", xaxt = "n", yaxt = "n",
-     ylab = "", xlab = "", col = "red", lty = 2)
-axis(side = 4)
-mtext("Average Precipitation", side = 4, line = 3)
-
-#legend("topleft", c("Rank", "Average Precipitation"),
-#col = c("Purple", "red"), lty = c(1, 2))
 
 ----notes--------------------
   fittedmodel <- lm(ranking ~ gdd_avg * prep_avg)
+  
+  #pdf(file = "Variety_vs_GDD.pdf", width = 6, height = 6)
   
   lm(ranking ~ gdd_avg + prep_avg + gdd_avg * prep_avg)
   summary(fittedmodel)
@@ -456,25 +553,25 @@ points(x = ...,
        type = "l", 
        col = "blue")
 
-----------
-#Finding intersecting dates
-dates <- intersect(x = st_helena$DATE, y = st_apuc$DATE)
-dates2 <- intersect(x = st_helena$DATE, y = st_hosp$DATE)
+#-----double y axis plots-----
+#Precipitation/Rank, Dual y-axis
+  #time along x, GDD/temp and Precipitation on the Y. Difficult to put in rank, if we wanted to go crazy we would do a 3D plot, z axis as rank (predicted)
+  #Merlot
+  par(mar = c(5, 5, 3, 5))
+plot(R1_WS ~ Vintage, 
+     data = Merlot_Table, 
+     cex = 1.2, 
+     pch = 16, 
+     ylab = "Rank",
+     xlab = "GDD",
+     main = "Merlot",
+     col = "purple")
+par(new = TRUE)
 
-#Subset both data sets by those years
-st_apuc2 <- subset(st_apuc, DATE %in% dates)
-st_helena2 <- subset(st_helena, DATE %in% dates)
-st_hosp2 <- subset(st_hosp, DATE %in% dates2) #not subsetting correctly?
-st_helena3 <- subset(st_helena, DATE %in% dates2)
+plot(Merlot_Table$prcp_avg, type = "l", xaxt = "n", yaxt = "n",
+     ylab = "", xlab = "", col = "red", lty = 2)
+axis(side = 4)
+mtext("Average Precipitation", side = 4, line = 3)
 
-plot(st_helena2$TAVG ~ st_apuc2$TAVG,
-     col="blue",
-     xlab="st_helena TAVG", 
-     ylab="st_apuc TAVG", 
-     main = "Saint Helena vs. Angwin Pacific Union College")
-
-plot(st_helena3$TAVG ~ st_hosp2$TAVG,
-     col="blue",
-     xlab="st_helena TAVG", 
-     ylab="st_hosp TAVG", 
-     main = "TAVG Tragectory, Saint Helena vs. Napa State Hospital")
+#legend("topleft", c("Rank", "Average Precipitation"),
+#col = c("Purple", "red"), lty = c(1, 2))
