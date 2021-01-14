@@ -12,7 +12,7 @@ library(dplyr)
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 climdat_og <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
-head(climdat)
+head(climdat_og)
 zinfandelxy <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Zinfandelxy.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 
@@ -50,7 +50,6 @@ climdat <- climdat[which(climdat$month=="4" | climdat$month=="5" | climdat$month
 climdat$TAVG <- rowMeans(climdat[c('TMAX', 'TMIN')], na.rm=FALSE)
   
 #TOBS
-par(mfrow = c(2, 3))
   plot(TAVG~TOBS, data = climdat, main = "TOBS vs. TAVG", xlim = c(-20, 40), ylim = c(-20, 40)) #positively correlated, tight near top and bottom but not in middle. One cluster. 
 
 #Subset by location and year to test weather station trajectories
@@ -162,7 +161,6 @@ st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION
     st_apuc11.15 <- subset(st_apuc, st_apuc$year %in% c("2011", "2012", "2013", "2014", "2015"))
     
     #plotting
-    par(mfrow = c(2, 3))
     
       #setting range
       range.x95 <- range(as.Date(st_hosp91.95$DATE, na.rm = TRUE))
@@ -182,7 +180,7 @@ st_apuc <- subset(climdat, climdat$STATION=="USC00040212") #ANGWIN PACIFIC UNION
       
     plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG 1991-1995", bty = "n")
     points(x = as.Date(st_hosp91.95$DATE), y = st_hosp91.95$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "purple")
+    points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "green")
     points(x = as.Date(st_apuc91.95$DATE), y = st_apuc91.95$TAVG, type = "l", col = "orange")
     
     plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG 1996-2000", bty = "n")
