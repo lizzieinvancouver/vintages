@@ -1,4 +1,4 @@
-################ Napa Vintage Dataset, Dealing with missing dates (PA) - 1-13-2020 ################
+################ Napa Vintage Dataset, Dealing with missing dates (PA) - 1-17-2020 ################
 
 #Housekeeping
 rm(list=ls())
@@ -63,23 +63,24 @@ for(i in 1:nrow(st_helena)){
   }
 }
 
-  #averaged TAVG for each day at all stations. Will input into missing st_helena values
+#averaged TAVG for each day at all stations. Will input into missing st_helena values
   regional_TAVG <- aggregate(TAVG ~ DATE, climdat, mean)
   
-  #remaining NA TAVG that require regional averages
+#remaining NA TAVG that require regional averages
   helenaNA_TAVG <- subset(st_helena, is.na(st_helena$TAVG))
     
-    #Finding intersecting dates
-    TAVG_dates_chr <- intersect(x = helenaNA_TAVG$DATE, y = regional_TAVG$DATE)
-    TAVG_dates <- subset(regional_TAVG, DATE %in% TAVG_dates_chr)
+#Finding intersecting dates
+  TAVG_dates_chr <- intersect(x = helenaNA_TAVG$DATE, y = regional_TAVG$DATE)
+  TAVG_dates <- subset(regional_TAVG, DATE %in% TAVG_dates_chr)
     
-  #substituting averaged dates into remaining NA values
-  for(i in 1:nrow(st_helena)){
-    if(isTRUE(is.na(st_helena[i, "TAVG"]))) {
-     print(i)
-      st_helena$TAVG[i] <- paste(TAVG_dates$TAVG) #this is where I am stuck, this works but I get a lot of warning messenges
+#substituting averaged dates into remaining NA values
+    for(i in 1:nrow(st_helena)){
+      if(isTRUE(is.na(st_helena[i, "TAVG"]))) {
+        print(i)
+        date.index <- which(TAVG_dates[, "DATE"] == st_helena[i, "DATE"]) 
+        st_helena$TAVG[i] <- TAVG_dates[date.index, "TAVG"] 
+      }
     }
-  }
 
 #Correcting for PRCP NA values using regional averages
   regional_PRCP <- aggregate(PRCP ~ DATE, climdat, mean)
@@ -99,7 +100,8 @@ for(i in 1:nrow(st_helena)){
 for(i in 1:nrow(st_hosp)){
   if(isTRUE(is.na(st_hosp[i, "PRCP"]))) {
     print(i)
-    st_hosp$PRCP[i] <- paste(PRCP_dates_hosp$PRCP) #want to do same as above
+    date.index <- which(PRCP_dates_hosp[, "DATE"] == st_hosp[i, "DATE"])
+    st_hosp$PRCP[i] <- PRCP_dates_hosp[date.index, "PRCP"]
   }
 }
 
@@ -107,10 +109,12 @@ for(i in 1:nrow(st_hosp)){
 for(i in 1:nrow(st_helena)){
   if(isTRUE(is.na(st_helena[i, "PRCP"]))) {
     print(i)
-    st_helena$PRCP[i] <- paste(PRCP_dates_helena$PRCP)
+    date.index <- which(PRCP_dates_helena[, "DATE"] == st_helena[i, "DATE"])
+    st_helena$PRCP[i] <- PRCP_dates_helena[date.index, "PRCP"]
   }
 }
 
-
 #write csv
-#write.csv(Final_Table_Full,"/Users/phoebeautio/Desktop/Vintage Research/VintageTableForModels.csv", row.names = FALSE)
+#write.csv(st_helena,"/Users/phoebeautio/Desktop/Vintage Research/StHelenaClean.csv", row.names = FALSE)
+#write.csv(st_hosp,"/Users/phoebeautio/Desktop/Vintage Research/StHospClean.csv", row.names = FALSE)
+

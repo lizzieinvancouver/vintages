@@ -9,7 +9,7 @@ library(dplyr)
 library(lme4)
 
 #Reading in csv files
-mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/VintageTableForModels.csv", header=TRUE, na.strings=c(""," ","NA"))
+mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/NapaComplete.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 
   mydat <- mydat[,c(1,10,11,12,13,2,3,4,6,7,8,5,9,14)] #reorganize columns
