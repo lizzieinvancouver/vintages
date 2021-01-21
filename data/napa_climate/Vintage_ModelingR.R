@@ -12,7 +12,40 @@ library(lme4)
 mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/NapaComplete.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 
-  mydat <- mydat[,c(1,10,11,12,13,2,3,4,6,7,8,5,9,14)] #reorganize columns
+## Geoff's file path
+## mydat <- read.csv("TablesForModels/NapaComplete_phen.csv",header = TRUE)
+
+
+stages <- sort(unique(mydat$phen_stage))
+varieties <- unique(mydat$Variety)
+## Temperature plots
+par(mfrow = c(length(stages), length(varieties)))
+for(i in 1:length(stages)){
+    for(j in 1:length(varieties)){
+        temp <- subset(mydat, mydat$phen_stage == stages[i] & mydat$Variety == varieties[j])
+        print(temp)
+        plot(R1_WS ~ gdd_avg_phen, data = temp, main = varieties[j])
+    }
+}
+
+## Precipitation plots
+par(mfrow = c(length(stages), length(varieties)))
+for(i in 1:length(stages)){
+    for(j in 1:length(varieties)){
+        temp <- subset(mydat, mydat$phen_stage == stages[i] & mydat$Variety == varieties[j])
+        print(temp)
+        plot(R1_WS ~ prcp_avg_phen, data = temp, main = varieties[j])
+    }
+}
+
+## Linear models
+
+
+
+
+######### OLD CODE
+
+mydat <- mydat[,c(1,10,11,12,13,2,3,4,6,7,8,5,9,14)] #reorganize columns
 
 
 #Rescaling precipitation (mm to cm)
