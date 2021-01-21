@@ -1,4 +1,6 @@
-################# Napa Vintage Dataset (PA) - Updated 1/17/2021 #########################
+################# Napa Vintage Dataset (PA) - Updated 1/19/2021 #########################
+
+#Note: st_helena is missing 1990 May... should we delete?
 
 #Housekeeping
 rm(list=ls())
@@ -28,102 +30,133 @@ zinfandelxy <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/Zinfandelxy
 ## head(mydat)
 ## climdat_og <- read.csv("Napa_1990-2019.csv", header=TRUE, na.strings=c(""," ","NA"))
 
-#Plotting datasets to view tragectory
-  #subsetting 5 years of data
-    st_hosp91.95 <- subset(st_hosp, st_hosp$year %in% c("1991", "1992", "1993", "1994", "1995")) 
-    st_helena91.95 <- subset(st_helena, st_helena$year %in% c("1991", "1992", "1993", "1994", "1995"))
 
-    st_hosp96.00 <- subset(st_hosp, st_hosp$year %in% c("1996", "1997", "1998", "1999", "2000"))
-    st_helena96.00 <- subset(st_helena, st_helena$year %in% c("1996", "1997", "1998", "1999", "2000"))
+#Adding Phenology Column
+    st_hosp['phen_stage'] <- NA
+    st_helena['phen_stage'] <- NA
     
-    st_hosp01.05 <- subset(st_hosp, st_hosp$year %in% c("2001", "2002", "2003", "2004", "2005"))
-    st_helena01.05 <- subset(st_helena, st_helena$year %in% c("2001", "2002", "2003", "2004", "2005"))
+    #Budburst (1)
+    st_hosp$phen_stage[which(st_hosp$month=="4")] <- "1"
+    st_hosp$phen_stage[which(st_hosp$month=="5" & st_hosp$day %in% c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"))] <- "1"
+   
+    st_helena$phen_stage[which(st_helena$month=="4")] <- "1"
+    st_helena$phen_stage[which(st_helena$month=="5" & st_helena$day %in% c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"))] <- "1"
     
-    st_hosp06.10 <- subset(st_hosp, st_hosp$year %in% c("2006", "2007", "2008", "2009", "2010"))
-    st_helena06.10 <- subset(st_helena, st_helena$year %in% c("2006", "2007", "2008", "2009", "2010"))
- 
-    st_hosp11.15 <- subset(st_hosp, st_hosp$year %in% c("2011", "2012", "2013", "2014", "2015"))
-    st_helena11.15 <- subset(st_helena, st_helena$year %in% c("2011", "2012", "2013", "2014", "2015"))
+    #Bloom (2)
+    st_hosp$phen_stage[which(st_hosp$month=="5" & st_hosp$day %in% c("16","17","18","19","20","21","22",
+                                                                     "23","24","25","26","27","28","29","30","31"))] <- "2"
+    st_hosp$phen_stage[which(st_hosp$month=="6")] <- "2"
+    st_hosp$phen_stage[which(st_hosp$month=="7" & st_hosp$day %in% c("1","2","3","4","5","6","7","8","9",
+                                                                     "10","11","12","13","14","15","16",
+                                                                     "17","18","19","20","21","22","23"))] <- "2"
     
-    #plotting
-      #setting range
-      range.x95 <- range(as.Date(st_hosp91.95$DATE, na.rm = TRUE))
-      range.y95 <- range(st_hosp91.95$TAVG, na.rm = TRUE)
-      
-      range.x00 <- range(as.Date(st_hosp96.00$DATE, na.rm = TRUE))
-      range.y00 <- range(st_hosp96.00$TAVG, na.rm = TRUE)
-      
-      range.x05 <- range(as.Date(st_hosp01.05$DATE, na.rm = TRUE))
-      range.y05 <- range(st_hosp01.05$TAVG, na.rm = TRUE)
-      
-      range.x10 <- range(as.Date(st_hosp06.10$DATE, na.rm = TRUE))
-      range.y10 <- range(st_hosp06.10$TAVG, na.rm = TRUE)
-      
-      range.x15 <- range(as.Date(st_hosp11.15$DATE, na.rm = TRUE))
-      range.y15 <- range(st_hosp11.15$TAVG, na.rm = TRUE)
-      
-    plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG 1991-1995", bty = "n")
-    points(x = as.Date(st_hosp91.95$DATE), y = st_hosp91.95$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "green")
     
-    plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG 1996-2000", bty = "n")
-    points(x = as.Date(st_hosp96.00$DATE), y = st_hosp96.00$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena96.00$DATE), y = st_helena96.00$TAVG, type = "l", col = "purple")
+    st_helena$phen_stage[which(st_helena$month=="5" & st_helena$day %in% c("16","17","18","19","20","21","22",
+                                                                           "23","24","25","26","27","28","29","30","31"))] <- "2"
+    st_helena$phen_stage[which(st_helena$month=="6")] <- "2"
+    st_helena$phen_stage[which(st_helena$month=="7" & st_helena$day %in% c("1","2","3","4","5","6","7","8","9",
+                                                                     "10","11","12","13","14","15","16",
+                                                                     "17","18","19","20","21","22","23"))] <- "2"
     
-    plot(NA, xlim = range.x05, ylim = range.y05, xlab = "Date (2001-2005)", ylab = "Temperature ˚C", main = "TAVG 2001-2005", bty = "n")
-    points(x = as.Date(st_hosp01.05$DATE), y = st_hosp01.05$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena01.05$DATE), y = st_helena01.05$TAVG, type = "l", col = "purple")
+    #Veraison (3)
+    st_hosp$phen_stage[which(st_hosp$month=="7" & st_hosp$day %in% c("23","24","25","26","27","28","29","30","31"))] <- "3"
+    st_hosp$phen_stage[which(st_hosp$month=="8")] <- "3"
+    st_hosp$phen_stage[which(st_hosp$month=="9" & st_hosp$day %in% c("1","2","3","4","5","6","7","8","9",
+                                                                       "10","11","12","13","14","15"))] <- "3"
     
-    plot(NA, xlim = range.x10, ylim = range.y10, xlab = "Date (2006-2010)", ylab = "Temperature ˚C", main = "TAVG 2006-2010", bty = "n")
-    points(x = as.Date(st_hosp06.10$DATE), y = st_hosp06.10$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena06.10$DATE), y = st_helena06.10$TAVG, type = "l", col = "purple")
+    st_helena$phen_stage[which(st_helena$month=="7" & st_helena$day %in% c("23","24","25","26","27","28","29","30","31"))] <- "3"
+    st_helena$phen_stage[which(st_helena$month=="8")] <- "3"
+    st_helena$phen_stage[which(st_helena$month=="9" & st_helena$day %in% c("1","2","3","4","5","6","7","8","9",
+                                                                     "10","11","12","13","14","15"))] <- "3"
     
-    plot(NA, xlim = range.x15, ylim = range.y15, xlab = "Date (2011-2015)", ylab = "Temperature ˚C", main = "TAVG 2011-2015", bty = "n")
-    points(x = as.Date(st_hosp11.15$DATE), y = st_hosp11.15$TAVG, type = "l", col = "blue")
-    points(x = as.Date(st_helena11.15$DATE), y = st_helena11.15$TAVG, type = "l", col = "purple")
+    #remove empty rows
+    st_hosp <- st_hosp[!(is.na(st_hosp$phen_stage)), ]
+    st_helena <- st_helena[!(is.na(st_helena$phen_stage)), ]
     
 #Calculating GDD at each location -- GDD base temp = 10
-st_helena$gddbase <- ifelse(st_helena$TAVG >= 10, st_helena$TAVG - 10, 0)
-st_helena$gdd <- ave(st_helena$gddbase, st_helena$year, FUN=cumsum)
-
-st_hosp$gddbase <- ifelse(st_hosp$TAVG >= 10, st_hosp$TAVG - 10, 0)
-st_hosp$gdd <- ave(st_hosp$gddbase, st_hosp$year, FUN=cumsum)
-
-#creating dataframe of agg gdd from each year and each location
-ag_st_helena <- aggregate(st_helena$gddbase, by = list(st_helena$year), FUN=sum) 
-colnames(ag_st_helena)[1] <- c("Vintage")
-colnames(ag_st_helena)[2] <- c("st_helena_gdd")
-
-ag_st_hosp <- aggregate(st_hosp$gddbase, by = list(st_hosp$year), FUN=sum) 
-colnames(ag_st_hosp)[1] <- c("Vintage")
-colnames(ag_st_hosp)[2] <- c("st_hosp_gdd")
-
-gdd_agg <- merge(ag_st_helena, ag_st_hosp)
-gdd_agg$gdd_avg <- rowMeans(gdd_agg[, 2:3])
-
-
-#Calculating GDD at each location by phenology
-#Calculating precipitation at each location by phenology
-
   
-#Calculating Precipitation at each location
-st_helena$prcpsum <- ave(st_helena$PRCP, st_helena$year, FUN=cumsum)
-st_hosp$prcpsum <- ave(st_hosp$PRCP, st_hosp$year, FUN=cumsum)
+  #By year
+    st_helena$gddbase <- ifelse(st_helena$TAVG >= 10, st_helena$TAVG - 10, 0)
+    st_helena$gdd_year <- ave(st_helena$gddbase, st_helena$year, FUN=cumsum)
 
-#creating dataframe of agg precipitation from each year and each location
-agp_st_helena <- aggregate(st_helena$prcpsum, by = list(st_helena$year), FUN=sum) 
-colnames(agp_st_helena)[1] <- c("Vintage")
-colnames(agp_st_helena)[2] <- c("st_helena_prcp")
+    st_hosp$gddbase <- ifelse(st_hosp$TAVG >= 10, st_hosp$TAVG - 10, 0)
+    st_hosp$gdd_year <- ave(st_hosp$gddbase, st_hosp$year, FUN=cumsum)
+  
+  #By phenology - need help making this restart every year as well
+    st_helena$gdd_phen <- ave(st_helena$gddbase, by = list(st_helena$year, st_helena$phen_stage), FUN = cumsum)
+    st_hosp$gdd_phen <- ave(st_hosp$gddbase, by = list(st_hosp$year, st_hosp$phen_stage), FUN = cumsum)
+  
+#creating dataframe of agg gdd from each year and phen stage at each location
+    
+    #Year
+    ag_st_helena <- aggregate(st_helena$gddbase, by = list(st_helena$year), FUN=sum) 
+    colnames(ag_st_helena)[1] <- c("Vintage")
+    colnames(ag_st_helena)[2] <- c("st_helena_gdd")
 
-agp_st_hosp <- aggregate(st_hosp$prcpsum, by = list(st_hosp$year), FUN=sum) 
-colnames(agp_st_hosp)[1] <- c("Vintage")
-colnames(agp_st_hosp)[2] <- c("st_hosp_prcp")
+    ag_st_hosp <- aggregate(st_hosp$gddbase, by = list(st_hosp$year), FUN=sum) 
+    colnames(ag_st_hosp)[1] <- c("Vintage")
+    colnames(ag_st_hosp)[2] <- c("st_hosp_gdd")
 
-prcp_agg <- merge(agp_st_helena, agp_st_hosp)
-prcp_agg$prcpsum <- rowMeans(prcp_agg[, 2:3])
-colnames(prcp_agg)[4] <- c("prcp_avg")
+    gdd_agg_year <- merge(ag_st_helena, ag_st_hosp)
+    gdd_agg_year$gdd_avg_year <- rowMeans(gdd_agg_year[, 2:3])
 
-#Subsetting by location (Napa/Sonoma)
+    #Phen Stage
+    ag_st_helena_phen <- aggregate(st_helena$gddbase, by = list(st_helena$year, st_helena$phen_stage), FUN=sum) 
+    colnames(ag_st_helena_phen)[1] <- c("Vintage")
+    colnames(ag_st_helena_phen)[2] <- c("phen_stage")
+    colnames(ag_st_helena_phen)[3] <- c("st_helena_gdd")
+
+    ag_st_hosp_phen <- aggregate(st_hosp$gddbase, by = list(st_hosp$year, st_hosp$phen_stage), FUN=sum) 
+    colnames(ag_st_hosp_phen)[1] <- c("Vintage")
+    colnames(ag_st_hosp_phen)[2] <- c("phen_stage")
+    colnames(ag_st_hosp_phen)[3] <- c("st_hosp_gdd")
+
+    gdd_agg_phen <- merge(ag_st_helena_phen, ag_st_hosp_phen)
+    gdd_agg_phen$gdd_avg_phen <- rowMeans(gdd_agg_phen[, 3:4])
+    
+  
+#Calculating Precipitation at each location by year and phen stage
+    
+    #By Year
+    st_helena$prcpsum_year <- ave(st_helena$PRCP, st_helena$year, FUN=cumsum)
+    st_hosp$prcpsum_year <- ave(st_hosp$PRCP, st_hosp$year, FUN=cumsum)
+    
+    #By Phenology
+    st_helena$prcpsum_phen <- ave(st_helena$PRCP, by = list(st_helena$year, st_helena$phen_stage), FUN=cumsum)
+    st_hosp$prcpsum_phen <- ave(st_hosp$PRCP, by = list(st_hosp$year, st_hosp$phen_stage), FUN=cumsum)
+    
+#Creating dataframe of agg precipitation from each year and phen stage and each location
+    
+  #By Year
+  agp_st_helena_year <- aggregate(st_helena$prcpsum_year, by = list(st_helena$year), FUN=sum) 
+  colnames(agp_st_helena_year)[1] <- c("Vintage")
+  colnames(agp_st_helena_year)[2] <- c("st_helena_prcp_year")
+
+  agp_st_hosp_year <- aggregate(st_hosp$prcpsum_year, by = list(st_hosp$year), FUN=sum) 
+  colnames(agp_st_hosp_year)[1] <- c("Vintage")
+  colnames(agp_st_hosp_year)[2] <- c("st_hosp_prcp_year")
+
+  prcp_agg_year <- merge(agp_st_helena_year, agp_st_hosp_year)
+  prcp_agg_year$prcpsum_year <- rowMeans(prcp_agg_year[, 2:3])
+  colnames(prcp_agg_year)[4] <- c("prcp_avg_year")
+
+  #By phenology
+  agp_st_helena_phen <- aggregate(st_helena$prcpsum_phen, by = list(st_helena$year, st_helena$phen_stage), FUN=sum) 
+  colnames(agp_st_helena_phen)[1] <- c("Vintage")
+  colnames(agp_st_helena_phen)[2] <- c("phen_stage")
+  colnames(agp_st_helena_phen)[3] <- c("st_helena_prcp")
+  
+  agp_st_hosp_phen <- aggregate(st_hosp$prcpsum_phen, by = list(st_hosp$year, st_hosp$phen_stage), FUN=sum) 
+  colnames(agp_st_hosp_phen)[1] <- c("Vintage")
+  colnames(agp_st_hosp_phen)[2] <- c("phen_stage")
+  colnames(agp_st_hosp_phen)[3] <- c("st_hosp_prcp")
+  
+  prcp_agg_phen <- merge(agp_st_helena_phen, agp_st_hosp_phen)
+  prcp_agg_phen$prcpsum_phen <- rowMeans(prcp_agg_phen[, 3:4])
+  colnames(prcp_agg_phen)[5] <- c("prcp_avg_phen")
+  
+  
+#Subsetting by location (Napa/Sonoma/North Coast)
   #Editing Rhône character
   mydat$Variety[which(mydat$Variety=="Rhône-Style Reds")] <- "Rhone"
   
@@ -165,43 +198,124 @@ unique(mydat$Variety)
   nc_chardonnay <- subset(north_coast, sonoma$Variety=="Chardonnay")
   nc_zinfandel <- subset(north_coast, sonoma$Variety=="Zinfandel")
 
-#creating dataframe with gdd_agg, prcp_agg, vintage, and napa ratings
-  Agg_Table <- merge(prcp_agg, gdd_agg)
+#creating 2 dataframes. One by year, one by phen. Both with gdd_agg, prcp_agg, vintage, and napa ratings
+  Agg_Table_year <- merge(prcp_agg_year, gdd_agg_year)
+  Agg_Table_phen <- merge(prcp_agg_phen, gdd_agg_phen)
   
   #napa
-  Cabernet_Table_N <- merge(Agg_Table, napa_cabernet)
-  Chardonnay_Table_N <- merge(Agg_Table, napa_chardonnay)
-  Merlot_Table_N <- merge(Agg_Table, napa_merlot)
-  Rhone_Table_N <- merge(Agg_Table, napa_rhone)
-  Zinfandel_Table_N <- merge(Agg_Table, napa_zinfandel)
+  Cabernet_Table_N <- merge(Agg_Table_year, napa_cabernet)
+  Chardonnay_Table_N <- merge(Agg_Table_year, napa_chardonnay)
+  Merlot_Table_N <- merge(Agg_Table_year, napa_merlot)
+  Rhone_Table_N <- merge(Agg_Table_year, napa_rhone)
+  Zinfandel_Table_N <- merge(Agg_Table_year, napa_zinfandel)
   
-  Napa_Table_Full <- rbind(Cabernet_Table_N, Chardonnay_Table_N, Merlot_Table_N, Rhone_Table_N, Zinfandel_Table_N)
+  Napa_Table_Full_Year <- rbind(Cabernet_Table_N, Chardonnay_Table_N, Merlot_Table_N, Rhone_Table_N, Zinfandel_Table_N)
+  
+  Cabernet_Table_N <- merge(Agg_Table_phen, napa_cabernet)
+  Chardonnay_Table_N <- merge(Agg_Table_phen, napa_chardonnay)
+  Merlot_Table_N <- merge(Agg_Table_phen, napa_merlot)
+  Rhone_Table_N <- merge(Agg_Table_phen, napa_rhone)
+  Zinfandel_Table_N <- merge(Agg_Table_phen, napa_zinfandel)
+  
+  Napa_Table_Full_Phen <- rbind(Cabernet_Table_N, Chardonnay_Table_N, Merlot_Table_N, Rhone_Table_N, Zinfandel_Table_N)
   
   #sonoma
-  Cabernet_Table_S <- merge(Agg_Table, sonoma_cabernet)
-  Chardonnay_Table_S <- merge(Agg_Table, sonoma_chardonnay)
-  Merlot_Table_S <- merge(Agg_Table, sonoma_merlot)
-  Rhone_Table_S <- merge(Agg_Table, sonoma_rhone)
-  Zinfandel_Table_S <- merge(Agg_Table, sonoma_zinfandel)
+  Cabernet_Table_S <- merge(Agg_Table_year, sonoma_cabernet)
+  Chardonnay_Table_S <- merge(Agg_Table_year, sonoma_chardonnay)
+  Merlot_Table_S <- merge(Agg_Table_year, sonoma_merlot)
+  Rhone_Table_S <- merge(Agg_Table_year, sonoma_rhone)
+  Zinfandel_Table_S <- merge(Agg_Table_year, sonoma_zinfandel)
   
-  Sonoma_Table_Full <- rbind(Cabernet_Table_S, Chardonnay_Table_S, Merlot_Table_S, Rhone_Table_S, Zinfandel_Table_S)
+  Sonoma_Table_Full_Year <- rbind(Cabernet_Table_S, Chardonnay_Table_S, Merlot_Table_S, Rhone_Table_S, Zinfandel_Table_S)
+  
+  Cabernet_Table_S <- merge(Agg_Table_phen, sonoma_cabernet)
+  Chardonnay_Table_S <- merge(Agg_Table_phen, sonoma_chardonnay)
+  Merlot_Table_S <- merge(Agg_Table_phen, sonoma_merlot)
+  Rhone_Table_S <- merge(Agg_Table_phen, sonoma_rhone)
+  Zinfandel_Table_S <- merge(Agg_Table_phen, sonoma_zinfandel)
+  
+  Sonoma_Table_Full_Phen <- rbind(Cabernet_Table_S, Chardonnay_Table_S, Merlot_Table_S, Rhone_Table_S, Zinfandel_Table_S)
   
   #north coast
-  Cabernet_Table_NC <- merge(Agg_Table, nc_cabernet)
-  Chardonnay_Table_NC <- merge(Agg_Table, nc_chardonnay)
-  Zinfandel_Table_NC <- merge(Agg_Table, nc_zinfandel)
+  Cabernet_Table_NC <- merge(Agg_Table_year, nc_cabernet)
+  Chardonnay_Table_NC <- merge(Agg_Table_year, nc_chardonnay)
+  Zinfandel_Table_NC <- merge(Agg_Table_year, nc_zinfandel)
   
-  NC_Table_Full <- rbind(Cabernet_Table_NC, Chardonnay_Table_NC, Zinfandel_Table_NC)
+  NC_Table_Full_Year <- rbind(Cabernet_Table_NC, Chardonnay_Table_NC, Zinfandel_Table_NC)
+  
+  Cabernet_Table_NC <- merge(Agg_Table_phen, nc_cabernet)
+  Chardonnay_Table_NC <- merge(Agg_Table_phen, nc_chardonnay)
+  Zinfandel_Table_NC <- merge(Agg_Table_phen, nc_zinfandel)
+  
+  NC_Table_Full_Phen <- rbind(Cabernet_Table_NC, Chardonnay_Table_NC, Zinfandel_Table_NC)
   
   #Exporting as csv for future modeling
-   #write.csv(Napa_Table_Full,"/Users/phoebeautio/Desktop/Vintage Research/NapaComplete.csv", row.names = FALSE)
-   #write.csv(Sonoma_Table_Full,"/Users/phoebeautio/Desktop/Vintage Research/SonomaComplete.csv", row.names = FALSE)
-   #write.csv(NC_Table_Full,"/Users/phoebeautio/Desktop/Vintage Research/NorthCoastComplete.csv", row.names = FALSE)
+   #write.csv(Napa_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/NapaComplete_year.csv", row.names = FALSE)
+   #write.csv(Sonoma_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/SonomaComplete_year.csv", row.names = FALSE)
+   #write.csv(NC_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/NorthCoastComplete_year.csv", row.names = FALSE)
 
+   #write.csv(Napa_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintage Research/NapaComplete_phen.csv", row.names = FALSE)
+   #write.csv(Sonoma_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintage Research/SonomaComplete_phen.csv", row.names = FALSE)
+   #write.csv(NC_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintage Research/NorthCoastComplete_phen.csv", row.names = FALSE)
   
   
-  #------------ need to update naming in this section, will replace with more efficient loops
+#Plotting climate datasets to view tragectory
+   #subsetting 5 years of data
+   st_hosp91.95 <- subset(st_hosp, st_hosp$year %in% c("1991", "1992", "1993", "1994", "1995")) 
+   st_helena91.95 <- subset(st_helena, st_helena$year %in% c("1991", "1992", "1993", "1994", "1995"))
+   
+   st_hosp96.00 <- subset(st_hosp, st_hosp$year %in% c("1996", "1997", "1998", "1999", "2000"))
+   st_helena96.00 <- subset(st_helena, st_helena$year %in% c("1996", "1997", "1998", "1999", "2000"))
+   
+   st_hosp01.05 <- subset(st_hosp, st_hosp$year %in% c("2001", "2002", "2003", "2004", "2005"))
+   st_helena01.05 <- subset(st_helena, st_helena$year %in% c("2001", "2002", "2003", "2004", "2005"))
+   
+   st_hosp06.10 <- subset(st_hosp, st_hosp$year %in% c("2006", "2007", "2008", "2009", "2010"))
+   st_helena06.10 <- subset(st_helena, st_helena$year %in% c("2006", "2007", "2008", "2009", "2010"))
+   
+   st_hosp11.15 <- subset(st_hosp, st_hosp$year %in% c("2011", "2012", "2013", "2014", "2015"))
+   st_helena11.15 <- subset(st_helena, st_helena$year %in% c("2011", "2012", "2013", "2014", "2015"))
+   
+   #plotting
+   #setting range
+   range.x95 <- range(as.Date(st_hosp91.95$DATE, na.rm = TRUE))
+   range.y95 <- range(st_hosp91.95$TAVG, na.rm = TRUE)
+   
+   range.x00 <- range(as.Date(st_hosp96.00$DATE, na.rm = TRUE))
+   range.y00 <- range(st_hosp96.00$TAVG, na.rm = TRUE)
+   
+   range.x05 <- range(as.Date(st_hosp01.05$DATE, na.rm = TRUE))
+   range.y05 <- range(st_hosp01.05$TAVG, na.rm = TRUE)
+   
+   range.x10 <- range(as.Date(st_hosp06.10$DATE, na.rm = TRUE))
+   range.y10 <- range(st_hosp06.10$TAVG, na.rm = TRUE)
+   
+   range.x15 <- range(as.Date(st_hosp11.15$DATE, na.rm = TRUE))
+   range.y15 <- range(st_hosp11.15$TAVG, na.rm = TRUE)
+   
+   plot(NA, xlim = range.x95, ylim = range.y95, xlab = "Date (1991-1995)", ylab = "Temperature ˚C", main = "TAVG 1991-1995", bty = "n")
+   points(x = as.Date(st_hosp91.95$DATE), y = st_hosp91.95$TAVG, type = "l", col = "blue")
+   points(x = as.Date(st_helena91.95$DATE), y = st_helena91.95$TAVG, type = "l", col = "green")
+   
+   plot(NA, xlim = range.x00, ylim = range.y00, xlab = "Date (1996-2000)", ylab = "Temperature ˚C", main = "TAVG 1996-2000", bty = "n")
+   points(x = as.Date(st_hosp96.00$DATE), y = st_hosp96.00$TAVG, type = "l", col = "blue")
+   points(x = as.Date(st_helena96.00$DATE), y = st_helena96.00$TAVG, type = "l", col = "purple")
+   
+   plot(NA, xlim = range.x05, ylim = range.y05, xlab = "Date (2001-2005)", ylab = "Temperature ˚C", main = "TAVG 2001-2005", bty = "n")
+   points(x = as.Date(st_hosp01.05$DATE), y = st_hosp01.05$TAVG, type = "l", col = "blue")
+   points(x = as.Date(st_helena01.05$DATE), y = st_helena01.05$TAVG, type = "l", col = "purple")
+   
+   plot(NA, xlim = range.x10, ylim = range.y10, xlab = "Date (2006-2010)", ylab = "Temperature ˚C", main = "TAVG 2006-2010", bty = "n")
+   points(x = as.Date(st_hosp06.10$DATE), y = st_hosp06.10$TAVG, type = "l", col = "blue")
+   points(x = as.Date(st_helena06.10$DATE), y = st_helena06.10$TAVG, type = "l", col = "purple")
+   
+   plot(NA, xlim = range.x15, ylim = range.y15, xlab = "Date (2011-2015)", ylab = "Temperature ˚C", main = "TAVG 2011-2015", bty = "n")
+   points(x = as.Date(st_hosp11.15$DATE), y = st_hosp11.15$TAVG, type = "l", col = "blue")
+   points(x = as.Date(st_helena11.15$DATE), y = st_helena11.15$TAVG, type = "l", col = "purple")
+   
   
+#------------ need to update naming in this section, will replace with more efficient loops
+   
 #Merging Varieties with the gdd_agg average (of 2 main stations) 
   #to plot total entries (sonoma and napa) run these lines and edit plots. Otherwise use the Variety napa tables.
   #Can likely delete later if napa data is complete enough.
