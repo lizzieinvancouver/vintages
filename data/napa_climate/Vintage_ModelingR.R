@@ -1,4 +1,4 @@
-################# Napa Vintage Dataset (PA) - Updated 12/2/2020 #########################
+################# Napa Vintage Dataset (PA) - Updated 1/28/2021 #########################
 
 #Housekeeping
 rm(list=ls())
@@ -8,22 +8,29 @@ options(stringsAsFactors = FALSE)
 library(dplyr)
 library(lme4)
 library(tidyr)
+library(measurements)
 
-## #Reading in csv files
-## mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NapaComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
-## head(mydat)
-## #creating columns for each event
-## mydat <- pivot_wider(mydat, names_from = phen_stage, values_from = c(st_helena_prcp, st_hosp_prcp, st_helena_gdd, st_hosp_gdd,
-##                                                                     gdd_avg_phen, prcp_avg_phen))
+#Reading in csv files
+mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NapaComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
+head(mydat)
 
-## mydat <- mydat[,c(1,2,3,4,5,6,10,11,9,13,14,12,16,17,15,19,20,18,22,23,21,25,26,24,7,8)] #reorganize columns
+sonoma_phen <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/SonomaComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
+head(sonoma_phen)
+
+nc_phen <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NorthCoastComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
+head(nc_phen)
+
 
 ## Geoff's file path
-mydat <- read.csv("NapaComplete2_phen.csv",header = TRUE)
-## Remove description column
-mydat <- mydat[, -c(25)]
+mydat <- read.csv("NapaComplete_phen.csv",header = TRUE)
 
-## Fit linear model to data
+#Remove description column
+mydat <- mydat[, -c(25)]
+sonoma_phen <- sonoma_phen[, -c(25)]
+nc_phen <- mydat[, -c(25)]
+
+
+## Fit linear model to data ##
 
 ### Model 1 (just GDDs)
 model1 <- lm(R1_WS ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
@@ -31,22 +38,50 @@ model1 <- lm(R1_WS ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = my
 summary(model1)
 
 ### Model 2 (just prcp)
+model2 <- lm(R1_WS ~ prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
+#### Summarize fit
+summary(model2)
 
 ### Model 3 (GDD and prcp)
+model3 <- lm(R1_WS ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3 + prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
+#### Summarize fit
+summary(model3)
 
-### Model 4 (interaction)
+### Model 4 (interaction, each stage seperate)
 model4 <- lm(R1_WS ~ gdd_avg_phen_1 * prcp_avg_phen_1, data = mydat)
+#### Summarize fit
+summary(model4)
+
+model5 <- lm(R1_WS ~ gdd_avg_phen_2 * prcp_avg_phen_2, data = mydat)
+#### Summarize fit
+summary(model5)
+
+model6 <- lm(R1_WS ~ gdd_avg_phen_3 * prcp_avg_phen_3, data = mydat)
+#### Summarize fit
+summary(model6)
 
 ### Next step - lmer (Random intercept model (variety))
 
+  #rescaling prcp data (mm to cm)
+  prcp1 <- conv_unit(mydat$prcp_avg_phen_1, "mm", "cm")
+  mydat$prcp_avg_phen_1 <- paste(prcp1)
+  prcp2 <- conv_unit(mydat$prcp_avg_phen_2, "mm", "cm")
+  mydat$prcp_avg_phen_2 <- paste(prcp2)
+  prcp3 <- conv_unit(mydat$prcp_avg_phen_3, "mm", "cm")
+  mydat$prcp_avg_phen_3 <- paste(prcp3)
+
+
+model5 <- lmer(R1_WS ~ gdd_avg_phen_1 + (1 +gdd_avg_phen_1 | Variety), data = mydat)
+summary(model5)
 
 
 
+coef(summary(m)) #fixed effects estimates
+VarCorr(m) #figuring out correct random effects?
+str(resid(m))
 
 
-
-
-
+######### OLD CODE
 
 ## Plotting
 stages <- sort(unique(mydat$phen_stage))
@@ -71,20 +106,6 @@ for(i in 1:length(stages)){
     plot(R1_WS ~ prcp_avg_phen, data = temp, main = varieties[j])
   }
 }
-
-## Linear models
-
-
-#Pivoting Table 
-
-
-
-######### OLD CODE
-
-
-#Rescaling precipitation (mm to cm)
-
-#Modeling with lme4
 
 
 #Fittedmodeling - "ranking = intercept + gdd * effect of gdd"
