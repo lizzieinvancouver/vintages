@@ -22,12 +22,14 @@ head(nc_phen)
 
 
 ## Geoff's file path
-mydat <- read.csv("NapaComplete_phen.csv",header = TRUE)
+mydat <- read.csv("TablesForModels/NapaComplete_phen.csv",header = TRUE)
+sonoma_phen <- read.csv("TablesForModels/SonomaComplete_phen.csv", header = TRUE)
+nc_phen <- read.csv("TablesForModels/NorthCoastComplete_phen.csv", header = TRUE)
 
 #Remove description column
 mydat <- mydat[, -c(25)]
 sonoma_phen <- sonoma_phen[, -c(25)]
-nc_phen <- mydat[, -c(25)]
+nc_phen <- nc_phen[, -c(25)]
 
 
 ## Fit linear model to data ##
@@ -62,18 +64,28 @@ summary(model6)
 
 ### Next step - lmer (Random intercept model (variety))
 
-  #rescaling prcp data (mm to cm)
-  prcp1 <- conv_unit(mydat$prcp_avg_phen_1, "mm", "cm")
-  mydat$prcp_avg_phen_1 <- paste(prcp1)
-  prcp2 <- conv_unit(mydat$prcp_avg_phen_2, "mm", "cm")
-  mydat$prcp_avg_phen_2 <- paste(prcp2)
-  prcp3 <- conv_unit(mydat$prcp_avg_phen_3, "mm", "cm")
-  mydat$prcp_avg_phen_3 <- paste(prcp3)
+###rescaling prcp data (mm to cm)
+prcp1 <- conv_unit(mydat$prcp_avg_phen_1, "mm", "cm")
+mydat$prcp_avg_phen_1 <- paste(prcp1)
+prcp2 <- conv_unit(mydat$prcp_avg_phen_2, "mm", "cm")
+mydat$prcp_avg_phen_2 <- paste(prcp2)
+prcp3 <- conv_unit(mydat$prcp_avg_phen_3, "mm", "cm")
+mydat$prcp_avg_phen_3 <- paste(prcp3)
 
+### Random intercept model
+### Rank ~ Normal(mean = Intercept_variety, standard deviation = sigma) 
+model_interceptonly <- lmer(R1_WS ~ (1 | Variety), data = mydat)
 
-model5 <- lmer(R1_WS ~ gdd_avg_phen_1 + (1 +gdd_avg_phen_1 | Variety), data = mydat)
-summary(model5)
+### Random intercept and slope
+### Rank ~ Normal(mean = Intercept_variety + Effect_gdd1_variety * gdd1, standard deviation = sigma)
+model_interceptslope <- lmer(R1_WS ~ (gdd_avg_phen_1 | Variety), data = mydat)
 
+### Random intercept model, with 3 fixed effects
+### rank ~ Normal(mean = Intercept_variety + (Effect_gdd1 * gdd1) + (Effect_gdd2 * gdd2) + (Effect_gdd3 * gdd3), standard deviation = sigma)
+model_allthree <- lmer(R1_WS ~ (1 | Variety) + gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
+summary(model_allthree)
+confint(model_allthree) ### what are the 95% confidence intervals?
+ranef(model_allthree) ### what are the variety-level "offsets" from the intercept?
 
 
 coef(summary(m)) #fixed effects estimates
