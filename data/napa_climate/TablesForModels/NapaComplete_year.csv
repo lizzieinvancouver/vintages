@@ -1,129 +1,114 @@
-"Vintage","Location","Variety","R1_WS","R2_WE","R3_WA","prcp_avg_year_gen","prcp_avg_year_cab","prcp_avg_year_chard","prcp_avg_year_mer","gdd_avg_year_gen","gdd_avg_year_cab","gdd_avg_year_chard","gdd_avg_year_mer","Descriptions_WS_WA","Notes"
-1991,"Napa","Cabernet",91,NA,NA,27.5,64.7,170.5,64.7,1350.8,1451.225,1367.55,1367.275,"Big crop, ripe and complex; a star early on, only to be eclipsed by others this decade",NA
-1992,"Napa","Cabernet",93,NA,NA,50.325,52.3,89.6625,52.3,1435.2875,1541.5625,1488.6875,1465.6375,"Fine growing season led to uniformly rich, fleshy, supple and balanced wines",NA
-1993,"Napa","Cabernet",88,NA,NA,110.2,124.8875,178.3375,124.8875,1557.51875,1632.71875,1610.11875,1572.61875,"Just off the pace, with well-balanced, supple wines; a few stars",NA
-1994,"Napa","Cabernet",97,NA,NA,83.9,88.9375,93.2125,88.9375,1467.8625,1577.3125,1503.3625,1492.6875,"A showy year all around; ripe, complex and fleshy, with excellent depth",NA
-1995,"Napa","Cabernet",97,NA,NA,127.05,127.05,229.05,127.05,1513.05,1620.875,1548.35,1531.675,"Surprisingly fine year, with wines marked by great flavors, balance and structure",NA
-1996,"Napa","Cabernet",96,NA,NA,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"A sleeper, with a remarkable number of compelling wines; warm year with fine concentration and depth",NA
-1997,"Napa","Cabernet",99,NA,NA,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Huge crop of ripe, opulent, fleshy, concentrated wines, from near-perfect weather; super in Sonoma, too",NA
-1998,"Napa","Cabernet",84,NA,NA,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Cool, damp year with mostly green, herbal wines marked by gritty tannins; few memorable bottles",NA
-1999,"Napa","Cabernet",97,NA,NA,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"Tremendous depth, concentration and structure from a cool, moderate year; ageworthy",NA
-2000,"Napa","Cabernet",85,NA,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Mixed and a bit green overall, but some stellar wines that may be overlooked and undervalued",NA
-2001,"Napa","Cabernet",93,NA,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Excellent weather; many stunning wines but also a few disappointments",NA
-2002,"Napa","Cabernet",93,NA,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"Superb in Napa; dense and rich, rivaling 2001 for depth and complexity",NA
-2003,"Napa","Cabernet",85,NA,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Uneven ripeness; austere and tannic in style. More like 2000 than 2001 or 2002",NA
-2004,"Napa","Cabernet",95,NA,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Small crop of exceptional quality; ripe, elegant, concentrated and harmonious",NA
-2005,"Napa","Cabernet",92,NA,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Record-size crop; best are elegant and balanced, yet many are tannic and drying out",NA
-2006,"Napa","Cabernet",95,NA,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"A late, cool harvest produced dense, concentrated and ageworthy wines",NA
-2007,"Napa","Cabernet",97,NA,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Textbook year; small crop, ideal ripening, wines defined by complexity and plush tannins",NA
-2008,"Napa","Cabernet",96,NA,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Frost year lowered yields but not quality; unique for its depth and concentration",NA
-2009,"Napa","Cabernet",96,NA,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Late, cool year yielding a surprise bounty of pure, opulent wines",NA
-2010,"Napa","Cabernet",96,NA,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Cool, steady year; wines show exceptional quality, tight, dense and layered",NA
-2011,"Napa","Cabernet",86,NA,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Rare rainy harvest proved it can happen; few sunny spots, variable quality",NA
-2012,"Napa","Cabernet",96,NA,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"The first of California’s drought-influenced run and a welcome return to warm, dry conditions following the rain-marred 2011 season. Record-sized crop with many stars; a solid vintage across the board marked by a tannic spine that will age well",NA
-2013,"Napa","Cabernet",97,NA,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Practically a flawless growing season, with moderate temperatures throughout and no heat spikes or rain. Earliest harvest in 25 years started in August, but Indian summer conditions allowed growers to pick blocks as they wanted through late October. Wines brim with fruit and structure. A no-brainer benchmark",NA
-2014,"Napa","Cabernet",95,NA,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Heavy rains in February and March gave the vines an early boost—though not enough to break the drought—and from there warm, dry conditions led to an early harvest. Quality is very consistent, with the wines showing power and depth, as well as extra aromatic range. A beautiful vintage with a distinct signature",NA
-2015,"Napa","Cabernet",94,NA,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"The fourth drought-influenced year in a row, plus a cold spell during flowering led to significantly lower yields. The smaller crop ripened quickly, though, with picking beginning in August. Quality is high but more variable than 2016 or 2013, as sugars sometimes raced ahead of phenolics",NA
-2016,"Napa","Cabernet",98,NA,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"The final drought-influenced vintage of the run since 2012, this time without serious heat spikes. Rockier soils and drier spots ripened first, while heavier soils allowed for longer hang time. Wines show intense fruit against the backdrop of their varying terroirs; crop still down from normal",NA
-2017,"Napa","Cabernet",90.5,NA,NA,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Drought broke over the winter, with lots of vegetation and healthy vines to start the season. Good growing season turned wickedly hot in early September, with no cooling-off period, then wildfires raged in early October, raising the specter of smoke taint. Napa’s most difficult season in recent memory","WS_Napa, 89-92 (value is mean)"
-1996,"Napa","Chardonnay",95,NA,NA,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"Rivals '97 in opulence and concentration; great finesse",NA
-1997,"Napa","Chardonnay",96,NA,NA,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Monumental year; very ripe, opulent and complex",NA
-1998,"Napa","Chardonnay",84,NA,NA,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Lean and austere statewide; highly variable",NA
-1999,"Napa","Chardonnay",87,NA,NA,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"Sonoma and Santa Barbara are tops, with rich, complex wines",NA
-2000,"Napa","Chardonnay",87,NA,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Carneros the clear star; wines elsewhere lack depth and completeness",NA
-2001,"Napa","Chardonnay",87,NA,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Best in Carneros and Sonoma; concentrated, with firm acidity",NA
-2002,"Napa","Chardonnay",94,NA,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"Sensational, fleshy, opulent wines; near perfect in Sonoma, strong in Carneros and Napa",NA
-2003,"Napa","Chardonnay",89,NA,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Leaner, crisper wines than in '02 due to a challenging season, but some gems, too",NA
-2004,"Napa","Chardonnay",92,NA,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Sonoma stars in a ripe, rich, opulent year that rivals 2002",NA
-2005,"Napa","Chardonnay",89,NA,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Restrained wines; trim and tight, with higher acidity",NA
-2006,"Napa","Chardonnay",88,NA,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Challenging harvest with mixed quality and fewer gems, but hardly a washout",NA
-2007,"Napa","Chardonnay",95,NA,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Ripe, complex, balanced and ageworthy wines; many brilliant bottles from all appellations",NA
-2008,"Napa","Chardonnay",92,NA,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Frost and fire didn't spoil the vintage, though quality is variable. Tight, concentrated wines",NA
-2009,"Napa","Chardonnay",94,NA,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Cooler year showing toned-down ripeness, with more finesse and delicacy",NA
-2010,"Napa","Chardonnay",92,NA,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Cool year resulted in uneven quality; best wines are tight and concentrated",NA
-2011,"Napa","Chardonnay",89,NA,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Cool and damp, challenging everywhere; best wines are elegant and scaled back",NA
-2012,"Napa","Chardonnay",94,NA,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Ideal growing season; wines are intense, with pure, ripe, vibrant flavors",NA
-2013,"Napa","Chardonnay",93,NA,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"An exceptional year, distinct for vibrancy and density; ageworthy",NA
-2014,"Napa","Chardonnay",92,NA,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Drought produced spartan crop; fine quality, with yields the only disappointment",NA
-2015,"Napa","Chardonnay",89,NA,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Sonoma strong again in another drought year; elegant and refined in style",NA
-2016,"Napa","Chardonnay",89,NA,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Solid but variable year; fine quality in Sonoma and Santa Barbara",NA
-2017,"Napa","Chardonnay",90,NA,NA,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Ample winter rain followed by a warm growing season yielded complex and powerful wines",NA
-2018,"Napa","Chardonnay",90,NA,NA,75.95,80.4,161.45,80.4,1558.075,1679.25,1614.375,1604.075,"Nearly ideal conditions delivered wines with concentrated fruit flavors and crunchy acidity",NA
-1996,"Napa","Merlot",88,NA,NA,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"Best overall for Napa, with rich, structured wines",NA
-1997,"Napa","Merlot",86,NA,NA,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Ripe, opulent and supple wines",NA
-1998,"Napa","Merlot",82,NA,NA,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Marked by lean, hollow wines",NA
-1999,"Napa","Merlot",87,NA,NA,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"One of the best for Napa; ordinary for Sonoma",NA
-2000,"Napa","Merlot",83,NA,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Mixed in both regions",NA
-2001,"Napa","Merlot",87,NA,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Good, but not on par with '01 Cabernet",NA
-2002,"Napa","Merlot",89,NA,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"About as good as it gets in Napa, with Sonoma lagging",NA
-2003,"Napa","Merlot",85,NA,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Tight and tannic wines; best to decant",NA
-2004,"Napa","Merlot",87,NA,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"The best are supple, rich and complex; a step above the 2003s",NA
-2005,"Napa","Merlot",89,NA,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Top wines are elegant and well-focused, with ripeness achieved at lower alcohol levels",NA
-2006,"Napa","Merlot",92,NA,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Inconsistent; best are rich and supple, but many are lean and herbal",NA
-2007,"Napa","Merlot",89,NA,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Supple and appealing wines from Napa; Sonoma offers value",NA
-2008,"Napa","Merlot",89,NA,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Top producers made superior wines while others struggled in a cool year",NA
-2009,"Napa","Merlot",94,NA,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Ideal season; best wines show balance, structure and lively acidity",NA
-2010,"Napa","Merlot",87,NA,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Extremely cool season; many wines are herbal and have unripe tannins",NA
-2011,"Napa","Merlot",87,NA,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Rainy and cool year; many wines have hard tannins, herbal flavors",NA
-2012,"Napa","Merlot",91,NA,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Long, warm growing season produced rich, ripe and easy-drinking wines",NA
-2013,"Napa","Merlot",90,NA,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Sunny weather and a long growing season led to fruit-forward wines",NA
-2014,"Napa","Merlot",92,NA,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Drought-influenced vintage yields well-structured wines with refined fruit flavors",NA
-2015,"Napa","Merlot",91,NA,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Small crop from another drought vintage; firmly tannic, with deep dark fruit and spice flavors",NA
-2016,"Napa","Merlot",94,NA,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Nearly ideal weather results in plush flavors and structures supported by medium-grained tannins",NA
-2000,"Napa","Rhone",93,NA,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,NA,NA
-2001,"Napa","Rhone",97,NA,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,NA,NA
-2002,"Napa","Rhone",96,NA,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,NA,NA
-2003,"Napa","Rhone",90,NA,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,NA,NA
-2004,"Napa","Rhone",97,NA,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,NA,NA
-2005,"Napa","Rhone",92,NA,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,NA,NA
-2006,"Napa","Rhone",93,NA,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,NA,NA
-2007,"Napa","Rhone",95,NA,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,NA,NA
-2008,"Napa","Rhone",91,NA,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,NA,NA
-2009,"Napa","Rhone",92,NA,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,NA,NA
-2010,"Napa","Rhone",93,NA,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,NA,NA
-2011,"Napa","Rhone",87,NA,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,NA,NA
-2012,"Napa","Rhone",93,NA,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,NA,NA
-2013,"Napa","Rhone",94,NA,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,NA,NA
-2014,"Napa","Rhone",93,NA,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,NA,NA
-2015,"Napa","Rhone",94,NA,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,NA,NA
-2016,"Napa","Rhone",94,NA,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,NA,NA
-2017,"Napa","Rhone",89.5,NA,NA,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,NA,"WS_Napa, 88-91 (value is mean), WE_Sonoma, 88-91 (value is mean)"
-1995,"Napa","Zinfandel",NA,90,NA,127.05,127.05,229.05,127.05,1513.05,1620.875,1548.35,1531.675,NA,NA
-1996,"Napa","Zinfandel",NA,88,NA,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,NA,NA
-1997,"Napa","Zinfandel",NA,89,NA,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,NA,NA
-1998,"Napa","Zinfandel",NA,85,NA,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,NA,NA
-1999,"Napa","Zinfandel",NA,90,NA,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,NA,NA
-2000,"Napa","Zinfandel",NA,85,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,NA,NA
-2001,"Napa","Zinfandel",NA,91,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,NA,NA
-2002,"Napa","Zinfandel",NA,86,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,NA,NA
-2003,"Napa","Zinfandel",NA,88,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,NA,NA
-2004,"Napa","Zinfandel",85,NA,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Warm year produced jammy wines; ripeness often over the top",NA
-2004,"Napa","Zinfandel",NA,90,NA,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,NA,NA
-2005,"Napa","Zinfandel",NA,87,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,NA,NA
-2005,"Napa","Zinfandel",91,NA,NA,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Complex, well-structured wines with tannins built for aging",NA
-2006,"Napa","Zinfandel",90,NA,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Top wines are fruit-forward, elegant and balanced; well-structured",NA
-2006,"Napa","Zinfandel",NA,87,NA,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,NA,NA
-2007,"Napa","Zinfandel",92,NA,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Growing season was ideal; wines are supple and elegantly ripe, but with good backbone",NA
-2007,"Napa","Zinfandel",NA,94,NA,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,NA,NA
-2008,"Napa","Zinfandel",94,NA,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Eccentric growing season, but wines show surprising richness and balance",NA
-2008,"Napa","Zinfandel",NA,89,NA,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,NA,NA
-2009,"Napa","Zinfandel",NA,89,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,NA,NA
-2009,"Napa","Zinfandel",92,NA,NA,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Long, cool season; wines are balanced and elegant, with typically modest alcohol levels",NA
-2010,"Napa","Zinfandel",NA,89,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,NA,NA
-2010,"Napa","Zinfandel",88,NA,NA,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Tough growing season; quality varies, but many flavorful, well-balanced wines",NA
-2011,"Napa","Zinfandel",NA,89,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,NA,NA
-2011,"Napa","Zinfandel",89,NA,NA,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Variable quality; best wines are structured and vibrant",NA
-2012,"Napa","Zinfandel",89,NA,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Fruit-forward, soft and approachable",NA
-2012,"Napa","Zinfandel",NA,92,NA,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,NA,NA
-2013,"Napa","Zinfandel",NA,93,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,NA,NA
-2013,"Napa","Zinfandel",91,NA,NA,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Lively but concentrated wines with good structure built for long-term drinking",NA
-2014,"Napa","Zinfandel",NA,93,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,NA,NA
-2014,"Napa","Zinfandel",93,NA,NA,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Fresh and fruit-forward but balanced and complex",NA
-2015,"Napa","Zinfandel",NA,93,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,NA,NA
-2015,"Napa","Zinfandel",92,NA,NA,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Jammed with fruit; more concentrated and ageable than 2014",NA
-2016,"Napa","Zinfandel",92,NA,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Akin to the 2015s, with the best showing polish and plush textures",NA
-2016,"Napa","Zinfandel",NA,93,NA,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,NA,NA
-2017,"Napa","Zinfandel",90,NA,NA,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Hot and unusually dry growing season led to wildfires in October; ripe wines with variable quality",NA
-2017,"Napa","Zinfandel",NA,89,NA,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,NA,NA
-2018,"Napa","Zinfandel",NA,90,NA,75.95,80.4,161.45,80.4,1558.075,1679.25,1614.375,1604.075,NA,NA
-2018,"Napa","Zinfandel",90.5,NA,NA,75.95,80.4,161.45,80.4,1558.075,1679.25,1614.375,1604.075,"Nearly ideal growing season, with generally rich and structured wines that are also consumer-friendly","WS_Napa, 89-92 (value is mean)"
+"Vintage","Location","Variety","R1_WS","R2_WE","R3_WA","Avg_Rank","prcp_avg_year_gen","prcp_avg_year_cab","prcp_avg_year_chard","prcp_avg_year_mer","gdd_avg_year_gen","gdd_avg_year_cab","gdd_avg_year_chard","gdd_avg_year_mer","Descriptions_WS_WA","Notes"
+1991,"Napa","Cabernet",91,NA,NA,91,27.5,64.7,170.5,64.7,1350.8,1451.225,1367.55,1367.275,"Big crop, ripe and complex; a star early on, only to be eclipsed by others this decade",NA
+1992,"Napa","Cabernet",93,NA,NA,93,50.325,52.3,89.6625,52.3,1435.2875,1541.5625,1488.6875,1465.6375,"Fine growing season led to uniformly rich, fleshy, supple and balanced wines",NA
+1993,"Napa","Cabernet",88,NA,NA,88,110.2,124.8875,178.3375,124.8875,1557.51875,1632.71875,1610.11875,1572.61875,"Just off the pace, with well-balanced, supple wines; a few stars",NA
+1994,"Napa","Cabernet",97,NA,NA,97,83.9,88.9375,93.2125,88.9375,1467.8625,1577.3125,1503.3625,1492.6875,"A showy year all around; ripe, complex and fleshy, with excellent depth",NA
+1995,"Napa","Cabernet",97,NA,NA,97,127.05,127.05,229.05,127.05,1513.05,1620.875,1548.35,1531.675,"Surprisingly fine year, with wines marked by great flavors, balance and structure",NA
+1996,"Napa","Cabernet",96,NA,NA,96,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"A sleeper, with a remarkable number of compelling wines; warm year with fine concentration and depth",NA
+1997,"Napa","Cabernet",99,NA,NA,99,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Huge crop of ripe, opulent, fleshy, concentrated wines, from near-perfect weather; super in Sonoma, too",NA
+1998,"Napa","Cabernet",84,NA,NA,84,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Cool, damp year with mostly green, herbal wines marked by gritty tannins; few memorable bottles",NA
+1999,"Napa","Cabernet",97,NA,NA,97,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"Tremendous depth, concentration and structure from a cool, moderate year; ageworthy",NA
+2000,"Napa","Cabernet",85,NA,NA,85,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Mixed and a bit green overall, but some stellar wines that may be overlooked and undervalued",NA
+2001,"Napa","Cabernet",93,NA,NA,93,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Excellent weather; many stunning wines but also a few disappointments",NA
+2002,"Napa","Cabernet",93,NA,NA,93,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"Superb in Napa; dense and rich, rivaling 2001 for depth and complexity",NA
+2003,"Napa","Cabernet",85,NA,NA,85,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Uneven ripeness; austere and tannic in style. More like 2000 than 2001 or 2002",NA
+2004,"Napa","Cabernet",95,NA,NA,95,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Small crop of exceptional quality; ripe, elegant, concentrated and harmonious",NA
+2005,"Napa","Cabernet",92,NA,NA,92,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Record-size crop; best are elegant and balanced, yet many are tannic and drying out",NA
+2006,"Napa","Cabernet",95,NA,NA,95,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"A late, cool harvest produced dense, concentrated and ageworthy wines",NA
+2007,"Napa","Cabernet",97,NA,NA,97,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Textbook year; small crop, ideal ripening, wines defined by complexity and plush tannins",NA
+2008,"Napa","Cabernet",96,NA,NA,96,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Frost year lowered yields but not quality; unique for its depth and concentration",NA
+2009,"Napa","Cabernet",96,NA,NA,96,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Late, cool year yielding a surprise bounty of pure, opulent wines",NA
+2010,"Napa","Cabernet",96,NA,NA,96,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Cool, steady year; wines show exceptional quality, tight, dense and layered",NA
+2011,"Napa","Cabernet",86,NA,NA,86,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Rare rainy harvest proved it can happen; few sunny spots, variable quality",NA
+2012,"Napa","Cabernet",96,NA,NA,96,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"The first of California’s drought-influenced run and a welcome return to warm, dry conditions following the rain-marred 2011 season. Record-sized crop with many stars; a solid vintage across the board marked by a tannic spine that will age well",NA
+2013,"Napa","Cabernet",97,NA,NA,97,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Practically a flawless growing season, with moderate temperatures throughout and no heat spikes or rain. Earliest harvest in 25 years started in August, but Indian summer conditions allowed growers to pick blocks as they wanted through late October. Wines brim with fruit and structure. A no-brainer benchmark",NA
+2014,"Napa","Cabernet",95,NA,NA,95,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Heavy rains in February and March gave the vines an early boost—though not enough to break the drought—and from there warm, dry conditions led to an early harvest. Quality is very consistent, with the wines showing power and depth, as well as extra aromatic range. A beautiful vintage with a distinct signature",NA
+2015,"Napa","Cabernet",94,NA,NA,94,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"The fourth drought-influenced year in a row, plus a cold spell during flowering led to significantly lower yields. The smaller crop ripened quickly, though, with picking beginning in August. Quality is high but more variable than 2016 or 2013, as sugars sometimes raced ahead of phenolics",NA
+2016,"Napa","Cabernet",98,NA,NA,98,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"The final drought-influenced vintage of the run since 2012, this time without serious heat spikes. Rockier soils and drier spots ripened first, while heavier soils allowed for longer hang time. Wines show intense fruit against the backdrop of their varying terroirs; crop still down from normal",NA
+2017,"Napa","Cabernet",90.5,NA,NA,90.5,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Drought broke over the winter, with lots of vegetation and healthy vines to start the season. Good growing season turned wickedly hot in early September, with no cooling-off period, then wildfires raged in early October, raising the specter of smoke taint. Napa’s most difficult season in recent memory","WS_Napa, 89-92 (value is mean)"
+1996,"Napa","Chardonnay",95,NA,NA,95,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"Rivals '97 in opulence and concentration; great finesse",NA
+1997,"Napa","Chardonnay",96,NA,NA,96,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Monumental year; very ripe, opulent and complex",NA
+1998,"Napa","Chardonnay",84,NA,NA,84,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Lean and austere statewide; highly variable",NA
+1999,"Napa","Chardonnay",87,NA,NA,87,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"Sonoma and Santa Barbara are tops, with rich, complex wines",NA
+2000,"Napa","Chardonnay",87,NA,NA,87,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Carneros the clear star; wines elsewhere lack depth and completeness",NA
+2001,"Napa","Chardonnay",87,NA,NA,87,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Best in Carneros and Sonoma; concentrated, with firm acidity",NA
+2002,"Napa","Chardonnay",94,NA,NA,94,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"Sensational, fleshy, opulent wines; near perfect in Sonoma, strong in Carneros and Napa",NA
+2003,"Napa","Chardonnay",89,NA,NA,89,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Leaner, crisper wines than in '02 due to a challenging season, but some gems, too",NA
+2004,"Napa","Chardonnay",92,NA,NA,92,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Sonoma stars in a ripe, rich, opulent year that rivals 2002",NA
+2005,"Napa","Chardonnay",89,NA,NA,89,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Restrained wines; trim and tight, with higher acidity",NA
+2006,"Napa","Chardonnay",88,NA,NA,88,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Challenging harvest with mixed quality and fewer gems, but hardly a washout",NA
+2007,"Napa","Chardonnay",95,NA,NA,95,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Ripe, complex, balanced and ageworthy wines; many brilliant bottles from all appellations",NA
+2008,"Napa","Chardonnay",92,NA,NA,92,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Frost and fire didn't spoil the vintage, though quality is variable. Tight, concentrated wines",NA
+2009,"Napa","Chardonnay",94,NA,NA,94,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Cooler year showing toned-down ripeness, with more finesse and delicacy",NA
+2010,"Napa","Chardonnay",92,NA,NA,92,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Cool year resulted in uneven quality; best wines are tight and concentrated",NA
+2011,"Napa","Chardonnay",89,NA,NA,89,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Cool and damp, challenging everywhere; best wines are elegant and scaled back",NA
+2012,"Napa","Chardonnay",94,NA,NA,94,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Ideal growing season; wines are intense, with pure, ripe, vibrant flavors",NA
+2013,"Napa","Chardonnay",93,NA,NA,93,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"An exceptional year, distinct for vibrancy and density; ageworthy",NA
+2014,"Napa","Chardonnay",92,NA,NA,92,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Drought produced spartan crop; fine quality, with yields the only disappointment",NA
+2015,"Napa","Chardonnay",89,NA,NA,89,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Sonoma strong again in another drought year; elegant and refined in style",NA
+2016,"Napa","Chardonnay",89,NA,NA,89,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Solid but variable year; fine quality in Sonoma and Santa Barbara",NA
+2017,"Napa","Chardonnay",90,NA,NA,90,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Ample winter rain followed by a warm growing season yielded complex and powerful wines",NA
+2018,"Napa","Chardonnay",90,NA,NA,90,75.95,80.4,161.45,80.4,1558.075,1679.25,1614.375,1604.075,"Nearly ideal conditions delivered wines with concentrated fruit flavors and crunchy acidity",NA
+1996,"Napa","Merlot",88,NA,NA,88,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,"Best overall for Napa, with rich, structured wines",NA
+1997,"Napa","Merlot",86,NA,NA,86,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,"Ripe, opulent and supple wines",NA
+1998,"Napa","Merlot",82,NA,NA,82,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,"Marked by lean, hollow wines",NA
+1999,"Napa","Merlot",87,NA,NA,87,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,"One of the best for Napa; ordinary for Sonoma",NA
+2000,"Napa","Merlot",83,NA,NA,83,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,"Mixed in both regions",NA
+2001,"Napa","Merlot",87,NA,NA,87,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,"Good, but not on par with '01 Cabernet",NA
+2002,"Napa","Merlot",89,NA,NA,89,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,"About as good as it gets in Napa, with Sonoma lagging",NA
+2003,"Napa","Merlot",85,NA,NA,85,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,"Tight and tannic wines; best to decant",NA
+2004,"Napa","Merlot",87,NA,NA,87,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"The best are supple, rich and complex; a step above the 2003s",NA
+2005,"Napa","Merlot",89,NA,NA,89,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Top wines are elegant and well-focused, with ripeness achieved at lower alcohol levels",NA
+2006,"Napa","Merlot",92,NA,NA,92,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Inconsistent; best are rich and supple, but many are lean and herbal",NA
+2007,"Napa","Merlot",89,NA,NA,89,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Supple and appealing wines from Napa; Sonoma offers value",NA
+2008,"Napa","Merlot",89,NA,NA,89,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Top producers made superior wines while others struggled in a cool year",NA
+2009,"Napa","Merlot",94,NA,NA,94,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Ideal season; best wines show balance, structure and lively acidity",NA
+2010,"Napa","Merlot",87,NA,NA,87,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Extremely cool season; many wines are herbal and have unripe tannins",NA
+2011,"Napa","Merlot",87,NA,NA,87,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Rainy and cool year; many wines have hard tannins, herbal flavors",NA
+2012,"Napa","Merlot",91,NA,NA,91,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Long, warm growing season produced rich, ripe and easy-drinking wines",NA
+2013,"Napa","Merlot",90,NA,NA,90,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Sunny weather and a long growing season led to fruit-forward wines",NA
+2014,"Napa","Merlot",92,NA,NA,92,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Drought-influenced vintage yields well-structured wines with refined fruit flavors",NA
+2015,"Napa","Merlot",91,NA,NA,91,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Small crop from another drought vintage; firmly tannic, with deep dark fruit and spice flavors",NA
+2016,"Napa","Merlot",94,NA,NA,94,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Nearly ideal weather results in plush flavors and structures supported by medium-grained tannins",NA
+2000,"Napa","Rhone",93,NA,NA,93,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,NA,NA
+2001,"Napa","Rhone",97,NA,NA,97,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,NA,NA
+2002,"Napa","Rhone",96,NA,NA,96,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,NA,NA
+2003,"Napa","Rhone",90,NA,NA,90,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,NA,NA
+2004,"Napa","Rhone",97,NA,NA,97,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,NA,NA
+2005,"Napa","Rhone",92,NA,NA,92,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,NA,NA
+2006,"Napa","Rhone",93,NA,NA,93,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,NA,NA
+2007,"Napa","Rhone",95,NA,NA,95,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,NA,NA
+2008,"Napa","Rhone",91,NA,NA,91,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,NA,NA
+2009,"Napa","Rhone",92,NA,NA,92,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,NA,NA
+2010,"Napa","Rhone",93,NA,NA,93,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,NA,NA
+2011,"Napa","Rhone",87,NA,NA,87,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,NA,NA
+2012,"Napa","Rhone",93,NA,NA,93,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,NA,NA
+2013,"Napa","Rhone",94,NA,NA,94,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,NA,NA
+2014,"Napa","Rhone",93,NA,NA,93,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,NA,NA
+2015,"Napa","Rhone",94,NA,NA,94,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,NA,NA
+2016,"Napa","Rhone",94,NA,NA,94,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,NA,NA
+2017,"Napa","Rhone",89.5,NA,NA,89.5,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,NA,"WS_Napa, 88-91 (value is mean), WE_Sonoma, 88-91 (value is mean)"
+1995,"Napa","Zinfandel",NA,90,NA,NA,127.05,127.05,229.05,127.05,1513.05,1620.875,1548.35,1531.675,NA,NA
+1996,"Napa","Zinfandel",NA,88,NA,NA,186.15,186.65,186.65,186.65,1616.1625,1706.0875,1668.3625,1626.3875,NA,NA
+1997,"Napa","Zinfandel",NA,89,NA,NA,58.35,58.35,75.75,58.35,1692.4,1817.825,1783.225,1729.2,NA,NA
+1998,"Napa","Zinfandel",NA,85,NA,NA,140.925,160.375,191.525,160.375,1265.7375,1343.8375,1322.7875,1273.1125,NA,NA
+1999,"Napa","Zinfandel",NA,90,NA,NA,79.55,113.25,131.55,113,1369.8,1446.675,1389.575,1377.025,NA,NA
+2000,"Napa","Zinfandel",NA,85,NA,NA,84.15,85.05,84.15,84.15,1571.45,1699.6,1649.4,1598.675,NA,NA
+2001,"Napa","Zinfandel",NA,91,NA,NA,17.55,25.45,25.45,25.45,1605.0875,1714.5125,1702.5125,1649.2875,NA,NA
+2002,"Napa","Zinfandel",NA,86,NA,NA,40.33,40.33,65.83,40.33,1525.725,1665.2375,1577.25,1561.775,NA,NA
+2003,"Napa","Zinfandel",NA,88,NA,NA,197.45,199.25,212.85,199.25,1545.3625,1692.4,1620.7875,1591.1625,NA,NA
+2004,"Napa","Zinfandel",85,90,NA,87.5,15.85,36.7333333333333,34.5333333333333,34.5333333333333,1642.35625,1749.89375,1747.96875,1672.24375,"Warm year produced jammy wines; ripeness often over the top",NA
+2005,"Napa","Zinfandel",91,87,NA,89,151.09,181.69,251.89,181.69,1477.2875,1562.3125,1517.1375,1493.6875,"Complex, well-structured wines with tannins built for aging",NA
+2006,"Napa","Zinfandel",90,87,NA,88.5,173.6,264.5,302.3,264.5,1593.70833333333,1687.83333333333,1609.98333333333,1600.58333333333,"Top wines are fruit-forward, elegant and balanced; well-structured",NA
+2007,"Napa","Zinfandel",92,94,NA,93,42.95,56.55,51.7,51.7,1630.475,1718.75,1712.1,1656.8,"Growing season was ideal; wines are supple and elegantly ripe, but with good backbone",NA
+2008,"Napa","Zinfandel",94,89,NA,91.5,8.5,11.4,11.4,11.4,1629.325,1700.66,1666.675,1638.475,"Eccentric growing season, but wines show surprising richness and balance",NA
+2009,"Napa","Zinfandel",92,89,NA,90.5,73.4,73.4,83.75,73.4,1481.4225,1580.1725,1559.8725,1526.2975,"Long, cool season; wines are balanced and elegant, with typically modest alcohol levels",NA
+2010,"Napa","Zinfandel",88,89,NA,88.5,163.1,178.55,178.55,178.55,1350.6125,1443.9875,1419.0125,1368.4625,"Tough growing season; quality varies, but many flavorful, well-balanced wines",NA
+2011,"Napa","Zinfandel",89,89,NA,89,148.340833333333,187.440833333333,354.189166666667,187.440833333333,1389.325,1516.975,1420.5,1414.625,"Variable quality; best wines are structured and vibrant",NA
+2012,"Napa","Zinfandel",89,92,NA,90.5,79.2902380952381,160.461666666667,212.159166666667,160.461666666667,1524.8,1605.575,1552.55,1539.225,"Fruit-forward, soft and approachable",NA
+2013,"Napa","Zinfandel",91,93,NA,92,53.1,76.1,67.1,62.5,1705.325,1819.45,1769.125,1738.65,"Lively but concentrated wines with good structure built for long-term drinking",NA
+2014,"Napa","Zinfandel",93,93,NA,93,54.75,116.35,112.8,112.8,1721.7125,1836.6,1794.4875,1744.0625,"Fresh and fruit-forward but balanced and complex",NA
+2015,"Napa","Zinfandel",92,93,NA,92.5,49.65,55.15,54.35,49.65,1669.45,1821.95,1782.675,1727.375,"Jammed with fruit; more concentrated and ageable than 2014",NA
+2016,"Napa","Zinfandel",92,93,NA,92.5,39.65,39.65,65.8,39.65,1605.4,1722.225,1672.4,1632.95,"Akin to the 2015s, with the best showing polish and plush textures",NA
+2017,"Napa","Zinfandel",90,89,NA,89.5,79.8,84.55,154.55,84.55,1755.55,1856.925,1832.725,1790.1,"Hot and unusually dry growing season led to wildfires in October; ripe wines with variable quality",NA
+2018,"Napa","Zinfandel",90.5,90,NA,90.25,75.95,80.4,161.45,80.4,1558.075,1679.25,1614.375,1604.075,"Nearly ideal growing season, with generally rich and structured wines that are also consumer-friendly",NA
