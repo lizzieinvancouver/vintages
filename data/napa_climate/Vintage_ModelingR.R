@@ -1,5 +1,3 @@
-################# Napa Vintage Dataset (PA) - Updated 1/28/2021 #########################
-
 #Housekeeping
 rm(list=ls())
 options(stringsAsFactors = FALSE)
@@ -27,38 +25,37 @@ sonoma_phen <- read.csv("TablesForModels/SonomaComplete_phen.csv", header = TRUE
 nc_phen <- read.csv("TablesForModels/NorthCoastComplete_phen.csv", header = TRUE)
 
 #Remove description column
-mydat <- mydat[, -c(25)]
-sonoma_phen <- sonoma_phen[, -c(25)]
-nc_phen <- nc_phen[, -c(25)]
-
+mydat <- mydat[, -c(32)]
+sonoma_phen <- sonoma_phen[, -c(32)]
+nc_phen <- nc_phen[, -c(32)]
 
 ## Fit linear model to data ##
 
 ### Model 1 (just GDDs)
-model1 <- lm(R1_WS ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
+model1 <- lm(Avg_Rank ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
 #### Summarize fit
 summary(model1)
 
 ### Model 2 (just prcp)
-model2 <- lm(R1_WS ~ prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
+model2 <- lm(Avg_Rank ~ prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
 #### Summarize fit
 summary(model2)
 
 ### Model 3 (GDD and prcp)
-model3 <- lm(R1_WS ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3 + prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
+model3 <- lm(Avg_Rank ~ gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3 + prcp_avg_phen_1 + prcp_avg_phen_2 + prcp_avg_phen_3, data = mydat)
 #### Summarize fit
 summary(model3)
 
 ### Model 4 (interaction, each stage seperate)
-model4 <- lm(R1_WS ~ gdd_avg_phen_1 * prcp_avg_phen_1, data = mydat)
+model4 <- lm(Avg_Rank ~ gdd_avg_phen_1 * prcp_avg_phen_1, data = mydat)
 #### Summarize fit
 summary(model4)
 
-model5 <- lm(R1_WS ~ gdd_avg_phen_2 * prcp_avg_phen_2, data = mydat)
+model5 <- lm(Avg_Rank ~ gdd_avg_phen_2 * prcp_avg_phen_2, data = mydat)
 #### Summarize fit
 summary(model5)
 
-model6 <- lm(R1_WS ~ gdd_avg_phen_3 * prcp_avg_phen_3, data = mydat)
+model6 <- lm(Avg_Rank ~ gdd_avg_phen_3 * prcp_avg_phen_3, data = mydat)
 #### Summarize fit
 summary(model6)
 
@@ -74,18 +71,20 @@ mydat$prcp_avg_phen_3 <- paste(prcp3)
 
 ### Random intercept model
 ### Rank ~ Normal(mean = Intercept_variety, standard deviation = sigma) 
-model_interceptonly <- lmer(R1_WS ~ (1 | Variety), data = mydat)
+model_interceptonly <- lmer(Avg_Rank ~ (1 | Variety), data = mydat)
 
 ### Random intercept and slope
 ### Rank ~ Normal(mean = Intercept_variety + Effect_gdd1_variety * gdd1, standard deviation = sigma)
-model_interceptslope <- lmer(R1_WS ~ (gdd_avg_phen_1 | Variety), data = mydat)
+model_interceptslope <- lmer(Avg_Rank ~ (gdd_avg_phen_1 | Variety), data = mydat)
 
 ### Random intercept model, with 3 fixed effects
 ### rank ~ Normal(mean = Intercept_variety + (Effect_gdd1 * gdd1) + (Effect_gdd2 * gdd2) + (Effect_gdd3 * gdd3), standard deviation = sigma)
-model_allthree <- lmer(R1_WS ~ (1 | Variety) + gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
+model_allthree <- lmer(Avg_Rank ~ (1 | Variety) + gdd_avg_phen_1 + gdd_avg_phen_2 + gdd_avg_phen_3, data = mydat)
 summary(model_allthree)
 confint(model_allthree) ### what are the 95% confidence intervals?
 ranef(model_allthree) ### what are the variety-level "offsets" from the intercept?
+
+
 
 
 coef(summary(m)) #fixed effects estimates
