@@ -540,9 +540,10 @@ unique(mydat$Variety)
   sonoma_zinfandel <- subset(sonoma, sonoma$Variety=="Zinfandel")
   
   #location - north coast
-  nc_cabernet <- subset(north_coast, sonoma$Variety=="Cabernet")
-  nc_chardonnay <- subset(north_coast, sonoma$Variety=="Chardonnay")
-  nc_zinfandel <- subset(north_coast, sonoma$Variety=="Zinfandel")
+  
+  nc_cabernet <- subset(north_coast, north_coast$Variety=="Cabernet" | north_coast$Variety=="Cabernet ")
+  nc_chardonnay <- subset(north_coast, north_coast$Variety=="Chardonnay")
+  nc_zinfandel <- subset(north_coast, north_coast$Variety=="Zinfandel")
 
 #creating 2 dataframes. One by year, one by phen. Both with gdd_agg, prcp_agg, vintage, and napa ratings
   Agg_Table_year <- merge(prcp_agg_year, gdd_agg_year)
@@ -550,80 +551,161 @@ unique(mydat$Variety)
   
   #napa - year
   Cabernet_Table_N <- merge(Agg_Table_year, napa_cabernet)
+    Cabernet_Table_N <- Cabernet_Table_N[,-c(2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25)] #keeping averages
+    colnames(Cabernet_Table_N)[3] <- c("var_gdd_avg_year")
+    colnames(Cabernet_Table_N)[2] <- c("var_prcp_avg_year")
+  
   Chardonnay_Table_N <- merge(Agg_Table_year, napa_chardonnay)
+    Chardonnay_Table_N <- Chardonnay_Table_N[,-c(2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25)] #keeping averages
+    colnames(Chardonnay_Table_N)[2] <- c("var_prcp_avg_year")
+    colnames(Chardonnay_Table_N)[3] <- c("var_gdd_avg_year")
+  
   Merlot_Table_N <- merge(Agg_Table_year, napa_merlot)
-  Rhone_Table_N <- merge(Agg_Table_year, napa_rhone)
-  Zinfandel_Table_N <- merge(Agg_Table_year, napa_zinfandel)
+    Merlot_Table_N <- Merlot_Table_N[,-c(2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24)] #keeping averages
+    colnames(Merlot_Table_N)[2] <- c("var_prcp_avg_year")
+    colnames(Merlot_Table_N)[3] <- c("var_gdd_avg_year")
+  
+  Rhone_Table_N <- merge(Agg_Table_year, napa_rhone) #values from gen
+    Rhone_Table_N <- Rhone_Table_N[,-c(2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25)] #keeping averages
+    colnames(Rhone_Table_N)[2] <- c("var_prcp_avg_year")
+    colnames(Rhone_Table_N)[3] <- c("var_gdd_avg_year")
+  
+  Zinfandel_Table_N <- merge(Agg_Table_year, napa_zinfandel) #values from gen
+    Zinfandel_Table_N <- Zinfandel_Table_N[,-c(2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25)] #keeping averages
+    colnames(Zinfandel_Table_N)[2] <- c("var_prcp_avg_year")
+    colnames(Zinfandel_Table_N)[3] <- c("var_gdd_avg_year")
   
   Napa_Table_Full_Year <- rbind(Cabernet_Table_N, Chardonnay_Table_N, Merlot_Table_N, Rhone_Table_N, Zinfandel_Table_N)
-  Napa_Table_Full_Year <- Napa_Table_Full_Year[,-c(2,3,4,5,6,7,8,9,14,15,16,17,18,19,20,21)] #keeping averages
-  Napa_Table_Full_Year <- Napa_Table_Full_Year[,c(1,10,11,12,13,14,2,3,4,5,6,7,8,9,15,16)] #reorganize columns
+  Napa_Table_Full_Year <- Napa_Table_Full_Year[,c(1,4,5,6,7,8,9,2,3,10,11)] #reorganize columns
   
+  #napa phen
   Cabernet_Table_N <- merge(Agg_Table_phen, napa_cabernet)
+    Cabernet_Table_N <- Cabernet_Table_N[,-c(3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25,26)] #keeping averages
+    colnames(Cabernet_Table_N)[4] <- c("var_gdd_avg_phen")
+    colnames(Cabernet_Table_N)[3] <- c("var_prcp_avg_phen")
+  
   Chardonnay_Table_N <- merge(Agg_Table_phen, napa_chardonnay)
+    Chardonnay_Table_N <- Chardonnay_Table_N[,-c(3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24,26)] #keeping averages
+    colnames(Chardonnay_Table_N)[4] <- c("var_gdd_avg_phen")
+    colnames(Chardonnay_Table_N)[3] <- c("var_prcp_avg_phen")
+  
   Merlot_Table_N <- merge(Agg_Table_phen, napa_merlot)
+    Merlot_Table_N <- Merlot_Table_N[,-c(3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25)] #keeping averages
+    colnames(Merlot_Table_N)[3] <- c("var_prcp_avg_phen")
+    colnames(Merlot_Table_N)[4] <- c("var_gdd_avg_phen")
+  
   Rhone_Table_N <- merge(Agg_Table_phen, napa_rhone)
+    Rhone_Table_N <- Rhone_Table_N[,-c(3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25,26)] #keeping averages
+    colnames(Rhone_Table_N)[4] <- c("var_gdd_avg_phen")
+    colnames(Rhone_Table_N)[3] <- c("var_prcp_avg_phen")
+  
   Zinfandel_Table_N <- merge(Agg_Table_phen, napa_zinfandel)
+    Zinfandel_Table_N <- Zinfandel_Table_N[,-c(3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25,26)] #keeping averages
+    colnames(Zinfandel_Table_N)[4] <- c("var_gdd_avg_phen")
+    colnames(Zinfandel_Table_N)[3] <- c("var_prcp_avg_phen")
   
   Napa_Table_Full_Phen <- rbind(Cabernet_Table_N, Chardonnay_Table_N, Merlot_Table_N, Rhone_Table_N, Zinfandel_Table_N)
-  Napa_Table_Full_Phen <- Napa_Table_Full_Phen[,-c(3,4,5,6,7,8,9,10,15,16,17,18,19,20,21,22)] #removing location, keeping averages
-  
-  Napa_Table_Full_Phen <- pivot_wider(Napa_Table_Full_Phen, names_from = phen_stage, values_from = c(prcp_avg_phen_gen, prcp_avg_phen_cab,
-                                                                                                     prcp_avg_phen_chard, prcp_avg_phen_mer,
-                                                                                                     gdd_avg_phen_gen, gdd_avg_phen_cab,
-                                                                                                     gdd_avg_phen_chard, gdd_avg_phen_mer))
-  
-  Napa_Table_Full_Phen <- Napa_Table_Full_Phen[,c(1,2,3,4,5,6,10,11,9,13,14,12,16,17,15,19,20,18,22,23,21,25,26,24,28,29,27,31,32,30,7,8)] #reorganize columns
+  Napa_Table_Full_Phen <- pivot_wider(Napa_Table_Full_Phen, names_from = phen_stage, values_from = c(var_prcp_avg_phen, var_gdd_avg_phen))
+  Napa_Table_Full_Phen <- Napa_Table_Full_Phen[,c(1,2,3,4,5,6,7,11,12,10,14,15,13,8,9)] #reorganize columns
   
   
-  #sonoma
+  #sonoma - year
   Cabernet_Table_S <- merge(Agg_Table_year, sonoma_cabernet)
+    Cabernet_Table_S <- Cabernet_Table_S[,-c(2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25)] #keeping averages
+    colnames(Cabernet_Table_S)[3] <- c("var_gdd_avg_year")
+    colnames(Cabernet_Table_S)[2] <- c("var_prcp_avg_year")
+  
   Chardonnay_Table_S <- merge(Agg_Table_year, sonoma_chardonnay)
+    Chardonnay_Table_S <- Chardonnay_Table_S[,-c(2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25)] #keeping averages
+    colnames(Chardonnay_Table_S)[2] <- c("var_prcp_avg_year")
+    colnames(Chardonnay_Table_S)[3] <- c("var_gdd_avg_year")
+  
   Merlot_Table_S <- merge(Agg_Table_year, sonoma_merlot)
-  Rhone_Table_S <- merge(Agg_Table_year, sonoma_rhone)
-  Zinfandel_Table_S <- merge(Agg_Table_year, sonoma_zinfandel)
+    Merlot_Table_S <- Merlot_Table_S[,-c(2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24)] #keeping averages
+    colnames(Merlot_Table_S)[2] <- c("var_prcp_avg_year")
+    colnames(Merlot_Table_S)[3] <- c("var_gdd_avg_year")
+  
+  Rhone_Table_S <- merge(Agg_Table_year, sonoma_rhone) #values from gen
+    Rhone_Table_S <- Rhone_Table_S[,-c(2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25)] #keeping averages
+    colnames(Rhone_Table_S)[2] <- c("var_prcp_avg_year")
+    colnames(Rhone_Table_S)[3] <- c("var_gdd_avg_year")
+  
+  Zinfandel_Table_S <- merge(Agg_Table_year, sonoma_zinfandel) #values from gen
+    Zinfandel_Table_S <- Zinfandel_Table_S[,-c(2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25)] #keeping averages
+    colnames(Zinfandel_Table_S)[2] <- c("var_prcp_avg_year")
+    colnames(Zinfandel_Table_S)[3] <- c("var_gdd_avg_year")
   
   Sonoma_Table_Full_Year <- rbind(Cabernet_Table_S, Chardonnay_Table_S, Merlot_Table_S, Rhone_Table_S, Zinfandel_Table_S)
-  Sonoma_Table_Full_Year <- Sonama_Table_Full_Year[,-c(2,3,4,5,6,7,8,9,14,15,16,17,18,19,20,21)] #keeping averages
-  Sonoma_Table_Full_Year <- Sonoma_Table_Full_Year[,c(1,10,11,12,13,14,2,3,4,5,6,7,8,9,15,16)] #reorganize columns
+  Sonoma_Table_Full_Year <- Sonoma_Table_Full_Year[,c(1,4,5,6,7,8,9,2,3,10,11)] #reorganize columns
   
+  #sonoma - phen
   Cabernet_Table_S <- merge(Agg_Table_phen, sonoma_cabernet)
+    Cabernet_Table_S <- Cabernet_Table_S[,-c(3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25,26)] #keeping averages
+    colnames(Cabernet_Table_S)[4] <- c("var_gdd_avg_phen")
+    colnames(Cabernet_Table_S)[3] <- c("var_prcp_avg_phen")
+  
   Chardonnay_Table_S <- merge(Agg_Table_phen, sonoma_chardonnay)
+    Chardonnay_Table_S <- Chardonnay_Table_S[,-c(3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24,26)] #keeping averages
+    colnames(Chardonnay_Table_S)[4] <- c("var_gdd_avg_phen")
+    colnames(Chardonnay_Table_S)[3] <- c("var_prcp_avg_phen")
+  
   Merlot_Table_S <- merge(Agg_Table_phen, sonoma_merlot)
+    Merlot_Table_S <- Merlot_Table_S[,-c(3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25)] #keeping averages
+    colnames(Merlot_Table_S)[3] <- c("var_prcp_avg_phen")
+    colnames(Merlot_Table_S)[4] <- c("var_gdd_avg_phen")
+  
   Rhone_Table_S <- merge(Agg_Table_phen, sonoma_rhone)
+    Rhone_Table_S <- Rhone_Table_S[,-c(3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25,26)] #keeping averages
+    colnames(Rhone_Table_S)[4] <- c("var_gdd_avg_phen")
+    colnames(Rhone_Table_S)[3] <- c("var_prcp_avg_phen")
+  
   Zinfandel_Table_S <- merge(Agg_Table_phen, sonoma_zinfandel)
+    Zinfandel_Table_S <- Zinfandel_Table_S[,-c(3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25,26)] #keeping averages
+    colnames(Zinfandel_Table_S)[4] <- c("var_gdd_avg_phen")
+    colnames(Zinfandel_Table_S)[3] <- c("var_prcp_avg_phen")
   
   Sonoma_Table_Full_Phen <- rbind(Cabernet_Table_S, Chardonnay_Table_S, Merlot_Table_S, Rhone_Table_S, Zinfandel_Table_S)
-  Sonoma_Table_Full_Phen <- Sonoma_Table_Full_Phen[,-c(3,4,5,6,7,8,9,10,15,16,17,18,19,20,21,22)] #removing location, keeping averages
+  Sonoma_Table_Full_Phen <- pivot_wider(Sonoma_Table_Full_Phen, names_from = phen_stage, values_from = c(var_prcp_avg_phen, var_gdd_avg_phen))
+  Sonoma_Table_Full_Phen <- Sonoma_Table_Full_Phen[,c(1,2,3,4,5,6,7,10,11,12,13,14,15,8,9)] #reorganize columns
   
-  Sonoma_Table_Full_Phen <- pivot_wider(Sonoma_Table_Full_Phen, names_from = phen_stage, values_from = c(prcp_avg_phen_gen, prcp_avg_phen_cab,
-                                                                                                     prcp_avg_phen_chard, prcp_avg_phen_mer,
-                                                                                                     gdd_avg_phen_gen, gdd_avg_phen_cab,
-                                                                                                     gdd_avg_phen_chard, gdd_avg_phen_mer))
-  
-  Sonoma_Table_Full_Phen <- Sonoma_Table_Full_Phen[,c(1,2,3,4,5,6,10,11,9,13,14,12,16,17,15,19,20,18,22,23,21,25,26,24,28,29,27,31,32,30,7,8)] #reorganize columns
-  
-  #north coast
+  #north coast - year
   Cabernet_Table_NC <- merge(Agg_Table_year, nc_cabernet)
+    Cabernet_Table_NC <- Cabernet_Table_NC[,-c(2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25)] #keeping averages
+    colnames(Cabernet_Table_NC)[3] <- c("var_gdd_avg_year")
+    colnames(Cabernet_Table_NC)[2] <- c("var_prcp_avg_year")
+  
   Chardonnay_Table_NC <- merge(Agg_Table_year, nc_chardonnay)
-  Zinfandel_Table_NC <- merge(Agg_Table_year, nc_zinfandel)
+    Chardonnay_Table_NC <- Chardonnay_Table_NC[,-c(2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25)] #keeping averages
+    colnames(Chardonnay_Table_NC)[2] <- c("var_prcp_avg_year")
+    colnames(Chardonnay_Table_NC)[3] <- c("var_gdd_avg_year")
+  
+  Zinfandel_Table_NC <- merge(Agg_Table_year, nc_zinfandel) #values from gen
+    Zinfandel_Table_NC <- Zinfandel_Table_NC[,-c(2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25)] #keeping averages
+    colnames(Zinfandel_Table_NC)[2] <- c("var_prcp_avg_year")
+    colnames(Zinfandel_Table_NC)[3] <- c("var_gdd_avg_year")
   
   NC_Table_Full_Year <- rbind(Cabernet_Table_NC, Chardonnay_Table_NC, Zinfandel_Table_NC)
-  NC_Table_Full_Year <- NC_Table_Full_Year[,-c(2,3,4,5,6,7,8,9,14,15,16,17,18,19,20,21)] #keeping averages
-  NC_Table_Full_Year <- NC_Table_Full_Year[,c(1,10,11,12,13,14,2,3,4,5,6,7,8,9,15,16)] #reorganize columns
+  NC_Table_Full_Year <- NC_Table_Full_Year[,c(1,4,5,6,7,8,9,2,3,10,11)] #reorganize columns
   
+  #north coast - phen
   Cabernet_Table_NC <- merge(Agg_Table_phen, nc_cabernet)
+    Cabernet_Table_NC <- Cabernet_Table_NC[,-c(3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,25,26)] #keeping averages
+    colnames(Cabernet_Table_NC)[4] <- c("var_gdd_avg_phen")
+    colnames(Cabernet_Table_NC)[3] <- c("var_prcp_avg_phen")
+  
   Chardonnay_Table_NC <- merge(Agg_Table_phen, nc_chardonnay)
+    Chardonnay_Table_NC <- Chardonnay_Table_NC[,-c(3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24,26)] #keeping averages
+    colnames(Chardonnay_Table_NC)[4] <- c("var_gdd_avg_phen")
+    colnames(Chardonnay_Table_NC)[3] <- c("var_prcp_avg_phen")
+  
   Zinfandel_Table_NC <- merge(Agg_Table_phen, nc_zinfandel)
+    Zinfandel_Table_NC <- Zinfandel_Table_NC[,-c(3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,24,25,26)] #keeping averages
+    colnames(Zinfandel_Table_NC)[4] <- c("var_gdd_avg_phen")
+    colnames(Zinfandel_Table_NC)[3] <- c("var_prcp_avg_phen")
   
   NC_Table_Full_Phen <- rbind(Cabernet_Table_NC, Chardonnay_Table_NC, Zinfandel_Table_NC)
-  NC_Table_Full_Phen <- NC_Table_Full_Phen[,-c(3,4,5,6,7,8,9,10,15,16,17,18,19,20,21,22)] #removing location, keeping averages
-  NC_Table_Full_Phen <- pivot_wider(NC_Table_Full_Phen, names_from = phen_stage, values_from = c(prcp_avg_phen_gen, prcp_avg_phen_cab,
-                                                                                                     prcp_avg_phen_chard, prcp_avg_phen_mer,
-                                                                                                     gdd_avg_phen_gen, gdd_avg_phen_cab,
-                                                                                                     gdd_avg_phen_chard, gdd_avg_phen_mer))
-  
-  NC_Table_Full_Phen <- NC_Table_Full_Phen[,c(1,2,3,4,5,6,10,11,9,13,14,12,16,17,15,19,20,18,22,23,21,25,26,24,28,29,27,31,32,30,7,8)] #reorganize columns
+  NC_Table_Full_Phen <- pivot_wider(NC_Table_Full_Phen, names_from = phen_stage, values_from = c(var_prcp_avg_phen, var_gdd_avg_phen))
+  NC_Table_Full_Phen <- NC_Table_Full_Phen[,c(1,2,3,4,5,6,7,11,10,12,14,13,15,8,9)] #reorganize columns
   
   #Exporting as csv for future modeling
    write.csv(Napa_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NapaComplete_year.csv", row.names = FALSE)
