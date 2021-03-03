@@ -27,6 +27,9 @@ climdat$MDPR <- NULL
 climdat$SNOW <- NULL
 climdat$SNWD <- NULL
 
+#Deleting year 1990 as one station is missing the month of May
+climdat <- climdat[!(climdat$year=="1990"), ]
+
 #Finding intersecting years
 years <- intersect(x = climdat$year, y = mydat$Vintage)
 
@@ -36,7 +39,7 @@ mydat <- subset(mydat, Vintage %in% years)
 
 #Subsetting climate data (dates and columns of interest)
 #April 1 - September 30
-climdat <- climdat[which(climdat$month=="4" | climdat$month=="5" | climdat$month=="6" |
+climdat <- climdat[which(climdat$month=="3" | climdat$month=="4" | climdat$month=="5" | climdat$month=="6" |
                            climdat$month=="7" | climdat$month=="8" | climdat$month=="9"), ]
 
 #Calculating Mean Temperature 
@@ -115,6 +118,6 @@ for(i in 1:nrow(st_helena)){
 }
 
 #write csv
-#write.csv(st_helena,"/Users/phoebeautio/Desktop/Vintage Research/StHelenaClean.csv", row.names = FALSE)
-#write.csv(st_hosp,"/Users/phoebeautio/Desktop/Vintage Research/StHospClean.csv", row.names = FALSE)
+write.csv(st_helena,"/Users/phoebeautio/Desktop/Vintage Research/StHelenaClean.csv", row.names = FALSE)
+write.csv(st_hosp,"/Users/phoebeautio/Desktop/Vintage Research/StHospClean.csv", row.names = FALSE)
 
