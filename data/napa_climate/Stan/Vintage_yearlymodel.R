@@ -19,12 +19,18 @@ head(nc_phen)
 
 ## Geoff's file path
 napa_phen <- read.csv("../TablesForModels/NapaComplete_year.csv",header = TRUE)
-sonoma_phen <- read.csv("../TablesForModels/SonomaComplete_year.csv", header = TRUE)
-nc_phen <- read.csv("../TablesForModels/NorthCoastComplete_year.csv", header = TRUE)
+sonoma_phen <- read.csv("../TablesForModels/UniqueSonomaComplete_year.csv", header = TRUE)
+## nc_phen <- read.csv("../TablesForModels/NorthCoastComplete_year.csv", header = TRUE)
+or_phen <- read.csv("../TablesForModels/ORComplete_year.csv", header = TRUE)
+sb_phen <- read.csv("../TablesForModels/SBComplete_year.csv", header = TRUE)
 
 
 ## Combine into 1 table
-all_phen <- rbind(napa_phen, sonoma_phen, nc_phen)
+all_phen <- rbind(napa_phen, sonoma_phen, or_phen, sb_phen)
+
+## quick fixes
+all_phen[which(all_phen$Variety == "Cabernet "), "Variety"]  <- "Cabernet"
+all_phen <- subset(all_phen, !(Vintage == 1991))
 
 ## Create location and variety indices
 ### Locations
@@ -54,18 +60,18 @@ fit1 <- stan("yearly.stan",
              chains = 4)
 
 ## Rename locations and varieties
-names(fit1)[1:20]
-names(fit1)[5:7] <- locs
-names(fit1)[8:13] <- varieties
+names(fit1)[5:8] <- locs
+names(fit1)[9:14] <- varieties
 
 ## View diagnostics
 launch_shinystan(fit1)
 
 ## Summarize posterior samples
-summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd"))$summary
+summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd"))$summary[, "mean"]
 
 pdf(file = "Results_yearly.pdf", onefile = TRUE)
 plot(fit1, pars = c("a_location"))
 plot(fit1, pars = c("a_variety"))
 plot(fit1, pars = c("b_gdd", "b_precip"))
+plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
 dev.off()

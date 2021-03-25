@@ -19,12 +19,17 @@ head(nc_phen)
 
 ## Geoff's file path
 napa_phen <- read.csv("../TablesForModels/NapaComplete_phen.csv",header = TRUE)
-sonoma_phen <- read.csv("../TablesForModels/SonomaComplete_phen.csv", header = TRUE)
-nc_phen <- read.csv("../TablesForModels/NorthCoastComplete_phen.csv", header = TRUE)
+sonoma_phen <- read.csv("../TablesForModels/UniqueSonomaComplete_phen.csv", header = TRUE)
+or_phen <- read.csv("../TablesForModels/ORComplete_phen.csv", header = TRUE)
+sb_phen <- read.csv("../TablesForModels/SBComplete_phen.csv", header = TRUE)
 
 
 ## Combine into 1 table
-all_phen <- rbind(napa_phen, sonoma_phen, nc_phen)
+all_phen <- rbind(napa_phen, sonoma_phen, or_phen, sb_phen)
+
+## quick fixes
+all_phen[which(all_phen$Variety == "Cabernet "), "Variety"]  <- "Cabernet"
+all_phen <- subset(all_phen, !(Vintage == 1991))
 
 ## Create location and variety indices
 ### Locations
@@ -35,6 +40,9 @@ locs.number <- as.numeric(as.factor(locs))
 varieties <- unique(all_phen$Variety)
 varieties <- varieties[order(varieties)]
 varieties.number <- as.numeric(as.factor(varieties))
+
+## Create variable with average ranks
+avgranks <- all_phen$Avg_Rank
 
 ## Organize data for model fitting
 data.stan <- list(N = nrow(all_phen),
@@ -59,8 +67,8 @@ fit1 <- stan("threephases.stan",
 
 ## Rename locations and varieties
 names(fit1)[1:20]
-names(fit1)[5:7] <- locs
-names(fit1)[8:13] <- varieties
+names(fit1)[5:8] <- locs
+names(fit1)[9:14] <- varieties
 
 ## View diagnostics
 launch_shinystan(fit1)
@@ -72,4 +80,5 @@ pdf(file = "Results_threephases.pdf", onefile = TRUE)
 plot(fit1, pars = c("a_location"))
 plot(fit1, pars = c("a_variety"))
 plot(fit1, pars = c("b_gdd1", "b_gdd2", "b_gdd3", "b_precip1", "b_precip2", "b_precip3"))
+plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
 dev.off()

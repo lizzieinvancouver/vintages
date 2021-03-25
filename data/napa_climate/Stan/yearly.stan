@@ -45,8 +45,8 @@ model {
   sigma_location ~ normal(5, 2);
   a_variety ~ normal(0, sigma_variety);
   sigma_variety ~ normal(5, 2);
-  b_precip ~ normal(0, .1);
-  b_gdd ~ normal(0, .1);
+  b_precip ~ normal(0, .5);
+  b_gdd ~ normal(0, .5);
 
 }
 
