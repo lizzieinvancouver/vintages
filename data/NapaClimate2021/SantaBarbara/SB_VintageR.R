@@ -7,15 +7,16 @@ options(stringsAsFactors = FALSE)
 #Load libraries
 library(lubridate)
 library(dplyr)
+library(tidyr)
 
 #Reading in csv files
-mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/SB_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
+mydat <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/SantaBarbara/SB_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 
-smaria <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/SMariaClean.csv", header=TRUE, na.strings=c(""," ","NA"))
+smaria <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/SantaBarbara/SMariaClean.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(smaria)
 
-sb <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/SBClean.csv", header=TRUE, na.strings=c(""," ","NA"))
+sb <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/SantaBarbara/SBClean.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(sb)
 
 ## Relative paths (Geoff)
@@ -284,6 +285,7 @@ unique(mydat$Variety)
 Chardonnay <- subset(mydat, mydat$Variety=="Chardonnay")
 Rhone <- subset(mydat, mydat$Variety=="Rhone")
 Pinot <- subset(mydat, mydat$Variety=="Pinot Noir")
+General <- subset(mydat, mydat$Variety=="General")
 
 #creating 2 dataframes. One by year, one by phen. Both with gdd_agg, prcp_agg, vintage, and napa ratings
 Agg_Table_year <- merge(prcp_agg_year, gdd_agg_year)
@@ -305,7 +307,12 @@ Rhone_Table <- Rhone_Table[,-c(2,3,4,5,7,8,9,10,11,13)] #keeping averages
 colnames(Rhone_Table)[2] <- c("var_prcp_avg_year")
 colnames(Rhone_Table)[3] <- c("var_gdd_avg_year")
 
-SB_Table_Full_Year <- rbind(Pinot_Table, Chardonnay_Table, Rhone_Table)
+General_Table <- merge(Agg_Table_year, General) #values from gen
+General_Table <- General_Table[,-c(2,3,4,5,7,8,9,10,11,13)] #keeping averages
+colnames(General_Table)[2] <- c("var_prcp_avg_year")
+colnames(General_Table)[3] <- c("var_gdd_avg_year")
+
+SB_Table_Full_Year <- rbind(Pinot_Table, Chardonnay_Table, Rhone_Table, General_Table)
 SB_Table_Full_Year <- SB_Table_Full_Year[,c(1,4,5,6,7,8,9,2,3,10,11)] #reorganize columns
 
 #phen
@@ -324,10 +331,15 @@ Rhone_Table <- Rhone_Table[,-c(3,4,5,6,8,9,10,11,12,14)] #keeping averages
 colnames(Rhone_Table)[4] <- c("var_gdd_avg_phen")
 colnames(Rhone_Table)[3] <- c("var_prcp_avg_phen")
 
-SB_Table_Full_Phen <- rbind(Pinot_Table, Chardonnay_Table, Rhone_Table)
+General_Table <- merge(Agg_Table_phen, General) #values from gen
+General_Table <- General_Table[,-c(3,4,5,6,8,9,10,11,12,14)] #keeping averages
+colnames(General_Table)[4] <- c("var_gdd_avg_phen")
+colnames(General_Table)[3] <- c("var_prcp_avg_phen")
+
+SB_Table_Full_Phen <- rbind(Pinot_Table, Chardonnay_Table, Rhone_Table, General_Table)
 SB_Table_Full_Phen <- pivot_wider(SB_Table_Full_Phen, names_from = phen_stage, values_from = c(var_prcp_avg_phen, var_gdd_avg_phen))
 SB_Table_Full_Phen <- SB_Table_Full_Phen[,c(1,2,3,4,5,6,7,10,11,12,13,14,15,8,9)] #reorganize columns
 
 #Exporting as csv for future modeling
-write.csv(SB_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/SBComplete_year.csv", row.names = FALSE)
-write.csv(SB_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/SBComplete_phen.csv", row.names = FALSE)
+write.csv(SB_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/TablesForModels/SBComplete_year.csv", row.names = FALSE)
+write.csv(SB_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/TablesForModels/SBComplete_phen.csv", row.names = FALSE)

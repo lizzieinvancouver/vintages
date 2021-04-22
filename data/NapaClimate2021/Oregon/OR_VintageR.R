@@ -7,15 +7,16 @@ options(stringsAsFactors = FALSE)
 #Load libraries
 library(lubridate)
 library(dplyr)
+library(tidyr)
 
 #Reading in csv files
-mydat <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/OR_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
+mydat <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/Oregon/OR_Vintage.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(mydat)
 
-sal_air <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/SalAirClean.csv", header=TRUE, na.strings=c(""," ","NA"))
+sal_air <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/Oregon/SalAirClean.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(sal_air)
 
-sil <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/SilClean.csv", header=TRUE, na.strings=c(""," ","NA"))
+sil <- read.csv("/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/Oregon/SilClean.csv", header=TRUE, na.strings=c(""," ","NA"))
 head(sil)
 
 ## Relative paths (Geoff)
@@ -183,6 +184,6 @@ OR_Table_Full_Phen <- pivot_wider(Pinot_Table, names_from = phen_stage, values_f
 OR_Table_Full_Phen <- OR_Table_Full_Phen[,c(1,2,3,4,5,6,7,10,11,12,13,14,15,8,9)] #reorganize columns
 
 #Exporting as csv for future modeling
-write.csv(OR_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/ORComplete_year.csv", row.names = FALSE)
-write.csv(OR_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/ORComplete_phen.csv", row.names = FALSE)
+write.csv(OR_Table_Full_Year,"/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/TablesForModels/ORComplete_year.csv", row.names = FALSE)
+write.csv(OR_Table_Full_Phen,"/Users/phoebeautio/Desktop/Vintages/data/NapaClimate2021/TablesForModels/ORComplete_phen.csv", row.names = FALSE)
 
