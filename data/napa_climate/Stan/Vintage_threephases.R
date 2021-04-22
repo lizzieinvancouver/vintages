@@ -28,7 +28,6 @@ sb_phen <- read.csv("../TablesForModels/SBComplete_phen.csv", header = TRUE)
 all_phen <- rbind(napa_phen, sonoma_phen, or_phen, sb_phen)
 
 ## quick fixes
-all_phen[which(all_phen$Variety == "Cabernet "), "Variety"]  <- "Cabernet"
 all_phen <- subset(all_phen, !(Vintage == 1991))
 
 ## Create location and variety indices

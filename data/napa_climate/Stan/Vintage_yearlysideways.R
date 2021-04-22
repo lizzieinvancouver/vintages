@@ -44,6 +44,9 @@ varieties.number <- as.numeric(as.factor(varieties))
 ## Create variable with average ranks
 avgranks <- all_phen$Avg_Rank
 
+## Add dummy variable for sideways
+sideways.dummy <- as.numeric(all_phen[, "Vintage"] > 2003)
+
 ## Organize data for model fitting
 data.stan <- list(N = nrow(all_phen),
                   avg_rank = all_phen$Avg_Rank,
@@ -52,10 +55,11 @@ data.stan <- list(N = nrow(all_phen),
                   n_variety = length(varieties),
                   variety = as.numeric(as.factor(all_phen$Variety)),
                   precip = all_phen$var_prcp_avg_year,
-                  gdd = all_phen$var_gdd_avg_year)
+                  gdd = all_phen$var_gdd_avg_year,
+                  sideways = sideways.dummy)
 
 ## Fit Stan model
-fit1 <- stan("yearly.stan",
+fit1 <- stan("yearly_sideways.stan",
              data = data.stan,
              iter = 2000,
              warmup = 1000,
@@ -64,16 +68,18 @@ fit1 <- stan("yearly.stan",
 ## Rename locations and varieties
 names(fit1)[5:8] <- locs
 names(fit1)[9:14] <- varieties
-
+names(fit1)[17:22] <- paste("sideways_", varieties, sep = "")
+    
 ## View diagnostics
 launch_shinystan(fit1)
 
 ## Summarize posterior samples
-summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd"))$summary[, "mean"]
+summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd", "b_sideways"))$summary[, "mean"]
 
-pdf(file = "Results_yearly.pdf", onefile = TRUE)
+pdf(file = "Results_yearly_sideways.pdf", onefile = TRUE)
 plot(fit1, pars = c("a_location"))
 plot(fit1, pars = c("a_variety"))
 plot(fit1, pars = c("b_gdd", "b_precip"))
+plot(fit1, pars = c("b_sideways"))
 plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
 dev.off()
