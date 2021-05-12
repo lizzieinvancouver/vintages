@@ -1,95 +1,101 @@
 "Vintage","Location","Variety","R1_WS","R2_WE","R3_WA","Avg_Rank","var_prcp_avg_phen_1","var_prcp_avg_phen_2","var_prcp_avg_phen_3","var_gdd_avg_phen_1","var_gdd_avg_phen_2","var_gdd_avg_phen_3","Descriptions_WS_WA","Notes"
-1982,"Washington","Syrah",NA,NA,78,78,59,46,25.05,53.225,592.375,599.775,NA,NA
-1983,"Washington","Syrah",NA,NA,92,92,35.2,53.05,18.75,47.95,566.925,597.2,NA,NA
-1984,"Washington","Syrah",NA,NA,72,72,46.4,64.85,16.3,45.225,494.0375,613.875,NA,NA
-1985,"Washington","Syrah",NA,NA,86,86,21.35,32.85,47.5,96.775,731.725,498.625,NA,NA
-1986,"Washington","Syrah",NA,NA,78,78,15.25,33.3,3.2,42.1125,691.925,618.375,NA,NA
-1987,"Washington","Syrah",NA,NA,90,90,40.45,54.6,18.6,205.05,591.375,607.725,NA,NA
-1988,"Washington","Syrah",NA,NA,88,88,49.8,58.85,0.25,130.4625,572.475,627.5625,NA,NA
-1989,"Washington","Syrah",NA,NA,92,92,38.6,29.3,23.6,137.025,580.125,527.7125,NA,NA
-1990,"Washington","Syrah",NA,NA,87,87,55.5,46.55,28.1,117.325,625.75,654.575,NA,NA
-1991,"Washington","Syrah",NA,NA,85,85,53.225,82.525,18.2,56.5,496.3125,646.95,NA,NA
-1992,"Washington","Syrah",NA,NA,89,89,53.45,53.5,31.65,147.2375,726.1125,587.4,NA,NA
-1993,"Washington","Syrah",NA,87,87,87,79.95,67.65,20.2,109.675,559.2875,553.3875,NA,NA
-1994,"Washington","Syrah",NA,89,90,89.5,34.8,44,9.05,162.075,627.2,609.475,NA,NA
-1995,"Washington","Syrah",NA,89,87,88,53.15,70.5,42.55,67.925,623.0625,392.45,NA,NA
-1996,"Washington","Syrah",NA,88,88,88,76.1,46.75,6,82.65,581.0625,652.0875,NA,NA
-1997,"Washington","Syrah",NA,87,88,87.5,40.1,57.1,14.1,121.1375,511.475,635.55,NA,NA
-1998,"Washington","Syrah",NA,89,90,89.5,36.75,60.15,15.9,108.9625,614.5375,736.825,NA,NA
-1999,"Washington","Syrah",NA,92,90,91,22.85,18.9,26.55,46.6,553.5,603.9625,NA,NA
-2000,"Washington","Syrah",90,88,89,89,31.725,79.2,25.45,115.075,596.125,521.3875,"Warm vintage with balanced reds",NA
-2001,"Washington","Syrah",91,93,92,92,66.85,28.4,10.3,98.425,593.9875,634.1625,"Hot vitage; ripe wines",NA
-2002,"Washington","Syrah",90,94,89,91,27.95,55,4.6,48.2375,689,573.1,"Ripe but tannic",NA
-2003,"Washington","Syrah",92,91,90,91,66.225,2.9,26.1,65.8375,694.275,665.8625,"Rive vintage, broad and generous",NA
-2004,"Washington","Syrah",91,90,91,90.66666667,43.5,64.9,33.05,102.45,633.6125,639.075,"Walla Walla wiped out by freeze; rest of state solid",NA
-2005,"Washington","Syrah",93,93,94,93.33333333,45.6,40.75,NA,120.15,349.725,NA,"Ripe flavors but non excessively heavy",NA
-2007,"Washington","Syrah",96,89,95,93.33333333,20.1,46.45,13,75.3,443.2875,362.225,"Hot summer and cool autumn made rich; balanced wines",NA
-2008,"Washington","Syrah",95,90,91,92,16.05,50.275,5.1,38.1,403.25,285.2,"Cool summer and warm autumn; many great wines",NA
-2009,"Washington","Syrah",92,91,92,91.66666667,62.7,22.6,21.05,51.725,655.4375,639.8625,"Late year with early frost made fine Merlot and Syrah",NA
-2010,"Washington","Syrah",91,89,92,90.66666667,38.95,120.8,17.55,67.85,498.8875,550.4125,"Cool year produced crisp reds with lovely ripe flavors",NA
-2011,"Washington","Syrah",89,91,87,89,100.775,77.825,0.875,31.05,394.1,613.425,"Another cool year; moderate alcohols with crisp balance",NA
-2012,"Washington","Syrah",95,95,95,95,95.475,135.85,0,104.825,568.5125,324.775,"Ideal conditions produced powerful wines with elegance",NA
-2014,"Washington","Syrah",92,90,94,92,22.85,16.55,NA,57.075,376.25,NA,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
-2015,"Washington","Syrah",91,90,86,89,32.8,15.175,13.1,74.225,773.7375,142.8875,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
-2016,"Washington","Syrah",91,91,90,90.66666667,43.8,50,9.4,175.825,549.625,565.725,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
-2017,"Washington","Syrah",90,92,93,91.66666667,49.75,24.7,0.4,57.0375,369.8875,425.325,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression",NA
-2018,"Washington","Syrah",91.5,NA,NA,91.5,77.8,15.75,2.4,115.3125,630.5875,606.45,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
-1993,"Washington","Merlot",NA,87,NA,87,100.65,54.65,33.2,94.525,510.9125,620.3625,NA,NA
-1994,"Washington","Merlot",NA,90,NA,90,21.1,58.25,9.05,176.45,499.55,744.575,NA,NA
-1995,"Washington","Merlot",NA,89,NA,89,57.35,70.5,42.55,62.825,511.4125,514.825,NA,NA
-1996,"Washington","Merlot",NA,86,NA,86,76.15,53.05,6.8,71.125,506.9125,738.7375,NA,NA
-1997,"Washington","Merlot",NA,87,NA,87,53.45,57.1,14.1,110.9875,433.925,737.4,NA,NA
-1998,"Washington","Merlot",NA,91,NA,91,36.15,63.45,15.9,134.8125,490.9625,860.8,NA,NA
-1999,"Washington","Merlot",NA,96,NA,96,43.35,16.25,29.2,51.45,467.9,689.5625,NA,NA
-2000,"Washington","Merlot",90,88,NA,89,38.075,79.2,25.45,113.95,500.175,630.4125,"Warm vintage with balanced reds",NA
-2001,"Washington","Merlot",91,92,NA,91.5,83.35,38.9,11.1,99.8,534.725,700.8,"Hot vitage; ripe wines",NA
-2002,"Washington","Merlot",90,94,NA,92,38.85,55.15,4.6,50.475,572.3125,693.65,"Ripe but tannic",NA
-2003,"Washington","Merlot",92,92,NA,92,75.775,1.9,27.1,71.2875,579.375,791.5625,"Rive vintage, broad and generous",NA
-2004,"Washington","Merlot",91,89,NA,90,53.3,64.25,33.7,118.3,521.3125,758.6,"Walla Walla wiped out by freeze; rest of state solid",NA
-2005,"Washington","Merlot",93,95,NA,94,77,44.95,NA,118.625,308.775,NA,"Ripe flavors but non excessively heavy",NA
-2007,"Washington","Merlot",96,93,NA,94.5,48.425,38.7,20.75,72.025,389.8125,421.95,"Hot summer and cool autumn made rich; balanced wines",NA
-2008,"Washington","Merlot",95,92,NA,93.5,19.65,54.075,5.1,29.2,358.4125,338.9375,"Cool summer and warm autumn; many great wines",NA
-2009,"Washington","Merlot",92,90,NA,91,113.65,29.2,21.05,52.4,538.7625,758.8875,"Late year with early frost made fine Merlot and Syrah",NA
-2010,"Washington","Merlot",91,92,NA,91.5,54,120.8,17.55,53.975,417.2125,646.1125,"Cool year produced crisp reds with lovely ripe flavors",NA
-2011,"Washington","Merlot",89,89,NA,89,109.525,84.95,6.2,23.675,333.075,687.775,"Another cool year; moderate alcohols with crisp balance",NA
-2012,"Washington","Merlot",95,95,NA,95,141.875,114.95,20.9,84.525,491.8375,422.725,"Ideal conditions produced powerful wines with elegance",NA
-2014,"Washington","Merlot",92,93,NA,92.5,35.3,14.15,NA,58.225,334.85,NA,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
-2015,"Washington","Merlot",91,90,NA,90.5,46.775,15.175,13.1,96,674.7125,245.0875,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
-2016,"Washington","Merlot",91,90,NA,90.5,38.4,60.55,12.55,185.6,482.55,645.975,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
-2017,"Washington","Merlot",90,92,NA,91,72.65,24.7,0.4,69.8125,324.6375,470.725,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression","*WA ranks are from columbia valley"
-2018,"Washington","Merlot",91.5,NA,NA,91.5,78.6,15.75,2.4,106.0375,544.6375,714.475,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
-1982,"Washington","Cabernet",NA,NA,78,78,70.2,46,27.95,58.125,584.2,664.575,NA,NA
-1983,"Washington","Cabernet",NA,NA,92,92,70.6,53.05,28.05,54.9,549.725,637.975,NA,NA
-1984,"Washington","Cabernet",NA,NA,72,72,68.6,64.85,26.35,45.925,479.7375,685.525,NA,NA
-1985,"Washington","Cabernet",NA,NA,86,86,29.8,32.85,60.4,109.7,715.875,528.775,NA,NA
-1986,"Washington","Cabernet",NA,NA,78,78,26.4,33.3,20.9,56.3125,675.275,656.075,NA,NA
-1987,"Washington","Cabernet",NA,NA,90,90,49.25,53.95,20.4,218.125,583.875,674.65,NA,NA
-1988,"Washington","Cabernet",NA,NA,88,88,75.95,58.85,14,131.2875,559.275,662.6125,NA,NA
-1989,"Washington","Cabernet",NA,NA,92,92,55.65,29.3,27.65,153.8,566.925,598.4375,NA,NA
-1990,"Washington","Cabernet",NA,NA,87,87,56.15,46.55,28.1,138.875,607.15,735.225,NA,NA
-1991,"Washington","Cabernet",NA,NA,85,85,57.825,82.525,18.2,67.05,480.3625,720.825,NA,NA
-1992,"Washington","Cabernet",NA,NA,89,89,53.85,39.8,48.8,173.5375,721.3875,645.9,NA,NA
-1993,"Washington","Cabernet",NA,NA,87,87,100.65,63.6,24.25,113.125,549.5625,583.6125,NA,NA
-1994,"Washington","Cabernet",NA,87,90,88.5,35.35,44,9.05,183.9,607.2,710.2375,NA,NA
-1995,"Washington","Cabernet",NA,90,87,88.5,57.35,70.5,42.55,73.55,610.9875,464.6,NA,NA
-1996,"Washington","Cabernet",NA,89,88,88.5,83.25,46.75,9.3,83.625,564.8125,686.8125,NA,NA
-1997,"Washington","Cabernet",NA,86,88,87,53.45,57.1,24.05,135.2875,501.875,686.75,NA,NA
-1998,"Washington","Cabernet",NA,87,90,88.5,39.45,60.15,28.35,135.2125,597.1875,823.025,NA,NA
-1999,"Washington","Cabernet",NA,91,90,90.5,43.35,18.9,26.55,51.45,539.9,694.0875,NA,NA
-2000,"Washington","Cabernet",90,96,89,91.66666667,38.075,79.2,31.7,127.025,585.575,580.9875,"Warm vintage with balanced reds",NA
-2001,"Washington","Cabernet",91,88,92,90.33333333,94.65,28.4,10.3,107.175,582.4625,720.3625,"Hot vitage; ripe wines",NA
-2002,"Washington","Cabernet",90,92,89,90.33333333,39,55,7.05,54.3375,671.625,632.9625,"Ripe but tannic",NA
-2003,"Washington","Cabernet",92,94,90,92,75.775,2.9,27.6,82.0875,675.375,724.0625,"Rive vintage, broad and generous",NA
-2004,"Washington","Cabernet",91,92,91,91.33333333,53.3,64.9,34.85,125.525,617.3625,683.025,"Walla Walla wiped out by freeze; rest of state solid",NA
-2005,"Washington","Cabernet",93,89,94,92,81.95,40.75,NA,137.375,343.475,NA,"Ripe flavors but non excessively heavy",NA
-2007,"Washington","Cabernet",96,92,95,94.33333333,48.425,46.45,13,78.275,437.0375,383.4625,"Hot summer and cool autumn made rich; balanced wines",NA
-2008,"Washington","Cabernet",95,93,91,93,23.45,50.275,8,38.1,396.875,324.925,"Cool summer and warm autumn; many great wines",NA
-2009,"Washington","Cabernet",92,92,92,92,120.25,22.6,21.05,54.75,640.9875,720.6125,"Late year with early frost made fine Merlot and Syrah",NA
-2010,"Washington","Cabernet",91,90,92,91,54,120.8,45.15,68,487.0875,610.5375,"Cool year produced crisp reds with lovely ripe flavors",NA
-2011,"Washington","Cabernet",89,92,87,89.33333333,121.975,77.825,4.675,37,386.325,670.875,"Another cool year; moderate alcohols with crisp balance",NA
-2012,"Washington","Cabernet",95,89,95,93,141.875,135.85,0,105.8,557.7875,363.825,"Ideal conditions produced powerful wines with elegance",NA
-2014,"Washington","Cabernet",92,91,94,92.33333333,35.3,14.4,NA,73.8,370.125,NA,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
-2015,"Washington","Cabernet",91,93,86,90,46.775,15.175,13.35,99.175,763.3375,178.075,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
-2016,"Washington","Cabernet",91,90,90,90.33333333,52.1,50,11.4,198.775,540.325,609.175,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
-2017,"Washington","Cabernet",90,90,93,91,72.65,24.7,20.65,69.9625,362.6625,446.475,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression",NA
-2018,"Washington","Cabernet",91.5,92,NA,91.75,78.6,15.75,2.4,128.1125,617.2625,646.35,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
+"1982","Washington","Syrah",NA,NA,78,78,39.04,39.86,24.98,74.66,667.49,661.49,NA,NA
+"1983","Washington","Syrah",NA,NA,92,92,36.34,45.66,26.82,82.8,626.09,624.22,NA,NA
+"1984","Washington","Syrah",NA,NA,72,72,47,62.66,12.78,57.98,585.625,658.02,NA,NA
+"1985","Washington","Syrah",NA,NA,86,86,16.98,29.4,47.8993103448276,126.72,818.86,550.43,NA,NA
+"1986","Washington","Syrah",NA,NA,78,78,20.82,29.36,6.78,55.285,732.82,671.32,NA,NA
+"1987","Washington","Syrah",NA,NA,90,90,34.36,47.7,10.88,233.39,660.69,664.1,NA,NA
+"1988","Washington","Syrah",NA,NA,88,88,47.82,44.48,0.1,147.235,622.77,673.485,NA,NA
+"1989","Washington","Syrah",NA,NA,92,92,41.38,30.4,22.32,171.19,623.9,574.705,NA,NA
+"1990","Washington","Syrah",NA,NA,87,87,46.58,60.28,31.2,154.1,677.26,704.17,NA,NA
+"1991","Washington","Syrah",NA,NA,85,85,48.8785185185185,97.6007407407407,10.46,86.07,548.245,690.88,NA,NA
+"1992","Washington","Syrah",NA,NA,89,89,45.96,69.58,27.32,169.205,776.965,621.33,NA,NA
+"1993","Washington","Syrah",NA,87,87,87,76.08,69.48,17.3424,113.46,591.985,590.545,NA,NA
+"1994","Washington","Syrah",NA,89,90,89.5,35.82,41.54,6.88,199.29,701.69,671.69,NA,NA
+"1995","Washington","Syrah",NA,89,87,88,52.225,56,28.6923913043478,100.7,697.78125,504.1875,NA,NA
+"1996","Washington","Syrah",NA,88,88,88,50.55,34.15,8.85,102.95,635.75625,679.21875,NA,NA
+"1997","Washington","Syrah",NA,87,88,87.5,28.95,50.249365942029,17.225,144.18125,636.640007175795,681.7875,NA,NA
+"1998","Washington","Syrah",NA,89,90,89.5,28.75,59.875,19.125,153.88125,678.03125,773.9125,NA,NA
+"1999","Washington","Syrah",NA,92,90,91,24.98,17.44,20.9,62.23,621.22,663.495,NA,NA
+"2000","Washington","Syrah",90,88,89,89,30.2157142857143,60.04,16.64,132.44,656.15,492.725,"Warm vintage with balanced reds",NA
+"2001","Washington","Syrah",91,93,92,92,51.44,21.58,6.55357142857143,111.153830769231,599.35462962963,682.105,"Hot vitage; ripe wines",NA
+"2002","Washington","Syrah",90,94,89,91,22.66,47.36,2.24,67.17,722.36,618.39,"Ripe but tannic",NA
+"2003","Washington","Syrah",92,91,90,91,53.0222222222222,2.88,24.26,79.865,737.37,696.055,"Rive vintage, broad and generous",NA
+"2004","Washington","Syrah",91,90,91,90.66666667,40.4,59.5348148148148,34.42,135.66,677.695,671.85,"Walla Walla wiped out by freeze; rest of state solid",NA
+"2005","Washington","Syrah",93,93,94,93.33333333,54.22,38.58,1.8,140.71,537.08,679.25625,"Ripe flavors but non excessively heavy",NA
+"2006","Washington","Syrah",94,91,91,92,42.725,58.9,3.175,96.2,764.360348731884,657.89375,"Ripe but balanced; similar to 2005",NA
+"2007","Washington","Syrah",96,89,95,93.33333333,22.9090909090909,34.67,12.3961904761905,111.903238095238,635.398428571429,546.1325,"Hot summer and cool autumn made rich; balanced wines",NA
+"2008","Washington","Syrah",95,90,91,92,14.96,36.2274074074074,7.1,64.167619047619,595.802783738001,495.25619047619,"Cool summer and warm autumn; many great wines",NA
+"2009","Washington","Syrah",92,91,92,91.66666667,57.0148873640854,20.6902793868162,17.3882487150061,74.25,743.445,698.086904761905,"Late year with early frost made fine Merlot and Syrah",NA
+"2010","Washington","Syrah",91,89,92,90.66666667,36.3,98.38,9.60944444444444,92.5365217391304,566.945,616.487922077922,"Cool year produced crisp reds with lovely ripe flavors",NA
+"2011","Washington","Syrah",89,91,87,89,75.1769823724871,58.0395034113192,2.63298411916833,45,489.703333333333,676.18384057971,"Another cool year; moderate alcohols with crisp balance",NA
+"2012","Washington","Syrah",95,95,95,95,59.0574125015017,90.4094120987865,0.06,120.83,619.725,548.97,"Ideal conditions produced powerful wines with elegance",NA
+"2013","Washington","Syrah",92,90,92,91.33333333,29.45,60.3,27.975,170.6875,685.925,744.19375,"Hot summer and cool harvest led to ripe flavors and moderate alcohold; some elevated tannis. Syrah better than Cabernet",NA
+"2014","Washington","Syrah",92,90,94,92,34.88,19.76,16.025,105.75,635.03,694.1625,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
+"2015","Washington","Syrah",91,90,86,89,32.9776345435222,9.55171737373655,12.88,115.39,914.391023809524,469.535,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
+"2016","Washington","Syrah",91,91,90,90.66666667,41.3,52.8666666666667,9.03333333333333,182.690805335968,601.489413937512,604.163526570048,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
+"2017","Washington","Syrah",90,92,93,91.66666667,54.0333333333333,35.0666666666667,0.466666666666667,76.4583333333333,529.540972222222,559.116666666667,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression",NA
+"2018","Washington","Syrah",91.5,NA,NA,91.5,77.2666666666667,13.4666666666667,2.36666666666667,139.832833333333,695.834827953448,656.408712121212,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
+"1993","Washington","Merlot",NA,87,NA,87,84.58,58.84,27.9824,96.74,541.215,660.255,NA,NA
+"1994","Washington","Merlot",NA,90,NA,90,24.84,54,6.88,210.8,564.14,817.61,NA,NA
+"1995","Washington","Merlot",NA,89,NA,89,54.325,56,28.6923913043478,91.7625,580.16875,635,NA,NA
+"1996","Washington","Merlot",NA,86,NA,86,54.05,37.175,10.15,89.9125,559.84375,768.65625,NA,NA
+"1997","Washington","Merlot",NA,87,NA,87,35.65,50.374365942029,17.225,127.36875,552.040007175795,792.5625,NA,NA
+"1998","Washington","Merlot",NA,91,NA,91,30.175,61.925,19.125,165.61875,548.33125,906.25,NA,NA
+"1999","Washington","Merlot",NA,96,NA,96,37.88,14.48,23.86,62.76,526.14,760.705,NA,NA
+"2000","Washington","Merlot",90,88,NA,89,32.6557142857143,60.2,16.64,122.98,555.59,607.855,"Warm vintage with balanced reds",NA
+"2001","Washington","Merlot",91,92,NA,91.5,63.26,30.86,7.53357142857143,109.623830769231,528.25,760.40962962963,"Hot vitage; ripe wines",NA
+"2002","Washington","Merlot",90,94,NA,92,27.24,47.16,2.5,66.065,600.755,745.59,"Ripe but tannic",NA
+"2003","Washington","Merlot",92,92,NA,92,62.8622222222222,2.48,24.66,84.265,614.44,827.585,"Rive vintage, broad and generous",NA
+"2004","Washington","Merlot",91,89,NA,90,48.62,59.0748148148148,36.76,140.66,562.065,796.15,"Walla Walla wiped out by freeze; rest of state solid",NA
+"2005","Washington","Merlot",93,95,NA,94,73.88,46.14,2.95,130.59,458.5,799.29375,"Ripe flavors but non excessively heavy",NA
+"2006","Washington","Merlot",94,92,NA,93,51.625,58.9,3.175,81.2,653.341598731884,788.8625,"Ripe but balanced; similar to 2005",NA
+"2007","Washington","Merlot",96,93,NA,94.5,45.2145454545455,29.79,17.2761904761905,103.403238095238,553.59080952381,639.290119047619,"Hot summer and cool autumn made rich; balanced wines",NA
+"2008","Washington","Merlot",95,92,NA,93.5,19.22,37.6474074074074,7.46,48.807619047619,526.177783738001,580.24119047619,"Cool summer and warm autumn; many great wines",NA
+"2009","Washington","Merlot",92,90,NA,91,77.8266016497997,25.2932317677685,17.3882487150061,70.02,621.435,825.536904761905,"Late year with early frost made fine Merlot and Syrah",NA
+"2010","Washington","Merlot",91,92,NA,91.5,47.02,98.38,9.60944444444444,78.3865217391304,476.955,722.797922077922,"Cool year produced crisp reds with lovely ripe flavors",NA
+"2011","Washington","Merlot",89,89,NA,89,65.5886490391538,77.8159610020926,6.23652652839495,38.73,419.793333333333,757.79384057971,"Another cool year; moderate alcohols with crisp balance",NA
+"2012","Washington","Merlot",95,95,NA,95,91.9219839300731,79.6780355805678,10.7913765182186,99.32,540.695,651.34,"Ideal conditions produced powerful wines with elegance",NA
+"2013","Washington","Merlot",92,91,NA,91.5,32.425,61.125,28.1,178.35,566.825,871.28125,"Hot summer and cool harvest led to ripe flavors and moderate alcohold; some elevated tannis. Syrah better than Cabernet",NA
+"2014","Washington","Merlot",92,93,NA,92.5,50.08,15.08,21.875,94.52,558.1,813.425,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
+"2015","Washington","Merlot",91,90,NA,90.5,41.4091347580224,9.85658223860141,12.88,128.24,810.061023809524,582.515,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
+"2016","Washington","Merlot",91,90,NA,90.5,27.74,66.6,11.1333333333333,150.992644268775,523.633616836063,693.402657004831,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
+"2017","Washington","Merlot",90,92,NA,91,74.6666666666667,35.0666666666667,0.466666666666667,84.675,461.382638888889,628.491666666667,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression","*WA ranks are from columbia valley"
+"2018","Washington","Merlot",91.5,NA,NA,91.5,77.8,13.4666666666667,2.36666666666667,126.882833333333,603.318161286781,771.692045454545,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
+"1982","Washington","Cabernet",NA,NA,78,78,39.04,39.86,24.98,74.66,667.49,661.49,NA,NA
+"1983","Washington","Cabernet",NA,NA,92,92,36.34,45.66,26.82,82.8,626.09,624.22,NA,NA
+"1984","Washington","Cabernet",NA,NA,72,72,47,62.66,12.78,57.98,585.625,658.02,NA,NA
+"1985","Washington","Cabernet",NA,NA,86,86,16.98,29.4,47.8993103448276,126.72,818.86,550.43,NA,NA
+"1986","Washington","Cabernet",NA,NA,78,78,20.82,29.36,6.78,55.285,732.82,671.32,NA,NA
+"1987","Washington","Cabernet",NA,NA,90,90,34.36,47.7,10.88,233.39,660.69,664.1,NA,NA
+"1988","Washington","Cabernet",NA,NA,88,88,47.82,44.48,0.1,147.235,622.77,673.485,NA,NA
+"1989","Washington","Cabernet",NA,NA,92,92,41.38,30.4,22.32,171.19,623.9,574.705,NA,NA
+"1990","Washington","Cabernet",NA,NA,87,87,46.58,60.28,31.2,154.1,677.26,704.17,NA,NA
+"1991","Washington","Cabernet",NA,NA,85,85,48.8785185185185,97.6007407407407,10.46,86.07,548.245,690.88,NA,NA
+"1992","Washington","Cabernet",NA,NA,89,89,45.96,69.58,27.32,169.205,776.965,621.33,NA,NA
+"1993","Washington","Cabernet",NA,NA,87,87,76.08,69.48,17.3424,113.46,591.985,590.545,NA,NA
+"1994","Washington","Cabernet",NA,87,90,88.5,35.82,41.54,6.88,199.29,701.69,671.69,NA,NA
+"1995","Washington","Cabernet",NA,90,87,88.5,52.225,56,28.6923913043478,100.7,697.78125,504.1875,NA,NA
+"1996","Washington","Cabernet",NA,89,88,88.5,50.55,34.15,8.85,102.95,635.75625,679.21875,NA,NA
+"1997","Washington","Cabernet",NA,86,88,87,28.95,50.249365942029,17.225,144.18125,636.640007175795,681.7875,NA,NA
+"1998","Washington","Cabernet",NA,87,90,88.5,28.75,59.875,19.125,153.88125,678.03125,773.9125,NA,NA
+"1999","Washington","Cabernet",NA,91,90,90.5,24.98,17.44,20.9,62.23,621.22,663.495,NA,NA
+"2000","Washington","Cabernet",90,96,89,91.66666667,30.2157142857143,60.04,16.64,132.44,656.15,492.725,"Warm vintage with balanced reds",NA
+"2001","Washington","Cabernet",91,88,92,90.33333333,51.44,21.58,6.55357142857143,111.153830769231,599.35462962963,682.105,"Hot vitage; ripe wines",NA
+"2002","Washington","Cabernet",90,92,89,90.33333333,22.66,47.36,2.24,67.17,722.36,618.39,"Ripe but tannic",NA
+"2003","Washington","Cabernet",92,94,90,92,53.0222222222222,2.88,24.26,79.865,737.37,696.055,"Rive vintage, broad and generous",NA
+"2004","Washington","Cabernet",91,92,91,91.33333333,40.4,59.5348148148148,34.42,135.66,677.695,671.85,"Walla Walla wiped out by freeze; rest of state solid",NA
+"2005","Washington","Cabernet",93,89,94,92,54.22,38.58,1.8,140.71,537.08,679.25625,"Ripe flavors but non excessively heavy",NA
+"2006","Washington","Cabernet",94,95,91,93.33333333,42.725,58.9,3.175,96.2,764.360348731884,657.89375,"Ripe but balanced; similar to 2005",NA
+"2007","Washington","Cabernet",96,92,95,94.33333333,22.9090909090909,34.67,12.3961904761905,111.903238095238,635.398428571429,546.1325,"Hot summer and cool autumn made rich; balanced wines",NA
+"2008","Washington","Cabernet",95,93,91,93,14.96,36.2274074074074,7.1,64.167619047619,595.802783738001,495.25619047619,"Cool summer and warm autumn; many great wines",NA
+"2009","Washington","Cabernet",92,92,92,92,57.0148873640854,20.6902793868162,17.3882487150061,74.25,743.445,698.086904761905,"Late year with early frost made fine Merlot and Syrah",NA
+"2010","Washington","Cabernet",91,90,92,91,36.3,98.38,9.60944444444444,92.5365217391304,566.945,616.487922077922,"Cool year produced crisp reds with lovely ripe flavors",NA
+"2011","Washington","Cabernet",89,92,87,89.33333333,75.1769823724871,58.0395034113192,2.63298411916833,45,489.703333333333,676.18384057971,"Another cool year; moderate alcohols with crisp balance",NA
+"2012","Washington","Cabernet",95,89,95,93,59.0574125015017,90.4094120987865,0.06,120.83,619.725,548.97,"Ideal conditions produced powerful wines with elegance",NA
+"2013","Washington","Cabernet",92,95,92,93,29.45,60.3,27.975,170.6875,685.925,744.19375,"Hot summer and cool harvest led to ripe flavors and moderate alcohold; some elevated tannis. Syrah better than Cabernet",NA
+"2014","Washington","Cabernet",92,91,94,92.33333333,34.88,19.76,16.025,105.75,635.03,694.1625,"hot growing season produced wines of generosity, with ripe flavors; best achieve balance",NA
+"2015","Washington","Cabernet",91,93,86,90,32.9776345435222,9.55171737373655,12.88,115.39,914.391023809524,469.535,"Hot, sunny gowing season yielded full-bodied reds with ripe falvors and formidable tannins",NA
+"2016","Washington","Cabernet",91,90,90,90.33333333,41.3,52.8666666666667,9.03333333333333,182.690805335968,601.489413937512,604.163526570048,"A warm spring gave way to a moderate summer, promising balanced but structured wines",NA
+"2017","Washington","Cabernet",90,90,93,91,54.0333333333333,35.0666666666667,0.466666666666667,76.4583333333333,529.540972222222,559.116666666667,"A cool, wet spring led to a hot summer, but moderate weather near harvest helped build expression",NA
+"2018","Washington","Cabernet",91.5,92,NA,91.75,77.2666666666667,13.4666666666667,2.36666666666667,139.832833333333,695.834827953448,656.408712121212,"Cool autumn weather salvaged an otherwise hot year, making for full-bodied yet well-balance wines","average of 90 and 93"
