@@ -1,4 +1,4 @@
-# Trialing daymet data to get daily estimates of percipitation and temperature for the Willamet Valley
+# Trialing daymet data to get daily estimates of percipitation and temperature for the Columbia Valley (in Oregan)
 #for my project and Geoffs project
 
 #started by Faith Jones Oct 06 2021 base off code for napa started Sep 29th 
