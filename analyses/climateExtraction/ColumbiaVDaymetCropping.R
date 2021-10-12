@@ -15,7 +15,7 @@ library(parallel) # for working with multiple cores
 #Flaggs
 midge <- TRUE
 Trial <- FALSE
-SaveMapFiles <-TRUE
+SaveMapFiles <-FALSE
 SaveCSVFiles <- TRUE
 
 #Read in data 
@@ -30,7 +30,7 @@ if(midge == TRUE){
 	daymetFiles5 <- grep("tile5", rasterFiles, value = TRUE) # daymet Columbia Valley files
 	daymetFiles7 <- grep("tile7", rasterFiles, value = TRUE) # daymet Columbia Valley files
 	daymetFiles8 <- grep("tile8", rasterFiles, value = TRUE) # daymet Columbia Valley files
-	daymetFiles9 <- grep("tile9", rasterFiles, value = TRUE) # daymet Columbia Valley files
+	cd  <- grep("tile9", rasterFiles, value = TRUE) # daymet Columbia Valley files
 
 
 } else if(midge == FALSE){
@@ -51,22 +51,28 @@ if(midge == TRUE){
 }
 
 
+
 #tmax 
 rasterFilesMax24 <- daymetFiles4[grep("max",daymetFiles4)]#select rasters with teh word max in 
 rasterFilesMax4 <- rasterFilesMax24[!rasterFilesMax24 %in% grep(".aux.xml",rasterFilesMax24, value = TRUE)]#Remove a weir d looking file
+print(rasterFilesMax4)
 
 rasterFilesMax25 <- daymetFiles5[grep("max",daymetFiles5)]#select rasters with teh word max in 
 rasterFilesMax5 <- rasterFilesMax25[!rasterFilesMax25 %in% grep(".aux.xml",rasterFilesMax25, value = TRUE)]#Remove a weir d looking file
+print(rasterFilesMax5)
 
 rasterFilesMax27 <- daymetFiles7[grep("max",daymetFiles7)]#select rasters with teh word max in 
 rasterFilesMax7 <- rasterFilesMax27[!rasterFilesMax27 %in% grep(".aux.xml",rasterFilesMax27, value = TRUE)]#Remove a weir d looking file
+print(rasterFilesMax7)
 
 rasterFilesMax28 <- daymetFiles8[grep("max",daymetFiles8)]#select rasters with teh word max in 
 rasterFilesMax8 <- rasterFilesMax28[!rasterFilesMax28 %in% grep(".aux.xml",rasterFilesMax28, value = TRUE)]#Remove a weir d looking file
+print(rasterFilesMax8)
 
 rasterFilesMax29 <- daymetFiles9[grep("max",daymetFiles9)]#select rasters with teh word max in 
 rasterFilesMax9 <- rasterFilesMax29[!rasterFilesMax29 %in% grep(".aux.xml",rasterFilesMax29, value = TRUE)]#Remove a weir d looking file
 
+print(rasterFilesMax9)
 
 
 #tmin
@@ -229,9 +235,9 @@ rasterMaxPrcp <- lapply(raster36ListPrecp, FUN = projectAndCropList)#, mc.cores 
 if(SaveMapFiles == TRUE){
 	for(i in 1:(length(rasterFilesMax4))){
 		#i <- 1
-		writeRaster(stack(rasterMaxCrop[[i]]), filename=paste0(paste0( "columbiaValley/tmax/tmax_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
-		writeRaster(stack(rasterMinCrop[[i]]), filename=paste0(paste0( "columbiaValley/tmin/tmin_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
-		writeRaster(stack(rasterMaxPrcp[[i]]), filename=paste0(paste0( "columbiaValley/prcp/prcp_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterMaxCrop[[i]]), filename=paste0(paste0( "tmax/tmax_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterMinCrop[[i]]), filename=paste0(paste0( "tmin/tmin_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterMaxPrcp[[i]]), filename=paste0(paste0( "prcp/prcp_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
 	}
 
 }
@@ -310,9 +316,9 @@ prTrial <- do.call("rbind", dailyPrecp)
 if(SaveCSVFiles == TRUE){
 
 
-	write.csv(prTrial, "columbiaValley/prcp/dailyPrcpMeanColVal.csv")
-	write.csv(tMinTrial, "columbiaValley/tmin/dailyTminMeanColVal.csv")
-	write.csv(tMaxTrial, "columbiaValley/tmax/dailyTmaxMeanColVal.csv")
+	write.csv(prTrial, "prcp/dailyPrcpMeanColVal.csv")
+	write.csv(tMinTrial, "tmin/dailyTminMeanColVal.csv")
+	write.csv(tMaxTrial, "tmax/dailyTmaxMeanColVal.csv")
 
 
 }
