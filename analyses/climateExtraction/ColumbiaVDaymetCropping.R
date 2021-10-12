@@ -30,7 +30,7 @@ if(midge == TRUE){
 	daymetFiles5 <- grep("tile5", rasterFiles, value = TRUE) # daymet Columbia Valley files
 	daymetFiles7 <- grep("tile7", rasterFiles, value = TRUE) # daymet Columbia Valley files
 	daymetFiles8 <- grep("tile8", rasterFiles, value = TRUE) # daymet Columbia Valley files
-	cd  <- grep("tile9", rasterFiles, value = TRUE) # daymet Columbia Valley files
+	daymetFiles9  <- grep("tile9", rasterFiles, value = TRUE) # daymet Columbia Valley files
 
 
 } else if(midge == FALSE){
