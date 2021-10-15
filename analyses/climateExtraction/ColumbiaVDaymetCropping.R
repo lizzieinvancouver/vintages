@@ -185,7 +185,7 @@ for(iData in 1:3){
 #----------------------------
 
 if(SaveMapFiles == TRUE){
-	for(i in 1:(length(rasterFilesMax))){
+	for(i in 1:(length(rasterFilesMax4))){
 		#i <- 1
 		writeRaster(stack(rasterCropMax[[i]]), filename=paste0(paste0( "sonoma/tmax/tmax_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
 		writeRaster(stack(rasterCropMin[[i]]), filename=paste0(paste0( "sonoma/tmin/tmin_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
@@ -195,103 +195,8 @@ if(SaveMapFiles == TRUE){
 }
 
 
-
 #Get mean per layer
 #--------------------------- 
-
-if(Trial == TRUE){
-
-	rasterMaxCropTrial <-  mclapply(rasterFilesMax[1:2], FUN = projectAndCropList, mc.cores = 2) # paraleliszed lapply 
-	rasterMainCropTrial <-  mclapply(rasterFilesMin[1:2], FUN = projectAndCropList, mc.cores = 2) # paraleliszed lapply 
-
-	dailyMax <- list()
-
-	for(ip in 1:length(rasterMaxCropTrial)){
-	
-
-		#get mean per cell
-
-		#get mean accross cells
-		rastersList <- list(c(rasterMaxCropTrial[[ip]], rasterMainCropTrial[[ip]]))
-		minMax <-  lapply(rastersList, stack)
-
-		dailyMaxTempNapa  <- cellStats(stack(minMax), stat='mean')	
-		maxdf <- data.frame(dailyMaxTempNapa)
-		maxdf$date <- rownames(maxdf)
-		rownames(maxdf) <- NULL
-		dailyMax[[ip]] <- maxdf
-	}
-
-	tMaxTrial <- do.call("rbind", dailyMax)
-}
-
-
-#maximum temp 
-dailyMax <- list()
-
-	for(ip in 1:length(rasterFilesMax)){
-	
-		dailyMaxTempNapa  <- cellStats(rasterMaxCrop[[ip]], stat='mean') # get mean per day per map
-		maxdf <- data.frame(dailyMaxTempNapa)
-		maxdf$date <- rownames(maxdf)
-		rownames(maxdf) <- NULL
-		dailyMax[[ip]] <- maxdf
-	}
-
-tMaxTrial <- do.call("rbind", dailyMax)
-
-#Mean temperature
-dailyMean <- list()
-
-	for(ip in 1:length(rasterFilesMin)){
-	
-
-		#get mean per cell
-
-		#get mean accross cells
-		rastersListMean <- list(c(rasterFilesMax[[ip]], rasterFilesMin[[ip]]))
-		minMax <-  lapply(rastersListMean, stack)
-
-		dailyMMTempNapa  <- cellStats(stack(minMax), stat='mean')	
-		mmdf <- data.frame(dailyMMTempNapa)
-		mmdf$date <- rownames(mmdf)
-		rownames(mmdf) <- NULL
-		dailyMean[[ip]] <- mmdf
-	}
-
-tMeanTrial <- do.call("rbind", dailyMean)
-
-#minimum temp 
-dailyMin <- list()
-
-	for(ip in 1:length(rasterFilesMin)){
-	
-
-		dailyMinTempNapa  <- cellStats(rasterMinCrop[[ip]], stat='mean') # get mean per day per map
-		mindf <- data.frame(dailyMinTempNapa)
-		mindf$date <- rownames(mindf)
-		rownames(mindf) <- NULL
-		dailyMin[[ip]] <- mindf
-	}
-
-tMinTrial <- do.call("rbind", dailyMin)
-
-
-#precipitation 
-dailyPrecp <- list()
-
-	for(ip in 1:length(rasterMaxPrcp)){
-	
-		dailyPrTempNapa  <- cellStats(rasterMaxPrcp[[ip]], stat='mean') # get mean per day per map
-		prdf <- data.frame(dailyPrTempNapa)
-		prdf$date <- rownames(prdf)
-		rownames(prdf) <- NULL
-		dailyPrecp[[ip]] <- prdf
-	}
-
-prTrial <- do.call("rbind", dailyPrecp)
-
-
 
 if(SaveCSVFiles == TRUE){
 
@@ -302,3 +207,4 @@ if(SaveCSVFiles == TRUE){
 
 
 }
+
