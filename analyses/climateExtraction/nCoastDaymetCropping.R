@@ -210,7 +210,7 @@ if(SaveCSVFiles == TRUE){
 
 	write.csv(prTrial, "nCoast/prcp/dailyPrcpMeannCoast.csv")
 	write.csv(tMinTrial, "nCoast/tmin/dailyTminMeannCoast.csv")
-	write.csv(tMinTrial, "nCoast/dailyTmeanMeannCoast.csv")
+	write.csv(tMeanTrial, "nCoast/dailyTmeanMeannCoast.csv")
 	write.csv(tMaxTrial, "nCoast/tmax/dailyTmaxMeannCoast.csv")
 
 

@@ -208,7 +208,7 @@ if(SaveCSVFiles == TRUE){
 
 	write.csv(prTrial, "napa/prcp/dailyPrcpMeanNapa.csv")
 	write.csv(tMinTrial, "napa/tmin/dailyTminMeanNapa.csv")
-	write.csv(tMinTrial, "napa/dailyTmeanMeanNapa.csv")
+	write.csv(tMeanTrial, "napa/dailyTmeanMeanNapa.csv")
 	write.csv(tMaxTrial, "napa/tmax/dailyTmaxMeanNapa.csv")
 
 

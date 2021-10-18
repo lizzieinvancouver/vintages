@@ -211,7 +211,7 @@ if(SaveCSVFiles == TRUE){
 
 	write.csv(prTrial, "sonoma/prcp/dailyPrcpMeanSonoma.csv")
 	write.csv(tMinTrial, "sonoma/tmin/dailyTminMeanSonoma.csv")
-	write.csv(tMinTrial, "sonoma/dailyTmeanMeanSonoma.csv")
+	write.csv(tMeanTrial, "sonoma/dailyTmeanMeanSonoma.csv")
 	write.csv(tMaxTrial, "sonoma/tmax/dailyTmaxMeanSonoma.csv")
 
 

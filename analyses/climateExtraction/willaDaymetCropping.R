@@ -288,6 +288,7 @@ if(SaveCSVFiles == TRUE){
 	write.csv(prTrial, "willamet/prcp/dailyPrcpMeanWillamet.csv")
 	write.csv(tMinTrial, "willamet/tmin/dailyTminMeanWillamet.csv")
 	write.csv(tMaxTrial, "willamet/tmax/dailyTmaxMeanWillamet.csv")
+	write.csv(tMeanTrial, "willamet/tmax/dailyTmeanMeanWillamet.csv")
 
 
 }
