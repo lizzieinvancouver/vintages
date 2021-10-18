@@ -124,9 +124,6 @@ allFiles <- list(maxFiles,minFiles,prcpFiles)
 correctProjection <- "+proj=longlat +ellps=WGS84 +no_defs"
 
 #Set core number
-nCore <- detectCores()/2 
-
-
 #work up to processing multiple layers - look through each year and save seperate layers
 #------------------------------------------
 
@@ -185,7 +182,7 @@ for(iData in 1:3){
 #maximum temp 
 dailyMax <- list()
 
-	for(ip in 1:length(rasterFilesMax)){
+	for(ip in 1:length(rasterFilesMax4)){
 	
 		dailyMaxTempNapa  <- cellStats(rasterCrop[[1]][[ip]], stat='mean') # get mean per day per map
 		maxdf <- data.frame(dailyMaxTempNapa)
@@ -199,7 +196,7 @@ tMaxTrial <- do.call("rbind", dailyMax)
 #Mean temperature
 dailyMean <- list()
 
-	for(ip in 1:length(rasterFilesMin)){
+	for(ip in 1:length(rasterFilesMax4)){
 	
 
 		#get mean per cell
@@ -220,7 +217,7 @@ tMeanTrial <- do.call("rbind", dailyMean)
 #minimum temp 
 dailyMin <- list()
 
-	for(ip in 1:length(rasterFilesMin)){
+	for(ip in 1:length(rasterFilesMax4)){
 	
 
 		dailyMinTempNapa  <- cellStats(rasterCrop[[2]][[ip]], stat='mean') # get mean per day per map
@@ -236,7 +233,7 @@ tMinTrial <- do.call("rbind", dailyMin)
 #precipitation 
 dailyPrecp <- list()
 
-	for(ip in 1:length(rasterMaxPrcp)){
+	for(ip in 1:length(rasterFilesMax4)){
 	
 		dailyPrTempNapa  <- cellStats(rasterCrop[[3]][[ip]], stat='mean') # get mean per day per map
 		prdf <- data.frame(dailyPrTempNapa)
@@ -255,9 +252,9 @@ prTrial <- do.call("rbind", dailyPrecp)
 if(SaveMapFiles == TRUE){
 	for(i in 1:(length(rasterFilesMax4))){
 		#i <- 1
-		writeRaster(stack(rasterCropMax[[i]]), filename=paste0(paste0( "ColumbiaVOregan/tmax/tmax_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
-		writeRaster(stack(rasterCropMin[[i]]), filename=paste0(paste0( "ColumbiaVOregan/tmin/tmin_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
-		writeRaster(stack(rasterCropPrecp[[i]]), filename=paste0(paste0( "ColumbiaVOregan/prcp/prcp_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterCropMax[[i]]), filename=paste0(paste0( "tmax/tmax_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterCropMin[[i]]), filename=paste0(paste0( "tmin/tmin_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
+		writeRaster(stack(rasterCropPrecp[[i]]), filename=paste0(paste0( "prcp/prcp_",i+1979), ".nc"), overwrite=TRUE, format="CDF") # FAITH: update your directory here
 	}
 
 }
@@ -272,7 +269,7 @@ if(SaveCSVFiles == TRUE){
 	write.csv(prTrial, "prcp/dailyPrcpMeanColVal.csv")
 	write.csv(tMinTrial, "tmin/dailyTminMeanColVal.csv")
 	write.csv(tMaxTrial, "tmax/dailyTmaxMeanColVal.csv")
-	write.csv(tMeanTrial, "tmax/dailyTmeanMeanColVal.csv")
+	write.csv(tMeanTrial, "tmean/dailyTmeanMeanColVal.csv")
 
 
 }
