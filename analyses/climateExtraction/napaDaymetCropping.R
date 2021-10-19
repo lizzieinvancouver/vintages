@@ -13,10 +13,10 @@ library(parallel) # for working with multiple cores
 
 
 #Flaggs
-midge <- TRUE
-Trial <- FALSE
+midge <- FALSE
+Trial <- TRUE
 SaveMapFiles <- FALSE
-SaveCSVFiles <- TRUE
+SaveCSVFiles <- FALSE
 
 #Read in data 
 if(midge == TRUE){
@@ -162,6 +162,7 @@ dailyMean <- list()
 		#get mean accross cells
 		rastersListMean <- list(c(rasterFilesMax[[ip]], rasterFilesMin[[ip]]))
 		minMax <-  lapply(rastersListMean, stack)
+		names(minMax) <- maxdf$date 
 
 		dailyMMTempNapa  <- cellStats(stack(minMax), stat='mean')	
 		mmdf <- data.frame(dailyMMTempNapa)

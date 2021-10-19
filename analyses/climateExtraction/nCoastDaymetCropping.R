@@ -164,6 +164,7 @@ dailyMean <- list()
 		#get mean accross cells
 		rastersListMean <- list(c(rasterFilesMax[[ip]], rasterFilesMin[[ip]]))
 		minMax <-  lapply(rastersListMean, stack)
+		names(minMax) <- maxdf$date 
 
 		dailyMMTempNapa  <- cellStats(stack(minMax), stat='mean')	
 		mmdf <- data.frame(dailyMMTempNapa)
