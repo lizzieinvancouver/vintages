@@ -1,0 +1,40 @@
+DaymetMeans_readme
+
+#Mean daily climate values across winegrape regions. This file was made by Faith using the CleaningDaymetExtraction.R
+R file. The code combines the daily mean climate variables (Tmin, Tmax and precipitation) and calculates tMean using Tmin and Tmax.
+climDailyMeans.csv
+
+
+#Napa data
+Maximum air temperature, minimum air temperatiure and precipitation from Daymet for the
+Napa wine region, as defined by Nacho's shapefiles. Values are daily means accross gridcells. 
+dailyTmaxMeanNapa.csv
+dailyTminMeanNapa.csv
+dailyPrcpMeanNapa.csv
+
+
+#read in Sonoma Valley data
+Maximum air temperature, minimum air temperatiure and precipitation from Daymet for the
+Sonoma  wine region, as defined by Nacho's shapefiles. Values are daily means accross gridcells. 
+dailyTmaxMeanSonoma.csv
+dailyTminMeanSonoma.csv
+dailyPrcpMeanSonoma.csv
+
+
+#read in North Coast (excluding Sonoma and Napa) data
+Maximum air temperature, minimum air temperatiure and precipitation from Daymet for the regions in teh north coast area
+exept the Sonoma and Napa wine regions and anything names "montain" or "highlands"
+, as defined by Nacho's shapefiles. Values are daily means accross gridcells. 
+dailyTmaxMeannCoast.csv
+dailyTminMeannCoast.csv
+dailyPrcpMeannCoast.csv
+
+
+#read in Willamet Valley data
+Maximum air temperature, minimum air temperatiure and precipitation from Daymet for the
+Willamet Valley  wine region, as defined by Nacho's shapefiles. Values are daily means accross gridcells. 
+dailyTmaxMeanWillamet.csv
+dailyTminMeanWillamet.csv
+dailyPrcpMeanWillamet.csv
+
+
