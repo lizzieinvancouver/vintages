@@ -10,6 +10,8 @@ library(raster) # work with singel layer raster maps
 library(sf)# work with shapefiles (Napa shape)
 library(parallel) # for working with multiple cores
 
+nCore <- detectCores()/2
+
 #Make a function to do the cleaning
 projectAndCropList <- function(inputListNames){
 	#a function that reads in a raster, converts it to the right projection, trims to a shapefile, and saves a file
@@ -132,6 +134,7 @@ correctProjection <- "+proj=longlat +ellps=WGS84 +no_defs"
 #make a vector of file names 
 filenames <- c( "tmax/tmax_","tmin/tmin_","prcp/prcp_")
 namesLoop <- c("Max","Min", "Precp") #names used to assign a value to teh output of the loop 
+saveCsvNames <- c("tmax/dailyTmaxMeanColVal.csv","tmin/dailyTminMeanColVal.csv","prcp/dailyPrcpMeanColVal.csv")
 
 
 #combine lists of raster file names into a new list for looping
@@ -146,8 +149,8 @@ for(iData in 1:3){
 	#Merge the tiles together 
 	#_------------------------------------
 
-	for(i in 1:length(rasterFilesMax4)){ # combine all the maps together
-		#i <-1
+	for(i in 1:length(rasterFilesMax4)){ # combine all the maps together. i = year
+		#i <-2
 		raster4Max <- stack(allFiles[[iData]][[1]][i])
 		raster5Max <- stack(allFiles[[iData]][[2]][i])
 		raster7Max <- stack(allFiles[[iData]][[3]][i])
@@ -159,92 +162,32 @@ for(iData in 1:3){
 	}
 
 	#-------------------------------------------------
-	rasterCrop <- lapply(rasterList, FUN = projectAndCropList)#, mc.cores = nCore) # paraleliszed lapply 
+	rasterCrop <-  lapply(rasterList, FUN = projectAndCropList)
 	assign(paste("rasterCrop", namesLoop[[iData]], sep = ""),rasterCrop)#give this a name I can call outside of the loop
 
-	#Write files
-	#----------------------------
 
-	if(SaveMapFiles == TRUE){
-		for(i in 1:(length(rasterFilesMax4))){
-			writeRaster(stack(rasterCrop[[i]]), filename=paste0(paste0(filenames[iData],i+1979), ".nc"), overwrite=TRUE, format="CDF") 
-		}
-	}
-
-	#Maximum values
+	#RiteFile (based of tmax code)
 	#-------------------------------------------------
+
+	#maximum temp 
+	dailyMax <- list()
+
+		for(ip in 1:length(rasterFilesMax4)){
+		
+			#ip <- 1
+			dailyMaxTempNapa  <- cellStats(rasterCrop[[ip]], stat='mean') # get mean per day per map
+			maxdf <- data.frame(dailyMaxTempNapa)
+			maxdf$date <- rownames(maxdf)
+			rownames(maxdf) <- NULL
+			dailyMax[[ip]] <- maxdf
+		}
+
+	tMaxTrial <- do.call("rbind", dailyMax)
+	
+	write.csv(tMaxTrial, saveCsvNames[iData])
 
 	rasterList <- list() # Empty the list at the end of the itteration so I don't use too much memory
 }
-
-
-
-#maximum temp 
-dailyMax <- list()
-
-	for(ip in 1:length(rasterFilesMax4)){
-	
-		dailyMaxTempNapa  <- cellStats(rasterCrop[[1]][[ip]], stat='mean') # get mean per day per map
-		maxdf <- data.frame(dailyMaxTempNapa)
-		maxdf$date <- rownames(maxdf)
-		rownames(maxdf) <- NULL
-		dailyMax[[ip]] <- maxdf
-	}
-
-tMaxTrial <- do.call("rbind", dailyMax)
-
-#Mean temperature
-dailyMean <- list()
-
-	for(ip in 1:length(rasterFilesMax4)){
-	
-
-		#get mean per cell
-
-		#get mean accross cells
-		rastersListMean <- list(c(rasterCrop[[1]][[ip]], rasterCrop[[2]][[ip]]))
-		minMax <-  lapply(rastersListMean, stack)
-				names(minMax) <- maxdf$date 
-
-		dailyMMTempNapa  <- cellStats(stack(minMax), stat='mean')	
-		mmdf <- data.frame(dailyMMTempNapa)
-		mmdf$date <- rownames(mmdf)
-		rownames(mmdf) <- NULL
-		dailyMean[[ip]] <- mmdf
-	}
-
-tMeanTrial <- do.call("rbind", dailyMean)
-
-#minimum temp 
-dailyMin <- list()
-
-	for(ip in 1:length(rasterFilesMax4)){
-	
-
-		dailyMinTempNapa  <- cellStats(rasterCrop[[2]][[ip]], stat='mean') # get mean per day per map
-		mindf <- data.frame(dailyMinTempNapa)
-		mindf$date <- rownames(mindf)
-		rownames(mindf) <- NULL
-		dailyMin[[ip]] <- mindf
-	}
-
-tMinTrial <- do.call("rbind", dailyMin)
-
-
-#precipitation 
-dailyPrecp <- list()
-
-	for(ip in 1:length(rasterFilesMax4)){
-	
-		dailyPrTempNapa  <- cellStats(rasterCrop[[3]][[ip]], stat='mean') # get mean per day per map
-		prdf <- data.frame(dailyPrTempNapa)
-		prdf$date <- rownames(prdf)
-		rownames(prdf) <- NULL
-		dailyPrecp[[ip]] <- prdf
-	}
-
-prTrial <- do.call("rbind", dailyPrecp)
-
 
 
 #Write files
@@ -260,18 +203,4 @@ if(SaveMapFiles == TRUE){
 
 }
 
-
-#Get mean per layer
-#--------------------------- 
-
-if(SaveCSVFiles == TRUE){
-
-
-	write.csv(prTrial, "prcp/dailyPrcpMeanColVal.csv")
-	write.csv(tMinTrial, "tmin/dailyTminMeanColVal.csv")
-	write.csv(tMaxTrial, "tmax/dailyTmaxMeanColVal.csv")
-	write.csv(tMeanTrial, "tmean/dailyTmeanMeanColVal.csv")
-
-
-}
 
