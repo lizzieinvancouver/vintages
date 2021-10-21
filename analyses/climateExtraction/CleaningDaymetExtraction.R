@@ -38,11 +38,8 @@ willData <- merge(merge(willMax, willMin),willPrcp)
 colValMax <- read.csv("../input/climate/DaymetMeans/dailyTmaxMeanColVal.csv")
 colValMin <- read.csv("../input/climate/DaymetMeans/dailyTminMeanColVal.csv")
 colValPrcp <- read.csv("../input/climate/DaymetMeans/dailyPrcpMeanColVal.csv")
-colValData <- merge(merge(colValMax, colValMin),colValPrcp)
+colValData <- merge(merge(colValMax, colValMin, by = c("date", "X")),colValPrcp, by = c("date", "X"))
 
-
-#Fix columbia Valley dates
-colValData$date <- willData$date
 
 
 #Clean the code a bit
@@ -52,7 +49,7 @@ tempDataList <- list()
 
 regionNames <- c("napa", "sonoma", "nCoast", "willamet", "columbia")
 
-for(i in 1:4){ # not columbia valley for now
+for(i in 1:5){ # not columbia valley for now
 
 	#Combine data into a single csv
 	iData <- tempBefore[[i]]
