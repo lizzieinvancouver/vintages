@@ -7,29 +7,23 @@ library(shinystan)
 options(mc.cores = 4)
 options(browser = "chromium")
         
-#Reading in csv files
-napa_phen <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NapaComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
-head(napa_phen)
-
-sonoma_phen <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/SonomaComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
-head(sonoma_phen)
-
-nc_phen <- read.csv("/Users/phoebeautio/Desktop/Vintage Research/TablesForModels/NorthCoastComplete_phen.csv", header=TRUE, na.strings=c(""," ","NA"))
-head(nc_phen)
-
-## Geoff's file path
+## Read data
 napa_phen <- read.csv("../TablesForModels/NapaComplete_year.csv",header = TRUE)
 sonoma_phen <- read.csv("../TablesForModels/UniqueSonomaComplete_year.csv", header = TRUE)
 ## nc_phen <- read.csv("../TablesForModels/NorthCoastComplete_year.csv", header = TRUE)
 or_phen <- read.csv("../TablesForModels/ORComplete_year.csv", header = TRUE)
 sb_phen <- read.csv("../TablesForModels/SBComplete_year.csv", header = TRUE)
-
-
+wa_phen <- read.csv("../TablesForModels/WAComplete_year.csv", header = TRUE)
 ## Combine into 1 table
-all_phen <- rbind(napa_phen, sonoma_phen, or_phen, sb_phen)
+all_phen <- rbind(napa_phen, sonoma_phen, or_phen, sb_phen, wa_phen)
 
 ## ## quick fixes
 ## all_phen <- subset(all_phen, !(Vintage == 1991))
+all_phen[which(all_phen$Location == "Santa Barbara "), "Location"]  <- c("Santa Barbara")
+
+## Split off "General" Variety
+gen_phen <- subset(all_phen, Variety == "General")
+all_phen <- subset(all_phen, Variety != "General")
 
 ## Create location and variety indices
 ### Locations
@@ -43,6 +37,7 @@ varieties.number <- as.numeric(as.factor(varieties))
 
 ## Create variable with average ranks
 avgranks <- all_phen$Avg_Rank
+avgranks2 <- gen_phen$Avg_Rank
 
 ## Organize data for model fitting
 data.stan <- list(N = nrow(all_phen),
@@ -52,7 +47,13 @@ data.stan <- list(N = nrow(all_phen),
                   n_variety = length(varieties),
                   variety = as.numeric(as.factor(all_phen$Variety)),
                   precip = all_phen$var_prcp_avg_year,
-                  gdd = all_phen$var_gdd_avg_year)
+                  gdd = all_phen$var_gdd_avg_year,
+                  ## General data
+                  N_gen = nrow(gen_phen),
+                  location_gen = rep(3, nrow(gen_phen)), # Santa Barbara (ad hoc for now)
+                  avg_rank_gen = gen_phen$Avg_Rank,
+                  precip_gen = gen_phen$var_prcp_avg_year,
+                  gdd_gen = gen_phen$var_gdd_avg_year)
 
 ## Fit Stan model
 fit1 <- stan("yearly.stan",
@@ -62,8 +63,8 @@ fit1 <- stan("yearly.stan",
              chains = 4)
 
 ## Rename locations and varieties
-names(fit1)[5:8] <- locs
-names(fit1)[9:14] <- varieties
+names(fit1)[5:9] <- locs
+names(fit1)[10:16] <- varieties
 
 ## View diagnostics
 launch_shinystan(fit1)
