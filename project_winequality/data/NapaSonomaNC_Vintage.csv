@@ -8,14 +8,14 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 2011,Napa,Cabernet,86,,,86,"Rare rainy harvest proved it can happen; few sunny spots, variable quality",
 2010,Napa,Cabernet,96,,,96,"Cool, steady year; wines show exceptional quality, tight, dense and layered",
 2009,Napa,Cabernet,96,,,96,"Late, cool year yielding a surprise bounty of pure, opulent wines",
-2008,Napa,Cabernet,96,,,96,Frost year lowered yields but not quality; unique for its depth and concentration,
+2008,Napa,Cabernet,96,,,96,Frost year lowered yields but not quality, unique for its depth and concentration
 2007,Napa,Cabernet,97,,,97,"Textbook year; small crop, ideal ripening, wines defined by complexity and plush tannins",
 2006,Napa,Cabernet,95,,,95,"A late, cool harvest produced dense, concentrated and ageworthy wines",
 2005,Napa,Cabernet,92,,,92,"Record-size crop; best are elegant and balanced, yet many are tannic and drying out",
 2004,Napa,Cabernet,95,,,95,"Small crop of exceptional quality; ripe, elegant, concentrated and harmonious",
-2003,Napa,Cabernet,85,,,85,Uneven ripeness; austere and tannic in style. More like 2000 than 2001 or 2002,
+2003,Napa,Cabernet,85,,,85,Uneven ripeness, austere and tannic in style. More like 2000 than 2001 or 2002
 2002,Napa,Cabernet,93,,,93,"Superb in Napa; dense and rich, rivaling 2001 for depth and complexity",
-2001,Napa,Cabernet,93,,,93,Excellent weather; many stunning wines but also a few disappointments,
+2001,Napa,Cabernet,93,,,93,Excellent weather, many stunning wines but also a few disappointments
 2000,Napa,Cabernet,85,,,85,"Mixed and a bit green overall, but some stellar wines that may be overlooked and undervalued",
 1999,Napa,Cabernet,97,,,97,"Tremendous depth, concentration and structure from a cool, moderate year; ageworthy",
 1998,Napa,Cabernet,84,,,84,"Cool, damp year with mostly green, herbal wines marked by gritty tannins; few memorable bottles",
@@ -52,13 +52,13 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 1995,Sonoma,Cabernet,95,,,95,,
 2018,Napa,Chardonnay,90,,,90,Nearly ideal conditions delivered wines with concentrated fruit flavors and crunchy acidity,
 2017,Napa,Chardonnay,90,,,90,Ample winter rain followed by a warm growing season yielded complex and powerful wines,
-2016,Napa,Chardonnay,89,,,89,Solid but variable year; fine quality in Sonoma and Santa Barbara,
-2015,Napa,Chardonnay,89,,,89,Sonoma strong again in another drought year; elegant and refined in style,
+2016,Napa,Chardonnay,89,,,89,Solid but variable year, fine quality in Sonoma and Santa Barbara
+2015,Napa,Chardonnay,89,,,89,Sonoma strong again in another drought year, elegant and refined in style
 2014,Napa,Chardonnay,92,,,92,"Drought produced spartan crop; fine quality, with yields the only disappointment",
 2013,Napa,Chardonnay,93,,,93,"An exceptional year, distinct for vibrancy and density; ageworthy",
 2012,Napa,Chardonnay,94,,,94,"Ideal growing season; wines are intense, with pure, ripe, vibrant flavors",
 2011,Napa,Chardonnay,89,,,89,"Cool and damp, challenging everywhere; best wines are elegant and scaled back",
-2010,Napa,Chardonnay,92,,,92,Cool year resulted in uneven quality; best wines are tight and concentrated,
+2010,Napa,Chardonnay,92,,,92,Cool year resulted in uneven quality, best wines are tight and concentrated
 2009,Napa,Chardonnay,94,,,94,"Cooler year showing toned-down ripeness, with more finesse and delicacy",
 2008,Napa,Chardonnay,92,,,92,"Frost and fire didn't spoil the vintage, though quality is variable. Tight, concentrated wines",
 2007,Napa,Chardonnay,95,,,95,"Ripe, complex, balanced and ageworthy wines; many brilliant bottles from all appellations",
@@ -68,11 +68,11 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 2003,Napa,Chardonnay,89,,,89,"Leaner, crisper wines than in '02 due to a challenging season, but some gems, too",
 2002,Napa,Chardonnay,94,,,94,"Sensational, fleshy, opulent wines; near perfect in Sonoma, strong in Carneros and Napa",
 2001,Napa,Chardonnay,87,,,87,"Best in Carneros and Sonoma; concentrated, with firm acidity",
-2000,Napa,Chardonnay,87,,,87,Carneros the clear star; wines elsewhere lack depth and completeness,
+2000,Napa,Chardonnay,87,,,87,Carneros the clear star, wines elsewhere lack depth and completeness
 1999,Napa,Chardonnay,87,,,87,"Sonoma and Santa Barbara are tops, with rich, complex wines",
-1998,Napa,Chardonnay,84,,,84,Lean and austere statewide; highly variable,
+1998,Napa,Chardonnay,84,,,84,Lean and austere statewide, highly variable
 1997,Napa,Chardonnay,96,,,96,"Monumental year; very ripe, opulent and complex",
-1996,Napa,Chardonnay,95,,,95,Rivals '97 in opulence and concentration; great finesse,
+1996,Napa,Chardonnay,95,,,95,Rivals '97 in opulence and concentration, great finesse
 2018,Sonoma,Chardonnay,95,93,,94,,
 2017,Sonoma,Chardonnay,93,90,,91.5,,
 2016,Sonoma,Chardonnay,90,94,,92,,
@@ -139,18 +139,18 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 2013,Napa,Merlot,90,,,90,Sunny weather and a long growing season led to fruit-forward wines,
 2012,Napa,Merlot,91,,,91,"Long, warm growing season produced rich, ripe and easy-drinking wines",
 2011,Napa,Merlot,87,,,87,"Rainy and cool year; many wines have hard tannins, herbal flavors",
-2010,Napa,Merlot,87,,,87,Extremely cool season; many wines are herbal and have unripe tannins,
+2010,Napa,Merlot,87,,,87,Extremely cool season, many wines are herbal and have unripe tannins
 2009,Napa,Merlot,94,,,94,"Ideal season; best wines show balance, structure and lively acidity",
 2008,Napa,Merlot,89,,,89,Top producers made superior wines while others struggled in a cool year,
-2007,Napa,Merlot,89,,,89,Supple and appealing wines from Napa; Sonoma offers value,
+2007,Napa,Merlot,89,,,89,Supple and appealing wines from Napa, Sonoma offers value
 2006,Napa,Merlot,92,,,92,"Inconsistent; best are rich and supple, but many are lean and herbal",
 2005,Napa,Merlot,89,,,89,"Top wines are elegant and well-focused, with ripeness achieved at lower alcohol levels",
 2004,Napa,Merlot,87,,,87,"The best are supple, rich and complex; a step above the 2003s",
-2003,Napa,Merlot,85,,,85,Tight and tannic wines; best to decant,
+2003,Napa,Merlot,85,,,85,Tight and tannic wines, best to decant
 2002,Napa,Merlot,89,,,89,"About as good as it gets in Napa, with Sonoma lagging",
 2001,Napa,Merlot,87,,,87,"Good, but not on par with '01 Cabernet",
 2000,Napa,Merlot,83,,,83,Mixed in both regions,
-1999,Napa,Merlot,87,,,87,One of the best for Napa; ordinary for Sonoma,
+1999,Napa,Merlot,87,,,87,One of the best for Napa, ordinary for Sonoma
 1998,Napa,Merlot,82,,,82,"Marked by lean, hollow wines",
 1997,Napa,Merlot,86,,,86,"Ripe, opulent and supple wines",
 1996,Napa,Merlot,88,,,88,"Best overall for Napa, with rich, structured wines",
@@ -191,20 +191,20 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 2005,Sonoma,Zinfandel,89,,,89,,
 2004,Sonoma,Zinfandel,86,,,86,,
 2018,Napa,Zinfandel,90.5,90,,90.25,"Nearly ideal growing season, with generally rich and structured wines that are also consumer-friendly",
-2017,Napa,Zinfandel,90,89,,89.5,Hot and unusually dry growing season led to wildfires in October; ripe wines with variable quality,
+2017,Napa,Zinfandel,90,89,,89.5,Hot and unusually dry growing season led to wildfires in October, ripe wines with variable quality
 2016,Napa,Zinfandel,92,93,,92.5,"Akin to the 2015s, with the best showing polish and plush textures",
-2015,Napa,Zinfandel,92,93,,92.5,Jammed with fruit; more concentrated and ageable than 2014,
+2015,Napa,Zinfandel,92,93,,92.5,Jammed with fruit, more concentrated and ageable than 2014
 2014,Napa,Zinfandel,93,93,,93,Fresh and fruit-forward but balanced and complex,
 2013,Napa,Zinfandel,91,93,,92,Lively but concentrated wines with good structure built for long-term drinking,
 2012,Napa,Zinfandel,89,92,,90.5,"Fruit-forward, soft and approachable",
-2011,Napa,Zinfandel,89,89,,89,Variable quality; best wines are structured and vibrant,
+2011,Napa,Zinfandel,89,89,,89,Variable quality, best wines are structured and vibrant
 2010,Napa,Zinfandel,88,89,,88.5,"Tough growing season; quality varies, but many flavorful, well-balanced wines",
 2009,Napa,Zinfandel,92,89,,90.5,"Long, cool season; wines are balanced and elegant, with typically modest alcohol levels",
 2008,Napa,Zinfandel,94,89,,91.5,"Eccentric growing season, but wines show surprising richness and balance",
 2007,Napa,Zinfandel,92,94,,93,"Growing season was ideal; wines are supple and elegantly ripe, but with good backbone",
 2006,Napa,Zinfandel,90,87,,88.5,"Top wines are fruit-forward, elegant and balanced; well-structured",
 2005,Napa,Zinfandel,91,87,,89,"Complex, well-structured wines with tannins built for aging",
-2004,Napa,Zinfandel,85,90,,87.5,Warm year produced jammy wines; ripeness often over the top,
+2004,Napa,Zinfandel,85,90,,87.5,Warm year produced jammy wines, ripeness often over the top
 2003,Napa,Zinfandel,,88,,,,
 2002,Napa,Zinfandel,,86,,,,
 2001,Napa,Zinfandel,,91,,,,
@@ -358,3 +358,36 @@ Vintage,Location,Variety,R1_WS,R2_WE,R3_WA,Avg_Rank,Descriptions_WS_WA,Notes
 1972,North Coast,Zinfandel,,,,,,
 1971,North Coast,Zinfandel,,,60,,C,
 1970,North Coast,Zinfandel,,,89,,C,
+2018,Napa,Cabernet,99,,,,,Added by Geoff Jan 2022
+2019,Napa,Chardonnay,95,,,,,Added by Geoff Jan 2022
+2019,Sonoma,Chardonnay,96,,,,,Added by Geoff Jan 2022
+2017,Napa,Merlot,92,,,,,Added by Geoff Jan 2022
+2017,Sonoma,Merlot,89,,,,,Added by Geoff Jan 2022
+2018,Napa,Merlot,91,,,,,Added by Geoff Jan 2022
+2018,Sonoma,Merlot,88,,,,,Added by Geoff Jan 2022
+2018,Sonoma,Pinot Noir,95,,,,,Added by Geoff Jan 2022
+2017,Sonoma,Pinot Noir,92,,,,,Added by Geoff Jan 2022
+2016,Sonoma,Pinot Noir,94,,,,,Added by Geoff Jan 2022
+2015,Sonoma,Pinot Noir,92,,,,,Added by Geoff Jan 2022
+2014,Sonoma,Pinot Noir,92,,,,,Added by Geoff Jan 2022
+2013,Sonoma,Pinot Noir,91,,,,,Added by Geoff Jan 2022
+2012,Sonoma,Pinot Noir,90,,,,,Added by Geoff Jan 2022
+2011,Sonoma,Pinot Noir,87,,,,,Added by Geoff Jan 2022
+2010,Sonoma,Pinot Noir,94,,,,,Added by Geoff Jan 2022
+2009,Sonoma,Pinot Noir,97,,,,,Added by Geoff Jan 2022
+2008,Sonoma,Pinot Noir,89,,,,,Added by Geoff Jan 2022
+2007,Sonoma,Pinot Noir,95,,,,,Added by Geoff Jan 2022
+2006,Sonoma,Pinot Noir,87,,,,,Added by Geoff Jan 2022
+2005,Sonoma,Pinot Noir,88,,,,,Added by Geoff Jan 2022
+2004,Sonoma,Pinot Noir,93,,,,,Added by Geoff Jan 2022
+2003,Sonoma,Pinot Noir,91,,,,,Added by Geoff Jan 2022
+2002,Sonoma,Pinot Noir,88,,,,,Added by Geoff Jan 2022
+2001,Sonoma,Pinot Noir,85,,,,,Added by Geoff Jan 2022
+2000,Sonoma,Pinot Noir,83,,,,,Added by Geoff Jan 2022
+1999,Sonoma,Pinot Noir,86,,,,,Added by Geoff Jan 2022
+1998,Sonoma,Pinot Noir,84,,,,,Added by Geoff Jan 2022
+1997,Sonoma,Pinot Noir,85,,,,,Added by Geoff Jan 2022
+2018,Napa,Rhône-Style Reds,93.5,,,,,Added by Geoff Jan 2022 (avg of 92-95 rating)
+2018,Sonoma,Rhône-Style Reds,93.5,,,,,Added by Geoff Jan 2022 (avg of 92-95 rating)
+2019,Napa,Zinfandel,94.5,,,,,Added by Geoff Jan 2022 (avg of 92-95 rating)
+2019,Sonoma,Zinfandel,94.5,,,,,Added by Geoff Jan 2022 (avg of 92-95 rating)
