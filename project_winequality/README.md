@@ -35,7 +35,7 @@ This folder contains exploratory analyses or additional scripts not directly ass
 ## Analysis scripts (main folder)
 
 - `data_climate_allregions.R`
-     - Combines the climate data with the wine scores + location data. Output is: `output/climate_allregions.csv`, which is used in the analysis.
+     - Combines the climate data with the wine scores + location data. Output is: `output/climate_allregions.csv`, which is used in the analysis. (Lizzie adds: This also seems to assign when phenology happens.)
 
 - `fit_seasonal.R`, `fit_seasonal_yeareffect.R`
      - Scripts for fitting the seasonal models to the wine score data.

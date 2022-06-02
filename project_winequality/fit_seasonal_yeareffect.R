@@ -76,30 +76,7 @@ fit1 <- stan("project_winequality/stan/seasonal_yeareffect.stan",
              warmup = 1000,
              chains = 4)
 
-## Rename locations and varieties (recommend replacing direct indexing with grep)
-names(fit1)[521:525] <- locs
-names(fit1)[526:532] <- varieties
-
-## View diagnostics
-launch_shinystan(fit1)
-
-## Summarize posterior samples
-summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd", "b_year"))$summary[, "mean"]
-
-
-## Save estimates
-saveRDS(object = fit1, file = "project_winequality/output/posterior_seasonal_yeareffect.RDS")
-
-## Make plots
-pdf(file = "project_winequality/output/Results_seasonal_yeareffect.pdf", onefile = TRUE)
-plot(fit1, pars = c("rank_location"))
-plot(fit1, pars = c("rank_variety"))
-plot(fit1, pars = c("b_gdd", "b_precip"))
-plot(fit1, pars = c("b_year"))
-plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
-dev.off()
-
-# Plots and estimates by Lizzie
+if(FALSE){ # Plots and estimates by Lizzie
 library(bayesplot)
 fitsum <- summary(fit1)$summary
 fitsum[grep("rank_location", rownames(fitsum)),]
@@ -129,3 +106,29 @@ locs
 mcmc_areas(posterior,
            pars = c("b_gdd", "b_precip"),
            prob = 0.8) 
+
+}
+
+## Rename locations and varieties (recommend replacing direct indexing with grep)
+names(fit1)[521:525] <- locs
+names(fit1)[526:532] <- varieties
+
+## View diagnostics
+launch_shinystan(fit1)
+
+## Summarize posterior samples
+summary(fit1, pars = c("base_rank", "a_location", "sigma_location", "a_variety", "sigma_variety", "sigma_rank", "b_precip", "b_gdd", "b_year"))$summary[, "mean"]
+
+
+## Save estimates
+saveRDS(object = fit1, file = "project_winequality/output/posterior_seasonal_yeareffect.RDS")
+
+## Make plots
+pdf(file = "project_winequality/output/Results_seasonal_yeareffect.pdf", onefile = TRUE)
+plot(fit1, pars = c("rank_location"))
+plot(fit1, pars = c("rank_variety"))
+plot(fit1, pars = c("b_gdd", "b_precip"))
+plot(fit1, pars = c("b_year"))
+plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
+dev.off()
+
