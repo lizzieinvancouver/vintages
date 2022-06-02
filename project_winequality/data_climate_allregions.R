@@ -1,5 +1,6 @@
 
 ## Read data
+# setwd("~/Documents/git/projects/vinmisc/vintages")
 daymet <- read.csv("project_winequality/data/Climate/DaymetMeans/climDailyMeans.csv", header = TRUE)
 
 ## Add Year, Month, Day, DOY

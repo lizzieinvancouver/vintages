@@ -1,3 +1,7 @@
+## By Geoff Legault 2021-2022 ##
+## Small updates by Lizzie in June 2022 ##
+
+setwd("~/Documents/git/projects/vinmisc/vintages")
 
 #Load libraries
 library(rstan)
@@ -94,3 +98,34 @@ plot(fit1, pars = c("b_gdd", "b_precip"))
 plot(fit1, pars = c("b_year"))
 plot(fit1, pars = c("sigma_location", "sigma_variety", "sigma_rank"))
 dev.off()
+
+# Plots and estimates by Lizzie
+library(bayesplot)
+fitsum <- summary(fit1)$summary
+fitsum[grep("rank_location", rownames(fitsum)),]
+fitsum[grep("rank_variety", rownames(fitsum)),]
+fitsum[1:20,]
+
+posterior <- as.matrix(fit1)
+mcmc_areas(posterior,
+           pars = c("rank_location[1]",
+                    "rank_location[2]",
+                    "rank_location[3]",
+                    "rank_location[4]",
+                    "rank_location[5]"),
+           prob = 0.8)
+
+varieties
+mcmc_areas(posterior,
+           pars = c("rank_variety[1]",
+                    "rank_variety[2]",
+                    "rank_variety[3]",
+                    "rank_variety[4]",
+                    "rank_variety[5]",
+                    "rank_variety[6]",
+                    "rank_variety[7]"),
+           prob = 0.8)
+locs
+mcmc_areas(posterior,
+           pars = c("b_gdd", "b_precip"),
+           prob = 0.8) 

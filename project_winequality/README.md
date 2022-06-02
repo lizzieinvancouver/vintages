@@ -45,3 +45,7 @@ This folder contains exploratory analyses or additional scripts not directly ass
 
 - `plot_ranks.R`
      - Scripts for plotting the raw data on wine scores
+	 
+## Work for poster in 2022 for terClim? 
+
+- find the _READMEterclim2022poster.txt on Lizzie's computer for info
